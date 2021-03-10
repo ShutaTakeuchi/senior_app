@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// delivery-service
+// search
+Route::get('/delivery', 'DeliveryController@index')->name('delivery.index');
+// show result
+Route::get('/delivery/result', 'DeliveryController@show')->name('delivery.show');
