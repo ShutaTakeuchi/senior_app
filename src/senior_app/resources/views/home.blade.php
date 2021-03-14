@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <a href="{{ route('delivery.index') }}">お腹が空いた</a>
                 </div>
             </div>
         </div>
