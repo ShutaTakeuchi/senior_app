@@ -20,7 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function() {
-    // 配色サービス
+    // 配食サービス
     // 検索
     Route::get('/delivery', 'DeliveryController@index')->name('delivery.index');
     // 検索結果

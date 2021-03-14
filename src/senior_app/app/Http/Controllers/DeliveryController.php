@@ -26,7 +26,9 @@ class DeliveryController extends Controller
                 'areacode_m' => 'AREAM5308', 
                 'freeword' => $request->input('food_name'),
                 // 'takeout' => 1,
-            ]]
+            ],
+            'http_errors' => false
+            ]
         );
         $data = [
             'results' => json_decode($response->getBody(), true)
