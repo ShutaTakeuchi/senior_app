@@ -5,21 +5,27 @@
 <div class="container">
     <div class="row justify-content-center">
 
-        {{-- 検索ページのリンク --}}
-        <a href="{{ route('delivery.index') }}">もう一度検索し直す</a>
+        <div class="col-md-8">
+            {{-- 検索ページのリンク --}}
+            <a class="btn btn-primary btn-lg btn-block" href="{{ route('delivery.index') }}" role="button">もう一度検索し直す</a>
+            <br>
+        </div>      
         
         @if (isset($results['rest']))
             <div class="col-md-8">
                 @foreach ($results['rest'] as $result)
-                    <div class="card">
-                        <div class="card-header"><a href="">{{ $result['name'] }}</a></div>
-    
+                    <div class="card" style=";">
+                        <img class="card-img-top" src="{{ $result['image_url']['shop_image1'] }}">
                         <div class="card-body">
-                            <p>{{ $result['pr']['pr_short'] }}</p>
-                            <img src="{{ $result['image_url']['shop_image1'] }}">
-                            <img src="{{ $result['image_url']['shop_image2'] }}">
+                        {{-- 店名 --}}
+                        <h5 class="card-title"><a href="">{{ $result['name'] }}</a></h5>
+                        {{-- 詳細 --}}
+                        <p class="card-text">{{ $result['pr']['pr_long'] }}</p>
+                        {{-- 注文ボタン --}}
+                        <a href="#" class="btn btn-primary">このお店で注文する</a>
                         </div>
                     </div>
+                <br>
                 @endforeach
             </div>  
 
@@ -30,4 +36,7 @@
 
     </div>
 </div>
+
 @endsection
+
+
