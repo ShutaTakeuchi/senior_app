@@ -15,7 +15,11 @@
                         </div>
                     @endif
 
-                    <a href="{{ route('delivery.index') }}">お腹が空いた</a>
+                    <a href="{{ route('delivery.index') }}">配食サービス</a>
+                    <a href="{{ route('item.index') }}">日用品配達サービス</a>
+                    <a href="{{ route('health.index') }}">健康管理</a>
+
+                    <p>{{ $weather['forecasts']['0']['telop'] }}</p>
                 </div>
             </div>
         </div>
