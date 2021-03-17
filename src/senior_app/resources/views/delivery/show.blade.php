@@ -30,7 +30,7 @@
                         {{-- 電話番号 --}}
                         <p class="card-text">{{ $result['tel'] }}</p>
                         {{-- 注文ボタン --}}
-                        <form action="{{ route('delivery.sheet') }}" method="get">
+                        <form action="{{ route('delivery.conf') }}" method="get">
                             <input type="hidden" name="shop_id" value="{{ $result['id'] }}">
                             <input type="hidden" name="shop_name" value="{{ $result['name'] }}">
                             <input class="btn btn-primary" type="submit" value="このお店で注文する">

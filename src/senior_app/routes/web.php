@@ -25,6 +25,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/delivery', 'DeliveryController@index')->name('delivery.index');
     // 検索結果
     Route::get('/delivery/result', 'DeliveryController@show')->name('delivery.show');
+    Route::get('/delivery/conf', 'DeliveryController@confirm_purchase')->name('delivery.conf');
     Route::get('/delivery/sheet', 'DeliveryController@insert_data_sheet')->name('delivery.sheet');
 
     // 健康状態管理

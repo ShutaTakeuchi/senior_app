@@ -5,16 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Foundation\Console\Presets\React;
 use Illuminate\Http\Request;
 use Auth;
+use App\Delivery;
 
 class DeliveryController extends Controller
 {
-    // show search-form
+    /**
+     * 検索フォームを表示する
+     */
     public function index()
     {
         return view('delivery.index');
     }
 
-    // show search result
+    /**
+     * 検索結果データを取得し、表示する
+     */
     public function show(Request $request)
     {
 
@@ -36,7 +41,24 @@ class DeliveryController extends Controller
         ];
         return view('delivery.show', $data);
     }
+    
+    /**
+     * 確認画面の表示
+     */
+    public function confirm_purchase(Request $request)
+    {
+        $id = $request->input('shop_id');
+        $name = $request->input('shop_name');
+        $data = [
+            'shop_id' => $id,
+            'shop_name' => $name
+        ];
+        return view('delivery.conf', $data);
+    }
 
+    /**
+     * スプレッドシートとデータベースに注文内容を追加する
+     */
     public function insert_data_sheet(Request $request)
     {
         $credentials_path = storage_path('app/json/credentials.json');
@@ -47,7 +69,7 @@ class DeliveryController extends Controller
 
         $sheet_id = '1FH7nkXPNeqa8ay_8IcEcMjADq8K8ibqQTBCCytZJYAY';
 
-        // 個人情報と注文データの挿入
+        // 個人情報と注文データを定義
         $order = [
             Auth::user()['id'],
             Auth::user()['name'],
@@ -68,5 +90,22 @@ class DeliveryController extends Controller
             $values,
             $params
         );
+
+        // データベースに保存
+        $this->insert_data($request->input('shop_id'), $request->input('shop_name'));
+        
+        return view('delivery.comp');
+    }
+
+    /**
+     * データベースに新規作成
+     */
+    public function insert_data($shop_id, $shop_name)
+    {
+        $delivery = new Delivery;
+        $delivery->user_id = Auth::user()['id'];
+        $delivery->shop_id = $shop_id;
+        $delivery->shop_name = $shop_name;
+        $delivery->save();
     }
 }
