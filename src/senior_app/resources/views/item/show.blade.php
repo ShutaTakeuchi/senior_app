@@ -22,8 +22,10 @@
                         {{-- 金額 --}}
                         <p class="card-text">{{ $result['Item']['itemPrice'] }}円</p>
                         {{-- 注文ボタン --}}
-                        <form action="" method="get">
-                            <input type="hidden" name="shop_id" value="{{ $result['Item']['itemCode'] }}">
+                        <form action="{{ route('item.conf') }}" method="get">
+                            <input type="hidden" name="item_id" value="{{ $result['Item']['itemCode'] }}">
+                            <input type="hidden" name="item_name" value="{{ $result['Item']['itemName'] }}">
+                            <input type="hidden" name="item_price" value="{{ $result['Item']['itemPrice'] }}">
                             <input class="btn btn-primary" type="submit" value="この商品を注文する">
                         </form>
                         </div>

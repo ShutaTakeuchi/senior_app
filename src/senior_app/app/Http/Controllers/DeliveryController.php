@@ -86,7 +86,7 @@ class DeliveryController extends Controller
         $params = ['valueInputOption' => 'USER_ENTERED'];
         $client->spreadsheets_values->append(
             $sheet_id,
-            'A1',
+            'delivery!A1',
             $values,
             $params
         );
@@ -94,6 +94,7 @@ class DeliveryController extends Controller
         // データベースに保存
         $this->insert_data($request->input('shop_id'), $request->input('shop_name'));
         
+        // 注文完了時の表示
         return view('delivery.comp');
     }
 

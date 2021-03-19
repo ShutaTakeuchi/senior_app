@@ -30,15 +30,20 @@ Route::group(['middleware' => 'auth'], function() {
     // 注文完了
     Route::get('/delivery/sheet', 'DeliveryController@insert_data_sheet')->name('delivery.sheet');
 
+    // 日用品通販
+    Route::get('/item', 'ItemController@index')->name('item.index');
+    // Route::get('/item/result', 'ItemController@show')->name('item.show');
+    // 検索結果
+    Route::get('/item/show', 'ItemController@guzzle')->name('item.show');
+    // 注文内容確認
+    Route::get('/item/conf', 'ItemController@confirm_purchase')->name('item.conf');
+    // 注文完了
+    Route::get('/item/sheet', 'ItemController@insert_data_sheet')->name('item.sheet');
+
     // 健康状態管理
     // 入力フォーム
     Route::get('/health', 'HealthController@index')->name('health.index');
 
     // 天気予報
     Route::get('/weather', 'HomeController@get_weather')->name('weather.index');
-
-    // 日用品通販
-    Route::get('/item', 'ItemController@index')->name('item.index');
-    // Route::get('/item/result', 'ItemController@show')->name('item.show');
-    Route::get('/item/show', 'ItemController@guzzle')->name('item.show');
  });
