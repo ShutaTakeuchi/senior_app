@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\Item;
 
 class ItemController extends Controller
 {
@@ -102,7 +103,7 @@ class ItemController extends Controller
         );
 
         // データベースに保存
-        // $this->insert_data($request->input('shop_id'), $request->input('shop_name'));
+        $this->insert_data($request->input('item_id'), $request->input('item_name'));
         
         // 注文完了時の表示
         return view('delivery.comp');
@@ -111,12 +112,12 @@ class ItemController extends Controller
     /**
      * データベースに新規作成
      */
-    // public function insert_data($shop_id, $shop_name)
-    // {
-    //     $delivery = new Delivery;
-    //     $delivery->user_id = Auth::user()['id'];
-    //     $delivery->shop_id = $shop_id;
-    //     $delivery->shop_name = $shop_name;
-    //     $delivery->save();
-    // }
+    public function insert_data($item_id, $item_name)
+    {
+        $item = new Item;
+        $item->user_id = Auth::user()['id'];
+        $item->item_id = $item_id;
+        $item->item_name = $item_name;
+        $item->save();
+    }
 }

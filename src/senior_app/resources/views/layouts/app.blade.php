@@ -56,7 +56,9 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     {{-- 各種サービスリンク --}}
-                                    <a class="dropdown-item" href="">配食</a>
+                                    <a class="dropdown-item" href="{{ route('delivery.index') }}">食生活</a>
+                                    <a class="dropdown-item" href="{{ route('item.index') }}">日用品</a>
+                                    <a class="dropdown-item" href="{{ route('health.index') }}">健康管理</a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

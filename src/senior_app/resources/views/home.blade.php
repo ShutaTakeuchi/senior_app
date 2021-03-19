@@ -18,6 +18,7 @@
                     <a href="{{ route('delivery.index') }}">配食サービス</a>
                     <a href="{{ route('item.index') }}">日用品配達サービス</a>
                     <a href="{{ route('health.index') }}">健康管理</a>
+                    <a href="{{ route('contact.index') }}">連絡</a>
 
                     <p>今日の天気は<h3>{{ $weather['forecasts']['0']['telop'] }}</h3></p>
                 </div>
