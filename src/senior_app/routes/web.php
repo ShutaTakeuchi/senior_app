@@ -52,6 +52,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/contact', 'ContactController@index')->name('contact.index');
     // 緊急
     Route::get('/contact/emergency', 'ContactController@emergency')->name('contact.emergency');
-    // タクシー
-    Route::get('/contact/taxt', 'ContactController@taxi')->name('contact.texi');
+    // タクシー手配確認
+    Route::get('/contact/conf/taxi', 'ContactController@conf_taxi')->name('contact.conf.taxi');
+    // 予約完了
+    Route::get('/contact/comp/taxi', 'ContactController@comp_taxi')->name('contact.comp.taxi');
  });

@@ -59,6 +59,7 @@
                                     <a class="dropdown-item" href="{{ route('delivery.index') }}">食生活</a>
                                     <a class="dropdown-item" href="{{ route('item.index') }}">日用品</a>
                                     <a class="dropdown-item" href="{{ route('health.index') }}">健康管理</a>
+                                    <a class="dropdown-item" href="{{ route('contact.index') }}">連絡</a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
