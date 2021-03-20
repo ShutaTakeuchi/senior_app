@@ -23,3 +23,6 @@
 
 日用品と配色のデリバリーサービス
 購入した商品をレビューして、投稿することができる。→他のユーザーとおすすめしあえる→コニュニケーション
+
+admin認証
+App\Admin::create(['name' => 'admin', 'email' => 'admin@admin.com', 'password' => bcrypt('password123')]);

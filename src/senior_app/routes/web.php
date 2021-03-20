@@ -40,14 +40,8 @@ Route::group(['middleware' => 'auth'], function() {
     // 完了
     Route::get('/item/sheet', 'ItemController@insert_data_sheet')->name('item.sheet');
 
-    // 健康状態管理
-    // 入力フォーム
-    Route::get('/health', 'HealthController@index')->name('health.index');
-
-    // 天気予報
-    Route::get('/weather', 'HomeController@get_weather')->name('weather.index');
-
-    // 連絡
+        
+    // 各種連絡
     // 一覧
     Route::get('/contact', 'ContactController@index')->name('contact.index');
     // 緊急
@@ -56,4 +50,35 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/contact/conf/taxi', 'ContactController@conf_taxi')->name('contact.conf.taxi');
     // 予約完了
     Route::get('/contact/comp/taxi', 'ContactController@comp_taxi')->name('contact.comp.taxi');
+
+    // 天気予報API
+    Route::get('/weather', 'HomeController@get_weather')->name('weather.index');
+
+
+    // 健康状態管理
+    // 入力フォーム
+    // Route::get('/health', 'HealthController@index')->name('health.index');
+    // Route::post('/health/submit', 'HealthController@insert')->name('health.insert');
  });
+
+// admin認証のルーティング
+/*
+|--------------------------------------------------------------------------
+| 3) Admin 認証不要
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('/',         function () { return redirect('/admin/home'); });
+    Route::get('login',     'Admin\LoginController@showLoginForm')->name('admin.login');
+    Route::post('login',    'Admin\LoginController@login');
+});
+ 
+/*
+|--------------------------------------------------------------------------
+| 4) Admin ログイン後
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
+    Route::post('logout',   'Admin\LoginController@logout')->name('admin.logout');
+    Route::get('home',      'Admin\HomeController@index')->name('admin.home');
+});

@@ -11,4 +11,9 @@ class HealthController extends Controller
     {
         return view('health.index');
     }
+
+    public function insert(Request $request)
+    {
+        dd($request->input());
+    }
 }

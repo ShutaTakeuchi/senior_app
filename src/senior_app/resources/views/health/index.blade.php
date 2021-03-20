@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <h2>本日の体調を教えてください。</h2>
-            <form action="" method="post">
+            <form action="{{ route('health.insert') }}" method="post">
                 @csrf
                 {{-- <div class="form-group">
                   <label for="exampleFormControlInput1">Email address</label>
