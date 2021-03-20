@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -23,9 +25,14 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // homeで表示させるためのデータ
         $weather_info = $this->get_weather();
+        $delivery_info = $this->show_reserve_delivery();
+        $item_info = $this->show_reserve_item();
         $param = [
-            'weather' => $weather_info
+            'weather' => $weather_info,
+            'deliveries' => $delivery_info,
+            'items' => $item_info
         ];
         return view('home', $param);
     }
@@ -40,5 +47,23 @@ class HomeController extends Controller
         $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
         $arr = json_decode($json,true);
         return $arr;
+    }
+
+    /**
+     * 配食の注文内容を取得して表示させる
+     */
+    public function show_reserve_delivery()
+    {
+        $data = User::find(Auth::user()['id'])->deliveries;
+        return $data;
+    }
+
+    /**
+     * 配食の注文内容を取得して表示させる
+     */
+    public function show_reserve_item()
+    {
+        $data = User::find(Auth::user()['id'])->items;
+        return $data;
     }
 }
