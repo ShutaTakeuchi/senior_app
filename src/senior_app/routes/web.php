@@ -81,4 +81,11 @@ Route::group(['prefix' => 'admin'], function() {
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::post('logout',   'Admin\LoginController@logout')->name('admin.logout');
     Route::get('home',      'Admin\HomeController@index')->name('admin.home');
+    // delivery
+    // 検索
+    Route::get('delivery/search', 'Admin\HomeController@search_delivery')->name('admin.search.delivery');
+    // 検索結果
+    Route::get('delivery/show', 'Admin\HomeController@show_delivery')->name('admin.show.delivery');
+    // 配達済み
+    Route::get('delivery/delete', 'Admin\HomeController@delete_order')->name('admin.delete.delivery');
 });
