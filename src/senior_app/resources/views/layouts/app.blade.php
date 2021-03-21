@@ -26,8 +26,9 @@
                 <a class="navbar-brand" href="{{ url('home') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
+                {{-- スマホ用に色を付ける場所 --}}
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon">◯</span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -56,10 +57,10 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     {{-- 各種サービスリンク --}}
-                                    <a class="dropdown-item" href="{{ route('delivery.index') }}">食生活</a>
-                                    <a class="dropdown-item" href="{{ route('item.index') }}">日用品</a>
+                                    <a class="dropdown-item" href="{{ route('delivery.index') }}">ごはん</a>
+                                    <a class="dropdown-item" href="{{ route('item.index') }}">おかいもの</a>
                                     {{-- <a class="dropdown-item" href="{{ route('health.index') }}">健康管理</a> --}}
-                                    <a class="dropdown-item" href="{{ route('contact.index') }}">連絡</a>
+                                    <a class="dropdown-item" href="{{ route('contact.index') }}">れんらく</a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
