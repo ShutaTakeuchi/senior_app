@@ -83,9 +83,21 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::get('home',      'Admin\HomeController@index')->name('admin.home');
     // delivery
     // 検索
-    Route::get('delivery/search', 'Admin\HomeController@search_delivery')->name('admin.search.delivery');
+    Route::get('delivery/search', 'Admin\DeliveryController@search')->name('admin.search.delivery');
+    // // 一覧
+    Route::get('delivery/show_all', 'Admin\DeliveryController@show_all')->name('admin.delivery.show_all');
     // 検索結果
-    Route::get('delivery/show', 'Admin\HomeController@show_delivery')->name('admin.show.delivery');
+    Route::get('delivery/show', 'Admin\DeliveryController@show')->name('admin.delivery.show');
     // 配達済み
-    Route::get('delivery/delete', 'Admin\HomeController@delete_order')->name('admin.delete.delivery');
+    Route::get('delivery/delete', 'Admin\DeliveryController@delete')->name('admin.delivery.delete');
+
+    // item
+    // 検索
+    Route::get('item/search', 'Admin\ItemController@search')->name('admin.search.item');
+    // // 一覧
+    Route::get('item/show_all', 'Admin\ItemController@show_all')->name('admin.item.show_all');
+    // 検索結果
+    Route::get('item/show', 'Admin\ItemController@show')->name('admin.item.show');
+    // 配達済み
+    Route::get('item/delete', 'Admin\ItemController@delete')->name('admin.item.delete');
 });

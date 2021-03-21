@@ -24,7 +24,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-lightbg-success shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('home') }}">
+                <a class="navbar-brand" href="{{ url('admin/home') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -58,9 +58,9 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     {{-- 各種サービスリンク --}}
                                     <a class="dropdown-item" href="{{ route('admin.search.delivery') }}">食生活</a>
-                                    <a class="dropdown-item" href="{{ route('item.index') }}">日用品</a>
+                                    <a class="dropdown-item" href="{{ route('admin.search.item') }}">日用品</a>
                                     {{-- <a class="dropdown-item" href="{{ route('health.index') }}">健康管理</a> --}}
-                                    <a class="dropdown-item" href="{{ route('contact.index') }}">連絡</a>
+                                    {{-- <a class="dropdown-item" href="{{ route('contact.index') }}">連絡</a> --}}
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
