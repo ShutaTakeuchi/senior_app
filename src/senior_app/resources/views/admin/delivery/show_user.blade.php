@@ -4,7 +4,8 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">                                            
+        <div class="col-md-8">      
+          <h2>食</h2>                                      
             <h2>{{ $user_data['name'] }} 様</h2>
             <h2>{{ $user_data['address'] }}</h2>
             <h2>{{ $user_data['tel'] }}</h2>

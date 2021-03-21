@@ -26,7 +26,7 @@
                             <input type="hidden" name="item_id" value="{{ $result['Item']['itemCode'] }}">
                             <input type="hidden" name="item_name" value="{{ $result['Item']['itemName'] }}">
                             <input type="hidden" name="item_price" value="{{ $result['Item']['itemPrice'] }}">
-                            <input class="btn btn-primary" type="submit" value="この商品を注文する">
+                            <input class="btn btn-primary btn-lg btn-block" type="submit" value="この商品を注文する">
                         </form>
                         </div>
                     </div>

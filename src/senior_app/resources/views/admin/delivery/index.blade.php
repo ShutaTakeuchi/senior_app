@@ -5,6 +5,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <h2>食</h2>
             <h2>ご注文検索</h2>
             <p>お客様の電話番号を入力してください（ハイフン無し）</p>
             <form action="{{ route('admin.delivery.show') }}" method="get">

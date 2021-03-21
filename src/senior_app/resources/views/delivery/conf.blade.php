@@ -12,7 +12,7 @@
             <form action="{{ route('delivery.sheet') }}" method="get">
                 <input type="hidden" name="shop_id" value="{{ $shop_id }}">
                 <input type="hidden" name="shop_name" value="{{ $shop_name }}">
-                <input class="btn btn-primary" type="submit" value="はい、購入します">
+                <input class="btn btn-primary btn-lg btn-block" type="submit" value="はい、購入します">
             </form>
         </div>
     </div>

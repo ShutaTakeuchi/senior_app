@@ -12,7 +12,7 @@
             <form action="{{ route('item.sheet') }}" method="get">
                 <input type="hidden" name="item_id" value="{{ $item_id }}">
                 <input type="hidden" name="item_name" value="{{ $item_name }}">
-                <input class="btn btn-primary" type="submit" value="はい、購入します">
+                <input class="btn btn-primary btn-lg btn-block" type="submit" value="はい、購入します">
             </form>
         </div>
     </div>

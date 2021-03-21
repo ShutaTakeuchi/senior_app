@@ -13,7 +13,7 @@
                   <label for="exampleInputEmail1"></label>
                   <input type="text" class="form-control" id="exampleInputEmail1" name='food_name' placeholder="和食、そば、焼肉など">
                 </div>
-                <button type="submit" class="btn btn-primary">さがす</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">さがす</button>
               </form>
         </div>
     </div>
