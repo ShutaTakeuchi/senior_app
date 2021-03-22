@@ -5,10 +5,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <p class="text-center">今日の天気は、<img src="{{ $weather['forecasts']['0']['image']['url'] }}">です</p>
-            <a type="button" class="btn btn-success btn-lg btn-block" href="{{ route('delivery.index') }}" style="padding: 30px;">ごはん</a>
-            <a type="button" class="btn btn-primary btn-lg btn-block" href="{{ route('item.index') }}" style="padding: 30px;">おかいもの</a>
-            <a type="button" class="btn btn-danger btn-lg btn-block" href="{{ route('contact.index') }}" style="padding: 30px;">れんらく</a>
+            <p class="text-center">きょうのてんきは、<img src="{{ $weather['forecasts']['0']['image']['url'] }}">です</p>
+            <a type="button" class="btn btn-success btn-lg btn-block" href="{{ route('delivery.index') }}" style="padding: 40px;">ごはん</a>
+            <a type="button" class="btn btn-primary btn-lg btn-block" href="{{ route('item.index') }}" style="padding: 40px;">おかいもの</a>
+            <a type="button" class="btn btn-danger btn-lg btn-block" href="{{ route('contact.index') }}" style="padding: 40px;">れんらく</a>
 
             {{-- delivery履歴 --}}
             <div class="card">
@@ -34,5 +34,3 @@
     </div>
 </div>
 @endsection
-
-                    {{-- <a href="{{ route('health.index') }}">健康管理</a> --}}
