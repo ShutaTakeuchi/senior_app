@@ -103,6 +103,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
 });
 
 // test
+Route::get('/layout', function () {
+    return view('layouts/test_app');
+});
+
 Route::get('/test', function () {
     return view('test.index');
 });
