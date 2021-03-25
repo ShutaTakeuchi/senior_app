@@ -51,7 +51,8 @@ class DeliveryController extends Controller
         $name = $request->input('shop_name');
         $data = [
             'shop_id' => $id,
-            'shop_name' => $name
+            'shop_name' => $name,
+            'user_address' => Auth::user()['address'],
         ];
         return view('delivery.conf', $data);
     }

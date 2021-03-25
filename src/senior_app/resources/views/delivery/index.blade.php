@@ -2,20 +2,20 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-          <p>いらっしゃいませ</p>
-          <p>本日のお食事を探してみましょう</p>
-            <form action="{{ url('/delivery/result') }}" method="GET">
-              {{-- @csrf --}}
-                <div class="form-group">
-                  <label for="exampleInputEmail1"></label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" name='food_name' placeholder="和食、そば、焼肉など">
-                </div>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">さがす</button>
-              </form>
+<header class="masthead bg-primary text-white text-center" style="margin-top: -25px; height: 800px;">
+  <div class="container d-flex align-items-center flex-column">
+    <h2>いらっしゃいませ。</h2>
+    <h2>ごはんをさがしてみましょう。</h2>
+    <form action="{{ url('/delivery/result') }}" method="GET">
+      {{-- @csrf --}}
+        <div class="form-group">
+          <label for="exampleInputEmail1"></label>
+          <input type="text" class="form-control" id="exampleInputEmail1" name='food_name' placeholder="和食、そば、焼肉など">
         </div>
-    </div>
-</div>
+        <button type="submit" class="btn btn-info btn-lg btn-block">さがす</button>
+      </form>
+  </div>
+</header>
 @endsection
+
+

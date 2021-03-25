@@ -108,5 +108,5 @@ Route::get('/layout', function () {
 });
 
 Route::get('/test', function () {
-    return view('test.index');
+    return view('delivery.test');
 });

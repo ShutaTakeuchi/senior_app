@@ -2,13 +2,16 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <h2>タクシーの手配を予約しますか？</h2>
-            <a href="{{ route('contact.comp.taxi') }}" class="btn btn-primary">手配を願います</a>
-            <a href="{{ route('home') }}" class="btn btn-primary">いいえ、戻ります</a>
-        </div>
+<header class="masthead bg-primary text-white text-center" style="margin-top: -120px; height: 800px;">
+    <div class="container d-flex align-items-center flex-column">
+        <br>
+        <br>
+        <h2>タクシーを予約しますか？</h2>
+        <br>
+        <br>
+        <a href="{{ route('contact.comp.taxi') }}"  class="btn btn-info btn-lg">予約します</a>
+        <br>
+        <a href="{{ route('home') }}" class="btn btn-dark btn-lg">いいえ</a>
     </div>
-</div>
+  </header>
 @endsection

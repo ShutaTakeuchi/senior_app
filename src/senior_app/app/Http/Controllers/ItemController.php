@@ -62,7 +62,8 @@ class ItemController extends Controller
         $data = [
             'item_id' => $id,
             'item_name' => $name,
-            'item_price' => $price
+            'item_price' => $price,
+            'user_address' => Auth::user()['address'],
         ];
         return view('item.conf', $data);
     }

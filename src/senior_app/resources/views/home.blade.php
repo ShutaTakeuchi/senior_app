@@ -6,7 +6,8 @@
         <header class="masthead bg-primary text-white text-center" style="margin-top: -90px;">
             <div class="container d-flex align-items-center flex-column">
                 <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="images/human.png" alt="" style="margin-top: -40px;" />
+                {{-- <img class="masthead-avatar mb-5" src="images/human.png" alt="" style="margin-top: -40px;" /> --}}
+                <img class="masthead-avatar mb-5" src="{{ $weather['forecasts']['0']['image']['url'] }}" alt="" style="margin-top: -40px;" />
                 <!-- Masthead Heading-->
                 @if (date('H') < 10)
                 <h1 class="masthead-heading text-uppercase mb-0">おはようございます</h1>
@@ -16,10 +17,9 @@
                 <h1 class="masthead-heading text-uppercase mb-0">こんばんは</h1>
                 @endif
                 <br>
-                <h1 class="masthead-heading text-uppercase mb-0">{{ Auth::user()->name }}さん。</h1>
+                <h1 class="masthead-heading text-uppercase mb-0">{{ Auth::user()->name }}さん</h1>
                 <!-- Icon Divider-->
                 <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0"><p class="text-center">きょうのてんきは、<img src="{{ $weather['forecasts']['0']['image']['url'] }}">です</p></p>
             </div>
         </header>
         <!-- Portfolio Section-->
@@ -103,37 +103,59 @@
             {{-- ごはん --}}
             <div class="container">
                 <!-- About Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-white">注文したごはん</h2>
-                <!-- Icon Divider-->
                 {{-- <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                 </div> --}}
+                <h1 class="page-section-heading text-center text-uppercase text-warning">注文中</h1>
+                <br>
+                <!-- Icon Divider-->
+                <h3 class=" text-center text-uppercase text-dark">ごはん</h3>
                 <!-- About Section Content-->
-                <div class="row">
-                    
-                    <div class="col-lg-4 ml-auto"><p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.</p></div>
-                    <div class="col-lg-4 mr-auto"><p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p></div>
-                </div>
+                {{-- @foreach ($deliveries as $delivery)
+                    <h3 class="text-center text-danger">{{ $delivery['shop_name'] }}</h3>
+                @endforeach --}}
+
+                <table class="table">
+                    <tbody>
+                    @foreach ($deliveries as $delivery)
+                      <tr>
+                        <td class="text-danger"><h5 class="text-center">{{ $delivery['shop_name'] }}</h5></td>
+                      </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+                    {{-- <div class="col-lg-4 ml-auto"><p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.</p></div> --}}
+                    {{-- <div class="col-lg-4 mr-auto"><p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p></div> --}}
+
             </div>
+            <br>
             <br>
             {{-- おかいもの --}}
             <div class="container">
-                <!-- About Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-white">注文したおかいもの</h2>
-                <!-- Icon Divider-->
                 {{-- <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                 </div> --}}
-                <!-- About Section Content-->
-                <div class="row">
-                    
-                    <div class="col-lg-4 ml-auto"><p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.</p></div>
-                    <div class="col-lg-4 mr-auto"><p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p></div>
-                </div>
+                <!-- About Section Heading-->
+                <h3 class="text-center text-uppercase text-dark">おかいもの</h3>
+                <!-- Icon Divider-->
+                
+                <!-- About Section Content-->   
+                <table class="table">
+                    <tbody>
+                    @foreach ($items as $item)
+                      <tr>
+                        <td class="text-danger"><h5>{{ $item['item_name'] }}</h5></td>
+                      </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+                    {{-- <div class="col-lg-4 ml-auto"><p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.</p></div> --}}
+                    {{-- <div class="col-lg-4 mr-auto"><p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p></div> --}}
+
             </div>
         </section>
 
@@ -171,14 +193,11 @@
                 </div>
             </div>
         </footer>
+
+
+
+        
         <!-- Copyright Section-->
-        <div class="copyright py-4 text-center text-white">
-            <div class="container"><small>Copyright © Your Website 2020</small></div>
-        </div>
-        <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
-        <div class="scroll-to-top d-lg-none position-fixed">
-            <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a>
-        </div>
         <!-- Portfolio Modals-->
         <!-- Portfolio Modal 1-->
         <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
@@ -386,3 +405,4 @@
         </div>
 
 @endsection
+

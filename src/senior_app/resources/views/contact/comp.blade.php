@@ -2,11 +2,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <p>{{ $message }}</p>
-        </div>
+<header class="masthead bg-primary text-white text-center" style="margin-top: -120px; height: 800px;">
+    <div class="container d-flex align-items-center flex-column">
+        <br>
+        <br>
+        <h2>{{ $message }}</h2>
+        <br>
+        <br>
+        <a href="{{ route('home') }}" type="submit" class="btn btn-info btn-lg">戻る</a>
     </div>
-</div>
+  </header>
 @endsection

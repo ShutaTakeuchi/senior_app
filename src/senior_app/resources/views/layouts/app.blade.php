@@ -30,6 +30,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/album.css') }}" rel="stylesheet">
+
     {{-- test css --}}
     <link rel="stylesheet" href="{{ asset('css/styles2.css') }}">
 
@@ -71,6 +73,15 @@
         <main class="py-4">
             @yield('content')
         </main>
+        <div>
+            <div class="copyright py-4 text-center text-white" style="margin-top: -25px;">
+                <div class="container"><small>Copyright © Your Website 2020</small></div>
+            </div>
+            <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
+            <div class="scroll-to-top d-lg-none position-fixed">
+                <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a>
+            </div>
+        </div>
     </div>
             <!-- Bootstrap core JS-->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
