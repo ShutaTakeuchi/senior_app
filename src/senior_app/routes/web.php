@@ -17,9 +17,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function() {
+
+    // トップページ
+    Route::get('/home', 'HomeController@index')->name('home');
+
     // 配食サービス
     // 検索
     Route::get('/delivery', 'DeliveryController@index')->name('delivery.index');
@@ -100,13 +103,4 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::get('item/show', 'Admin\ItemController@show')->name('admin.item.show');
     // 配達済み
     Route::get('item/delete', 'Admin\ItemController@delete')->name('admin.item.delete');
-});
-
-// test
-Route::get('/layout', function () {
-    return view('layouts/test_app');
-});
-
-Route::get('/test', function () {
-    return view('delivery.test');
 });

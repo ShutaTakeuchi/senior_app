@@ -160,8 +160,8 @@
         </section>
 
         </section>
-        <!-- Footer-->
-        <footer class="footer text-center">
+        <!-- フッター　-->
+        {{-- <footer class="footer text-center">
             <div class="container">
                 <div class="row">
                     <!-- Footer Location-->
@@ -192,7 +192,7 @@
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer> --}}
 
 
 
