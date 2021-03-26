@@ -19,6 +19,8 @@
 
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+
+    <link rel="icon" type="image/png" href="{{ asset('images/portfolio/home_primary.png') }}">
     
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -40,6 +42,9 @@
     <div id="app">
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase" id="mainNav">
             <div class="container">
+
+                <img src="{{ asset('images/portfolio/home_primary_32px.png') }}" style="margin-right: 15px;">
+                
                 <a class="navbar-brand js-scroll-trigger" href="{{ route('home') }}">{{ config('app.name', 'Laravel') }}</a>
                 <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     メニュー

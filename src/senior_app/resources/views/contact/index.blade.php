@@ -10,6 +10,7 @@
         <br>
         <a href="{{ route('contact.conf.taxi') }}" class="btn btn-info btn-lg btn-block">タクシーをつかいたい</a>
         <br>
+        <br>
         <a href="{{ route('contact.emergency') }}" class="btn btn-warning btn-lg btn-block">緊急・救急</a>
     </div>
   </header>

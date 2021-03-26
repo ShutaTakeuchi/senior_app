@@ -1,12 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<header class="masthead bg-primary text-white text-center" style="margin-top: -120px; height: 1100px;">
+<header class="masthead bg-primary text-white text-center" style="margin-top: -120px; height: 1200px;">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <h1>新しい暮らし、</h1>
+            <h1>始めましょう。</h1>
+            <br>
             <div class="card bg-secondary">
-                <div class="card-header">{{ __('会員登録') }}</div>
+                {{-- <div class="card-header">{{ __('会員登録') }}</div> --}}
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -17,7 +20,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('お名前') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="別府太郎">
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -32,7 +35,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('メールアドレス') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="beppu@onsen.com">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -47,7 +50,7 @@
                             <label for="age" class="col-md-4 col-form-label text-md-right">{{ __('年齢') }}</label>
 
                             <div class="col-md-6">
-                                <input id="age" type="number" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ old('age') }}" required autocomplete="age" autofocus>
+                                <input id="age" type="number" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ old('age') }}" required autocomplete="age" autofocus placeholder="60">
 
                                 @error('age')
                                     <span class="invalid-feedback" role="alert">
@@ -62,7 +65,7 @@
                             <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('住所') }}</label>
 
                             <div class="col-md-6">
-                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
+                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus placeholder="別府市〜〜">
 
                                 @error('address')
                                     <span class="invalid-feedback" role="alert">
@@ -77,7 +80,7 @@
                             <label for="tel" class="col-md-4 col-form-label text-md-right">{{ __('電話番号') }}</label>
 
                             <div class="col-md-6">
-                                <input id="tel" type="text" class="form-control @error('tel') is-invalid @enderror" name="tel" value="{{ old('tel') }}" required autocomplete="tel" autofocus>
+                                <input id="tel" type="text" class="form-control @error('tel') is-invalid @enderror" name="tel" value="{{ old('tel') }}" required autocomplete="tel" autofocus placeholder="00011112222">
 
                                 @error('tel')
                                     <span class="invalid-feedback" role="alert">

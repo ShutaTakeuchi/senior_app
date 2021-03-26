@@ -1,13 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-<header class="masthead bg-primary text-white text-center" style="margin-top: -120px; height: 800px;">
+<header class="masthead bg-primary text-white text-center" style="margin-top: -120px; height: 1100px;">
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card bg-secondary">
-                <div class="card-header">{{ __('ログイン') }}</div>
+        <div class="col-md-6">
+            <div class="text-center">
+                <br>
+                <img src="images/portfolio/home_secondary.png">
+                <br>
+                <br>
+                <br>
+                <h1>あなたのご自宅に</h1>
+                <h1>さらなる希望を。</h1>
+                <br>
+                <br>
+            </div>
+        </div>
 
+        <div class="col-md-6">
+            <div class="card bg-secondary">
+                {{-- <div class="card-header">{{ __('ログイン') }}</div> --}}
+                <br>
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
@@ -60,17 +74,23 @@
                                 </button>
                                 <br>
                                 <br>
+                                <a class="btn btn-link" href="{{ route('register') }}" style="text-decoration: none;">
+                                    {{ __('初めての方はこちらへ') }}
+                                </a>
+                                <br>
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a class="btn btn-link" href="{{ route('password.request') }}" style="text-decoration: none;">
                                         {{ __('パスワードを忘れた方はこちらへ') }}
                                     </a>
                                 @endif
+                                <br>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
+        
     </div>
 </div>
 </header>

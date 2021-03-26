@@ -7,6 +7,7 @@
             <div class="container d-flex align-items-center flex-column">
                 <!-- Masthead Avatar Image-->
                 {{-- <img class="masthead-avatar mb-5" src="images/human.png" alt="" style="margin-top: -40px;" /> --}}
+                {{-- <img class="masthead-avatar mb-5" src="images/portfolio/home_secondary.png" alt="" style="margin-top: -40px;" /> --}}
                 <img class="masthead-avatar mb-5" src="{{ $weather['forecasts']['0']['image']['url'] }}" alt="" style="margin-top: -40px;" />
                 <!-- Masthead Heading-->
                 @if (date('H') < 10)

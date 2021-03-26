@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('');
+// });
 
 Auth::routes();
 
@@ -21,7 +21,7 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function() {
 
     // トップページ
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/', 'HomeController@index')->name('home');
 
     // 配食サービス
     // 検索
