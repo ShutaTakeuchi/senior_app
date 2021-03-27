@@ -22,7 +22,19 @@
                   <tr>
                     <td>{{ $order['shop_name'] }}</td>
                     <td>{{ $order['created_at'] }}</td>
-                    <td><a href="/admin/delivery/delete?id={{ $order['id'] }}&user_name={{ $user_data['name'] }}&shop_name={{ $order['shop_name'] }}">配達済み</a></td>
+                    {{-- <td><a href="/admin/delivery/delete?id={{ $order['id'] }}&user_name={{ $user_data['name'] }}&shop_name={{ $order['shop_name'] }}">配達済み</a></td> --}}
+                    <td>
+                    <form action="{{ route('admin.delivery.delete') }}" method="post">
+                      @csrf
+                      <div class="form-group">
+                        <input type="hidden" name="id" value="{{ $order['id'] }}">
+                        <input type="hidden" name="user_name" value="{{ $user_data['name'] }}">
+                        <input type="hidden" name="shop_name" value="{{ $order['shop_name'] }}">
+                        <input type="submit" class="btn btn-info" value="配達済み"></button>
+                      </div>
+                    </td>
+                    </form>
+
                   </tr>
                 </tbody>
                 @endforeach

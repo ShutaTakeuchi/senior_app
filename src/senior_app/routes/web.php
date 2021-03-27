@@ -93,9 +93,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     // // 一覧
     Route::get('delivery/show_all', 'Admin\DeliveryController@show_all')->name('admin.delivery.show_all');
     // 検索結果
-    Route::get('delivery/show', 'Admin\DeliveryController@show')->name('admin.delivery.show');
+    Route::post('delivery/show', 'Admin\DeliveryController@show')->name('admin.delivery.show');
     // 配達済み
-    Route::get('delivery/delete', 'Admin\DeliveryController@delete')->name('admin.delivery.delete');
+    Route::post('delivery/delete', 'Admin\DeliveryController@delete')->name('admin.delivery.delete');
 
     // item
     // 検索
@@ -106,8 +106,4 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::get('item/show', 'Admin\ItemController@show')->name('admin.item.show');
     // 配達済み
     Route::get('item/delete', 'Admin\ItemController@delete')->name('admin.item.delete');
-});
-
-Route::get('/test', function () {
-    return view('layouts.test_app_admin');
 });

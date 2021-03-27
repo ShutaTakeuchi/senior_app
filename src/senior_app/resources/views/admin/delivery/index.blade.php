@@ -2,18 +2,18 @@
 @extends('layouts.app_admin')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <h2>食</h2>
+            <h2>ごはん</h2>
             <h2>ご注文検索</h2>
-            <p>お客様の電話番号を入力してください（ハイフン無し）</p>
-            <form action="{{ route('admin.delivery.show') }}" method="get">
-                <input type="text" name="user_tel">
-                <input type="submit" value="検索">
-            </form>
-            <a href="{{ route('admin.delivery.show_all') }}">全て</a>
-        </div>
-    </div>
-</div>
+            <h5>お客様の電話番号を入力してください。</h5>
+            <h5>（ハイフン無し）</h5>
+
+            <form action="{{ route('admin.delivery.show') }}" method="post">
+                @csrf
+                <div class="form-group">
+                  <input type="test" name="user_tel" class="form-control" placeholder="00011112222">
+                  <br>
+                  <button type="submit" class="btn btn-info">検索</button>
+                </div>
+              </form>
+              <a class="btn btn-info" href="{{ route('admin.delivery.show_all') }}">全て</a>
 @endsection

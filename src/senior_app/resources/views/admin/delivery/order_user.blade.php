@@ -19,7 +19,15 @@
                 <tbody>
                   <tr>
                     <td>{{ $order_user['name'] }}</td>
-                    <td><a href="/admin/delivery/show?user_tel={{ $order_user['tel'] }}">{{ $order_user['tel'] }}</a></td>
+                    <td>
+                      <form action="{{ route('admin.delivery.show') }}" method="post">
+                        @csrf
+                        <div class="form-group">
+                          <input type="hidden" name="user_tel" value="{{ $order_user['tel'] }}">
+                          <input type="submit" value="{{ $order_user['tel'] }}"></button>
+                        </div>
+                      </form>
+                    </td>
                   </tr>
                 </tbody>
                 @endforeach
