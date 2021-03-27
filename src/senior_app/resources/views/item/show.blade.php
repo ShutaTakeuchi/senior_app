@@ -24,7 +24,7 @@
                             <br>
                             <div class="text-center">
                                 {{-- 商品名 --}}
-                                <h3 class="card-title"><a href="{{ $result['Item']['itemUrl'] }}" class="text-dark">{{ $result['Item']['itemName'] }}</a></h3>
+                                <h3 class="card-title"><a href="{{ $result['Item']['itemUrl'] }}" class="text-dark" style="text-decoration: none;">{{ $result['Item']['itemName'] }}</a></h3>
                                 {{-- 金額 --}}
                                 <br>
                                 <h2 class="card-text text-danger">¥{{ $result['Item']['itemPrice'] }}</h2>

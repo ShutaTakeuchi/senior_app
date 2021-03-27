@@ -22,7 +22,7 @@
                             <br>
                             {{-- 店名 --}}
                             <div class="text-center">
-                                <h1 class="card-title"><a href="{{ $result['url'] }}" class="text-dark">{{ $result['name'] }}</a></h1>
+                                <h1 class="card-title"><a href="{{ $result['url'] }}" class="text-dark" style="text-decoration: none;">{{ $result['name'] }}</a></h1>
                                 {{-- 詳細 --}}
                                 <br>
                                 <h6 class="card-text">{{ $result['pr']['pr_short'] }}</h6>

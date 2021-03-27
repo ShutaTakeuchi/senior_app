@@ -30,13 +30,19 @@ class ItemController extends Controller
     // 商品検索の結果を取得
     public function guzzle(Request $request)
     {
+        if($request->input('item_keyword') === null) {
+            $keyword = '日用品';
+        }else{
+            $keyword = $request->input('item_keyword');
+        }
+        
         $client = new \GuzzleHttp\Client();
         $response = $client->request(
             'GET',
             'https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706',
             ['query' => [
                 'format' => 'json',
-                'keyword' => $request->input('item_keyword'), 
+                'keyword' => $keyword, 
                 'applicationId' => '1096060211205045149',
                 // 在庫有り
                 'availability' => 1,
@@ -47,7 +53,6 @@ class ItemController extends Controller
         $data = [
             'results' => json_decode($response->getBody(), true)
         ];
-        // dd($data['results']);
         return view('item.show', $data);
     }
 

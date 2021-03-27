@@ -2,27 +2,70 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- Masthead-->
-        <header class="masthead bg-primary text-white text-center" style="margin-top: -90px;">
-            <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image-->
-                {{-- <img class="masthead-avatar mb-5" src="images/human.png" alt="" style="margin-top: -40px;" /> --}}
-                {{-- <img class="masthead-avatar mb-5" src="images/portfolio/home_secondary.png" alt="" style="margin-top: -40px;" /> --}}
-                <img class="masthead-avatar mb-5" src="{{ $weather['forecasts']['0']['image']['url'] }}" alt="" style="margin-top: -40px;" />
-                <!-- Masthead Heading-->
+<header class="masthead bg-primary text-white text-center" style="margin-top: -160px; height: 100%;">
+    <div class="container align-items-center flex-column">
+        <div class="row">
+
+            {{-- 左 --}}
+            <div class="col-md-6">
                 @if (date('H') < 10)
-                <h1 class="masthead-heading text-uppercase mb-0">おはようございます</h1>
+                <h3>おはようございます</h3>
                 @elseif (date('H') < 18)
-                <h1 class="masthead-heading text-uppercase mb-0">こんにちは</h1>
+                <h3>こんにちは</h3>
                 @elseif (date('H') < 24)
-                <h1 class="masthead-heading text-uppercase mb-0">こんばんは</h1>
+                <h3>こんばんは</h3>
+                @elseif (date('H'))
                 @endif
+                <h3>{{ Auth::user()->name }}さん</h3>
                 <br>
-                <h1 class="masthead-heading text-uppercase mb-0">{{ Auth::user()->name }}さん</h1>
-                <!-- Icon Divider-->
-                <!-- Masthead Subheading-->
+                <br>
+
+                <h2>あなたの「今」を</h2>
+                <h2>共有しましょう。</h2>
+                <br>
+                @error('content')
+                    <h6 class="text-danger">{{ $message }}</h6>
+                @enderror
+                <form action="{{ route('post') }}" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <input type="text" class="form-control" name='content' placeholder="掃除をしました。">
+                    </div>
+                    <button type="submit" class="btn btn-info btn-lg btn-block">共有する</button>
+                    </form>
+                <br>
             </div>
-        </header>
+
+            {{-- 右 --}}
+            <div class="col-md-6">
+                
+                <h2>みなさまの「今」</h2>
+                <table class="table table-borderless">
+                    <tbody>
+                    @foreach ($posts as $post)
+                      <tr>
+                        <td class="text-white"><img src="{{ asset('images/portfolio/home_secondary_32px.png') }}">　<strong>{{ $post->content }}</strong></td>
+                      </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+</header>
+
+                <!-- Masthead Avatar Image-->
+                {{-- 人間 --}}
+                {{-- <img class="masthead-avatar mb-5" src="images/human.png" alt="" style="margin-top: -40px;" /> --}}
+                {{-- アイコン --}}
+                {{-- <img class="masthead-avatar mb-5" src="images/portfolio/home_secondary.png" alt="" style="margin-top: -40px;" /> --}}
+                {{-- 天気 --}}
+                {{-- <img class="masthead-avatar mb-5" src="{{ $weather['forecasts']['0']['image']['url'] }}" alt="" style="margin-top: -40px;" /> --}}
+                <!-- Masthead Heading-->
+
+                
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="portfolio">
             <div class="container">
@@ -103,60 +146,37 @@
         <section class="page-section bg-primary text-white mb-0" id="about">
             {{-- ごはん --}}
             <div class="container">
-                <!-- About Section Heading-->
-                {{-- <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div> --}}
-                <h1 class="page-section-heading text-center text-uppercase text-warning">注文中</h1>
-                <br>
-                <!-- Icon Divider-->
-                <h3 class=" text-center text-uppercase text-dark">ごはん</h3>
-                <!-- About Section Content-->
-                {{-- @foreach ($deliveries as $delivery)
-                    <h3 class="text-center text-danger">{{ $delivery['shop_name'] }}</h3>
-                @endforeach --}}
+                <h1 class="page-section-heading text-center text-uppercase text-white">注文中</h1>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3 class=" text-center text-uppercase text-dark">ごはん</h3>
 
-                <table class="table">
-                    <tbody>
-                    @foreach ($deliveries as $delivery)
-                      <tr>
-                        <td class="text-danger"><h5 class="text-center">{{ $delivery['shop_name'] }}</h5></td>
-                      </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-                    {{-- <div class="col-lg-4 ml-auto"><p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.</p></div> --}}
-                    {{-- <div class="col-lg-4 mr-auto"><p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p></div> --}}
+                        <table class="table table-borderless">
+                            <tbody>
+                            @foreach ($deliveries as $delivery)
+                              <tr>
+                                <td class="text-white"><img src="{{ asset('images/portfolio/home_secondary_32px.png') }}">　<strong>{{ $delivery['shop_name'] }}</strong></td>
+                              </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
 
-            </div>
-            <br>
-            <br>
             {{-- おかいもの --}}
-            <div class="container">
-                {{-- <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div> --}}
-                <!-- About Section Heading-->
-                <h3 class="text-center text-uppercase text-dark">おかいもの</h3>
-                <!-- Icon Divider-->
-                
-                <!-- About Section Content-->   
-                <table class="table">
-                    <tbody>
-                    @foreach ($items as $item)
-                      <tr>
-                        <td class="text-danger"><h5>{{ $item['item_name'] }}</h5></td>
-                      </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-                    {{-- <div class="col-lg-4 ml-auto"><p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.</p></div> --}}
-                    {{-- <div class="col-lg-4 mr-auto"><p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p></div> --}}
+                    <div class="col-md-6">
+                        <h3 class="text-center text-uppercase text-dark">おかいもの</h3>
 
+                        <table class="table table-borderless">
+                            <tbody>
+                            @foreach ($items as $item)
+                            <tr>
+                                <td class="text-white"><img src="{{ asset('images/portfolio/home_secondary_32px.png') }}">　<strong>{{ $item['item_name'] }}</strong></td>
+                            </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </section>
 

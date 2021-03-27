@@ -62,6 +62,9 @@ Route::group(['middleware' => 'auth'], function() {
     // 入力フォーム
     // Route::get('/health', 'HealthController@index')->name('health.index');
     // Route::post('/health/submit', 'HealthController@insert')->name('health.insert');
+
+    // 投稿
+    Route::post('/post', 'PostController@post')->name('post');
  });
 
 // admin認証のルーティング

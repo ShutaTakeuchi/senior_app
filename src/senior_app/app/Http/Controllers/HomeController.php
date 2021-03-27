@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Post;
 use Auth;
 
 class HomeController extends Controller
@@ -29,10 +30,13 @@ class HomeController extends Controller
         $weather_info = $this->get_weather();
         $delivery_info = $this->show_reserve_delivery();
         $item_info = $this->show_reserve_item();
+            // 投稿データの取得
+        $posts = $this->get_all_post();
         $param = [
             'weather' => $weather_info,
             'deliveries' => $delivery_info,
-            'items' => $item_info
+            'items' => $item_info,
+            'posts' => $posts,
         ];
         return view('home', $param);
     }
@@ -65,5 +69,11 @@ class HomeController extends Controller
     {
         $data = User::find(Auth::user()['id'])->items;
         return $data;
+    }
+
+    public function get_all_post()
+    {
+        $posts = Post::orderBy('id', 'DESC')->take(6)->get();
+        return $posts;
     }
 }
