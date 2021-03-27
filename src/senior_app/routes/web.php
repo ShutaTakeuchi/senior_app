@@ -103,7 +103,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     // // 一覧
     Route::get('item/show_all', 'Admin\ItemController@show_all')->name('admin.item.show_all');
     // 検索結果
-    Route::get('item/show', 'Admin\ItemController@show')->name('admin.item.show');
+    Route::post('item/show', 'Admin\ItemController@show')->name('admin.item.show');
     // 配達済み
-    Route::get('item/delete', 'Admin\ItemController@delete')->name('admin.item.delete');
+    Route::post('item/delete', 'Admin\ItemController@delete')->name('admin.item.delete');
 });

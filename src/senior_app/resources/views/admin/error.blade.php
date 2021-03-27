@@ -2,12 +2,6 @@
 @extends('layouts.app_admin')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <h2>{{ $message }}</h2>
-            <a href="/admin/{{ $href }}">戻る</a>
-        </div>
-    </div>
-</div>
+    <h2>{{ $message }}</h2>
+    <a href="/admin/{{ $href }}" class="btn btn-info">戻る</a>
 @endsection

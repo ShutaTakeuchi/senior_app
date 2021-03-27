@@ -2,11 +2,10 @@
 @extends('layouts.app_admin')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">  
+            <h2>おかいもの</h2>
             <h2>注文中のお客様</h2>
-          <table class="table">                                          
+
+              <table class="table">                                          
                 <thead>
                   <tr>
                     <th scope="col">お名前</th>
@@ -18,12 +17,18 @@
                 <tbody>
                   <tr>
                     <td>{{ $order_user['name'] }}</td>
-                    <td><a href="/admin/item/show?user_tel={{ $order_user['tel'] }}">{{ $order_user['tel'] }}</a></td>
+                    <td>
+                      <form action="{{ route('admin.item.show') }}" method="post">
+                        @csrf
+                        <div class="form-group">
+                          <input type="hidden" name="user_tel" value="{{ $order_user['tel'] }}">
+                          <input type="submit" class="btn btn-info" value="{{ $order_user['tel'] }}"></button>
+                        </div>
+                      </form>
+                    </td>
                   </tr>
                 </tbody>
                 @endforeach
               </table>
-        </div>
-    </div>
-</div>
 @endsection
+

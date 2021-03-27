@@ -1,14 +1,12 @@
 {{-- admin 配食注文検索結果 --}}
 @extends('layouts.app_admin')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">      
+@section('content')   
           <h2>食</h2>                                      
             <h2>{{ $user_data['name'] }} 様</h2>
             <h2>{{ $user_data['address'] }}</h2>
             <h2>{{ $user_data['tel'] }}</h2>
+
             <table class="table">
                 <thead>
                   <tr>
@@ -22,7 +20,6 @@
                   <tr>
                     <td>{{ $order['shop_name'] }}</td>
                     <td>{{ $order['created_at'] }}</td>
-                    {{-- <td><a href="/admin/delivery/delete?id={{ $order['id'] }}&user_name={{ $user_data['name'] }}&shop_name={{ $order['shop_name'] }}">配達済み</a></td> --}}
                     <td>
                     <form action="{{ route('admin.delivery.delete') }}" method="post">
                       @csrf
@@ -39,7 +36,4 @@
                 </tbody>
                 @endforeach
               </table>
-        </div>
-    </div>
-</div>
 @endsection

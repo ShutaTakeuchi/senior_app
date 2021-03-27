@@ -99,6 +99,6 @@ class ItemController extends Controller
         // 実行
         curl_exec($ch);
 
-        return view('admin.comp');
+        return redirect('/admin/home')->with('flash_message', 'お疲れ様でした！');
     }
 }
