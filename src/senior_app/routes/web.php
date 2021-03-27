@@ -107,3 +107,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     // 配達済み
     Route::get('item/delete', 'Admin\ItemController@delete')->name('admin.item.delete');
 });
+
+Route::get('/test', function () {
+    return view('layouts.test_app_admin');
+});

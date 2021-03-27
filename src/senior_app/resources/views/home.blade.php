@@ -44,7 +44,7 @@
                     <tbody>
                     @foreach ($posts as $post)
                       <tr>
-                        <td class="text-white"><img src="{{ asset('images/portfolio/home_secondary_32px.png') }}">　<strong>{{ $post->content }}</strong></td>
+                        <td class="text-white"><img src="{{ asset('images/icon/home_secondary_32px.png') }}">　<strong>{{ $post->content }}</strong></td>
                       </tr>
                     @endforeach
                     </tbody>
@@ -86,7 +86,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"></div>
                             </div>
-                            <img class="img-fluid" src="images/portfolio/food.png" alt="" />
+                            <img class="img-fluid" src="images/button/food.png" alt="" />
                         </div>
                         </a>
                     </div>
@@ -97,7 +97,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"></div>
                             </div>
-                            <img class="img-fluid" src="images/portfolio/cart.png" alt="" />
+                            <img class="img-fluid" src="images/button/cart.png" alt="" />
                         </div>
                         </a>
                     </div>
@@ -108,7 +108,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"></div>
                             </div>
-                            <img class="img-fluid" src="images/portfolio/telephone.png" alt="" />
+                            <img class="img-fluid" src="images/button/telephone.png" alt="" />
                         </div>
                         </a>
                     </div>
@@ -155,7 +155,7 @@
                             <tbody>
                             @foreach ($deliveries as $delivery)
                               <tr>
-                                <td class="text-white"><img src="{{ asset('images/portfolio/home_secondary_32px.png') }}">　<strong>{{ $delivery['shop_name'] }}</strong></td>
+                                <td class="text-white"><img src="{{ asset('images/icon/home_secondary_32px.png') }}">　<strong>{{ $delivery['shop_name'] }}</strong></td>
                               </tr>
                             @endforeach
                             </tbody>
@@ -170,7 +170,7 @@
                             <tbody>
                             @foreach ($items as $item)
                             <tr>
-                                <td class="text-white"><img src="{{ asset('images/portfolio/home_secondary_32px.png') }}">　<strong>{{ $item['item_name'] }}</strong></td>
+                                <td class="text-white"><img src="{{ asset('images/icon/home_secondary_32px.png') }}">　<strong>{{ $item['item_name'] }}</strong></td>
                             </tr>
                             @endforeach
                             </tbody>

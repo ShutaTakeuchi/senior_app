@@ -7,7 +7,7 @@
         <div class="col-md-6">
             <div class="text-center">
                 <br>
-                <img src="images/portfolio/home_secondary.png">
+                <img src="images/icon/home_secondary.png">
                 <br>
                 <br>
                 <br>
