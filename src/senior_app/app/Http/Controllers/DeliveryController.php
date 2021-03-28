@@ -47,12 +47,19 @@ class DeliveryController extends Controller
      */
     public function confirm_purchase(Request $request)
     {
+        // 金額をランダムで表示
+        $rand_price="";
+        for($i=0;$i<3;$i++){
+        $rand_price.=mt_rand(0,9);
+        }
+
         $id = $request->input('shop_id');
         $name = $request->input('shop_name');
         $data = [
             'shop_id' => $id,
             'shop_name' => $name,
             'user_address' => Auth::user()['address'],
+            'price' => $rand_price
         ];
         return view('delivery.conf', $data);
     }

@@ -17,7 +17,7 @@
         </div>
     </div>
 </div> --}}
-<header class="masthead bg-primary text-white text-center" style="margin-top: -90px; height: 900px;">
+<header class="masthead bg-primary text-white text-center" style="margin-top: -90px; height: 100%;">
     <div class="container d-flex align-items-center flex-column">
         <h4>こちらの商品を購入しますか？</h4>
         <br>
@@ -25,7 +25,7 @@
         <h2 class="text-danger">{{ $item_name }}</h2>
         <br>
         <br>
-        <h2>¥{{ $item_price }}</h2>
+        <h2 class="">¥{{ $item_price }}</h2>
         <br>
         <br>
         <h4 class="text-dark">お届け先：　{{ $user_address }}</h4>

@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
-<header class="masthead bg-primary text-white text-center" style="margin-top: -90px; height: 800px;">
+<header class="masthead bg-primary text-white text-center" style="margin-top: -90px; height: 100%;">
     <div class="container d-flex align-items-center flex-column">
         <h5>当店の配食サービス専用のメニューをご提供いたします。</h5>
         <br>
@@ -11,6 +11,7 @@
         <br>
         <h1 class="text-danger">{{ $shop_name }}</h1>
         <br>
+        <h2 class="">¥{{ $price }}</h2>
         <br>
         <h4 class="text-dark">お届け先：　{{ $user_address }}</h4>
         <br>
