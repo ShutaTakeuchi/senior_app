@@ -1,3 +1,6 @@
+すること
+    ＊ユーザの実行後のフラッシュメッセージを全てに反映させる。（管理画面の”配達済み”処理のみ修正済み）
+
 ファイル
     ＊home/ ログイン後のトップページ
     ＊/ ログイン前のページ
@@ -33,5 +36,3 @@ App\Admin::create(['name' => 'admin', 'email' => 'admin@admin.com', 'password' =
     ＊home
     ＊Live
 
-contactの内容
-    ＊おdけかおdけか
