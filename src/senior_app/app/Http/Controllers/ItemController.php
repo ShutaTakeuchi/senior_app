@@ -111,8 +111,11 @@ class ItemController extends Controller
         // データベースに保存
         $this->insert_data($request->input('item_id'), $request->input('item_name'));
         
-        // 注文完了時の表示
-        return view('delivery.comp');
+        // フラッシュメッセージ
+        return redirect('/')->with([
+            'message_1' => '注文しました。',
+            'message_2' => 'しばらくお待ちください。'
+        ]);
     }
 
     /**

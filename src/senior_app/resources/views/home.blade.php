@@ -4,6 +4,15 @@
 @section('content')
 <header class="masthead bg-primary text-white text-center" style="margin-top: -160px; height: 100%;">
     <div class="container align-items-center flex-column">
+
+        {{-- フラッシュメッセージ --}}
+        @if (session('message_1'))
+            <div class="flash_message">
+                <h3 class="text-center text-danger">{{ session('message_1') }}</h3>
+                <h3 class="text-center text-danger">{{ session('message_2') }}</h3>
+                <br>
+            </div>
+        @endif
         <div class="row">
 
             {{-- 左 --}}

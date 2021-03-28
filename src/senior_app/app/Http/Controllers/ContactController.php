@@ -75,18 +75,10 @@ class ContactController extends Controller
         $responseHeaderSize = $info['header_size'];
         $body = substr($result, $responseHeaderSize);
 
-        // 200 だったら OK
-        if ($httpStatus === 200){
-            $data = [
-                'message' => '管理者からの電話をおまちください。ご連絡差し申し上げます。'
-            ];
-        }else{
-            $data = [
-                'message' => 'もう一度、やり直してください。'
-            ];
-        }
-        return view('contact.comp', $data);
-            
+        return redirect('/')->with([
+            'message_1' => '管理者からの電話をお待ちください。',
+            'message_2' => 'しばらくお待ちください。'
+        ]);    
     }
 
     public function conf_taxi()
@@ -156,16 +148,9 @@ class ContactController extends Controller
         $responseHeaderSize = $info['header_size'];
         $body = substr($result, $responseHeaderSize);
 
-        // 200 だったら OK
-        if ($httpStatus === 200){
-            $data = [
-                'message' => '予約しました。何かありましたら、ご連絡差し申し上げます。'
-            ];
-        }else{
-            $data = [
-                'message' => 'もう一度、やり直してください。'
-            ];
-        }
-        return view('contact.comp', $data);
+        return redirect('/')->with([
+            'message_1' => 'タクシーを予約致します。',
+            'message_2' => 'しばらくお待ちください。'
+        ]);
     }
 }

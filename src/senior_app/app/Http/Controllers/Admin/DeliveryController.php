@@ -99,6 +99,7 @@ class DeliveryController extends Controller
         // 実行
         curl_exec($ch);
 
+        // フラッシュメッセージ
         return redirect('/admin/home')->with('flash_message', 'お疲れ様でした！');
     }
 }

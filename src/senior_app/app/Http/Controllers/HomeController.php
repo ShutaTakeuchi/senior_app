@@ -26,14 +26,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // homeで表示させるためのデータ
-        $weather_info = $this->get_weather();
+        // homeで表示させるための各データ
+        // $weather_info = $this->get_weather();
         $delivery_info = $this->show_reserve_delivery();
         $item_info = $this->show_reserve_item();
-            // 投稿データの取得
+        // 投稿データ
         $posts = $this->get_all_post();
         $param = [
-            'weather' => $weather_info,
+            // 'weather' => $weather_info,
             'deliveries' => $delivery_info,
             'items' => $item_info,
             'posts' => $posts,
@@ -44,17 +44,17 @@ class HomeController extends Controller
     /**
      * 天気予報を取得
      */
-    public function get_weather()
-    {
-        $url = 'https://weather.tsukumijima.net/api/forecast/city/440010';
-        $json = file_get_contents($url);
-        $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
-        $arr = json_decode($json,true);
-        return $arr;
-    }
+    // public function get_weather()
+    // {
+    //     $url = 'https://weather.tsukumijima.net/api/forecast/city/440010';
+    //     $json = file_get_contents($url);
+    //     $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
+    //     $arr = json_decode($json,true);
+    //     return $arr;
+    // }
 
     /**
-     * 配食の注文内容を取得して表示させる
+     * 配食の注文内容を取得
      */
     public function show_reserve_delivery()
     {
@@ -63,7 +63,7 @@ class HomeController extends Controller
     }
 
     /**
-     * 配食の注文内容を取得して表示させる
+     * 配食の注文内容を取得
      */
     public function show_reserve_item()
     {
@@ -71,6 +71,9 @@ class HomeController extends Controller
         return $data;
     }
 
+    /**
+     * 全ての投稿を取得
+     */
     public function get_all_post()
     {
         $posts = Post::orderBy('id', 'DESC')->take(6)->get();
