@@ -18,7 +18,7 @@
 Auth::routes();
 
 
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => 'auth'], function () {
 
     // トップページ
     Route::get('/', 'HomeController@index')->name('home');
@@ -43,7 +43,7 @@ Route::group(['middleware' => 'auth'], function() {
     // 完了
     Route::get('/item/sheet', 'ItemController@insert_data_sheet')->name('item.sheet');
 
-        
+
     // 各種連絡
     // 一覧
     Route::get('/contact', 'ContactController@index')->name('contact.index');
@@ -52,11 +52,11 @@ Route::group(['middleware' => 'auth'], function() {
     // タクシー手配確認
     Route::get('/contact/conf/taxi', 'ContactController@conf_taxi')->name('contact.conf.taxi');
     // 注文キャンセル
-        // 注文中一覧
+    // 注文中一覧
     Route::get('/contact/show', 'ContactController@show_order')->name('contact.show.order');
-        // キャンセルの確認
+    // キャンセルの確認
     Route::get('/contact/conf/cancel', 'ContactController@conf_cancel')->name('contact.conf.cancel');
-        // キャンセル申請の完了
+    // キャンセル申請の完了
     Route::post('/contact/comp/cancel', 'ContactController@comp_cancel')->name('contact.comp.cancel');
     // 予約完了
     Route::get('/contact/comp/taxi', 'ContactController@comp_taxi')->name('contact.comp.taxi');
@@ -72,7 +72,7 @@ Route::group(['middleware' => 'auth'], function() {
 
     // 投稿
     Route::post('/post', 'PostController@post')->name('post');
- });
+});
 
 // admin認証のルーティング
 /*
@@ -80,18 +80,20 @@ Route::group(['middleware' => 'auth'], function() {
 | 3) Admin 認証不要
 |--------------------------------------------------------------------------
 */
-Route::group(['prefix' => 'admin'], function() {
-    Route::get('/',         function () { return redirect('/admin/home'); });
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/',         function () {
+        return redirect('/admin/home');
+    });
     Route::get('login',     'Admin\LoginController@showLoginForm')->name('admin.login');
     Route::post('login',    'Admin\LoginController@login');
 });
- 
+
 /*
 |--------------------------------------------------------------------------
 | 4) Admin ログイン後
 |--------------------------------------------------------------------------
 */
-Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::post('logout',   'Admin\LoginController@logout')->name('admin.logout');
     Route::get('home',      'Admin\HomeController@index')->name('admin.home');
     // delivery
@@ -113,4 +115,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::post('item/show', 'Admin\ItemController@show')->name('admin.item.show');
     // 配達済み
     Route::post('item/delete', 'Admin\ItemController@delete')->name('admin.item.delete');
+
+    // person
+    // お客様一覧
+    Route::get('person/index', 'Admin\PersonController@show_people')->name('admin.person.show');
+    // お客様検索結果
+    Route::post('person/search', 'Admin\PersonController@get_person')->name('admin.person.search');
 });
