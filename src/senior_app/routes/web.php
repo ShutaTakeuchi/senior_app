@@ -121,4 +121,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::get('person/index', 'Admin\PersonController@show_people')->name('admin.person.show');
     // お客様検索結果
     Route::post('person/search', 'Admin\PersonController@get_person')->name('admin.person.search');
+    // お客様検索結果
+    Route::post('person/edit', 'Admin\PersonController@edit')->name('admin.person.edit');
+    // お客様検索結果
+    Route::post('person/update', 'Admin\PersonController@update')->name('admin.person.update');
 });

@@ -11,60 +11,72 @@
         </div>
     @endif
 
-        <form action="{{ route('admin.person.search') }}" method="post">
-            @csrf
-            <div class="form-group">
-                <input type="test" name="tel" class="form-control" placeholder="00011112222" value="{{ old('tel') }}">
-            </div>
-            <button type="submit" class="btn btn-info">検索</button>
-        </form>
+    <form action="{{ route('admin.person.search') }}" method="post">
+        @csrf
+        <div class="form-group">
+            <input type="test" name="tel" class="form-control" placeholder="00011112222" value="{{ old('tel') }}">
+        </div>
+        <button type="submit" class="btn btn-info">検索</button>
+    </form>
 
-        <br>
+    <br>
 
-        @if (isset($user))
-            <table class="table table-bordered">
-                <thead>
+    @if (isset($user))
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">お名前</th>
+                    <th scope="col">メールアドレス</th>
+                    <th scope="col">住所</th>
+                    <th scope="col">電話番号</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-danger">
+                    <th scope=>{{ $user['name'] }}</th>
+                    <td>{{ $user['email'] }}</td>
+                    <td>{{ $user['address'] }}</td>
+                    <td>{{ $user['tel'] }}</td>
+                    <td>
+                        <form action="{{ route('admin.person.edit') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $user['id'] }}">
+                            <input type="submit" class="btn btn-info" value="編集">
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    @else
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">お名前</th>
+                    <th scope="col">メールアドレス</th>
+                    <th scope="col">住所</th>
+                    <th scope="col">電話番号</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($users as $user)
                     <tr>
-                        <th scope="col">お名前</th>
-                        <th scope="col">メールアドレス</th>
-                        <th scope="col">年齢</th>
-                        <th scope="col">住所</th>
-                        <th scope="col">電話番号</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="text-danger">
                         <th scope=>{{ $user['name'] }}</th>
                         <td>{{ $user['email'] }}</td>
-                        <td>{{ $user['age'] }}</td>
                         <td>{{ $user['address'] }}</td>
                         <td>{{ $user['tel'] }}</td>
+                        <td>
+                            <form action="{{ route('admin.person.edit') }}" method="post">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $user['id'] }}">
+                                <input type="submit" class="btn btn-info" value="編集">
+                            </form>
+                        </td>
                     </tr>
-                </tbody>
-            </table>
-
-        @else
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col">お名前</th>
-                        <th scope="col">メールアドレス</th>
-                        <th scope="col">年齢</th>
-                        <th scope="col">住所</th>
-                        <th scope="col">電話番号</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($users as $user)
-                        <tr>
-                            <th scope=>{{ $user['name'] }}</th>
-                            <td>{{ $user['email'] }}</td>
-                            <td>{{ $user['age'] }}</td>
-                            <td>{{ $user['address'] }}</td>
-                            <td>{{ $user['tel'] }}</td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        @endif
-    @endsection
+                @endforeach
+            </tbody>
+        </table>
+    @endif
+@endsection
