@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
 use App\User;
+use Illuminate\Foundation\Console\Presets\React;
 
 class PersonController extends Controller
 {
@@ -66,5 +67,27 @@ class PersonController extends Controller
           ]);
 
         return redirect('admin/home')->with('flash_message', '変更しました');
+    }
+
+    /**
+     * 削除の確認画面を表示
+     */
+    public function conf_delete(Request $request)
+    {
+        $user = User::find($request->input('id'));
+        $data = [
+            'user' => $user
+        ];
+        return view('admin.person.conf_delete', $data);
+    }
+
+    /**
+     * 特定のアカウントを削除する
+     */
+    public function delete(Request $request)
+    {
+        $user = User::find($request->input('id'))->delete();
+        
+        return redirect('admin/home')->with('flash_message', 'アカウントを削除しました。');        
     }
 }

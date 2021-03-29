@@ -125,4 +125,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::post('person/edit', 'Admin\PersonController@edit')->name('admin.person.edit');
     // お客様検索結果
     Route::post('person/update', 'Admin\PersonController@update')->name('admin.person.update');
+    // アカウント削除の確認画面
+    Route::post('person/delete/conf', 'Admin\PersonController@conf_delete')->name('admin.person.conf_del');
+    // アカウント削除完了
+    Route::post('person/delete/comp', 'Admin\PersonController@delete')->name('admin.person.delete');
 });

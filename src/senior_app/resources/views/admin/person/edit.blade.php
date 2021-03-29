@@ -26,4 +26,13 @@
 
         <button type="submit" class="btn btn-info">変更する</button>
     </form>
+
+    <br>
+
+    <form action="{{ route('admin.person.conf_del') }}" method="post">
+        @csrf
+        <input type="hidden" name="id" value="{{ $user['id'] }}">
+        <button type="submit" class="btn btn-danger">アカウントを削除する</button>
+    </form>
+
 @endsection
