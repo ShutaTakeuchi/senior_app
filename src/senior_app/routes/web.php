@@ -51,6 +51,13 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/contact/emergency', 'ContactController@emergency')->name('contact.emergency');
     // タクシー手配確認
     Route::get('/contact/conf/taxi', 'ContactController@conf_taxi')->name('contact.conf.taxi');
+    // 注文キャンセル
+        // 注文中一覧
+    Route::get('/contact/show', 'ContactController@show_order')->name('contact.show.order');
+        // キャンセルの確認
+    Route::get('/contact/conf/cancel', 'ContactController@conf_cancel')->name('contact.conf.cancel');
+        // キャンセル申請の完了
+    Route::post('/contact/comp/cancel', 'ContactController@comp_cancel')->name('contact.comp.cancel');
     // 予約完了
     Route::get('/contact/comp/taxi', 'ContactController@comp_taxi')->name('contact.comp.taxi');
 
