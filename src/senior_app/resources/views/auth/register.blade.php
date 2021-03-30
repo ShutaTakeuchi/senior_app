@@ -45,21 +45,6 @@
                             </div>
                         </div>
 
-                        {{-- age --}}
-                        <div class="form-group row">
-                            <label for="age" class="col-md-4 col-form-label text-md-right">{{ __('年齢') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="age" type="number" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ old('age') }}" required autocomplete="age" autofocus placeholder="60">
-
-                                @error('age')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
                         {{-- address --}}
                         <div class="form-group row">
                             <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('住所') }}</label>
