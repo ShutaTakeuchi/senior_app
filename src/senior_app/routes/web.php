@@ -140,5 +140,9 @@ Route::get('visit/form', function () {
 Route::get('welcome/', 'WelcomeController@index')->name('welcome.index');
 // 営業所の住所
 Route::get('welcome/address', 'WelcomeController@address')->name('welcome.address');
-// 訪問型の会員登録
+// 訪問型の会員登録のフォーム
 Route::get('welcome/visit/form', 'WelcomeController@form')->name('welcome.form');
+// 訪問型の会員登録の確認画面
+Route::post('welcome/visit/form/conf', 'WelcomeController@conf')->name('welcome.form.conf');
+// 訪問型の会員登録の確認画面
+Route::post('welcome/visit/form/comp', 'WelcomeController@comp')->name('welcome.form.comp');
