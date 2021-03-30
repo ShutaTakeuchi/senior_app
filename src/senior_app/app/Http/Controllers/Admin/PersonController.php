@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;  // \Adminを追加
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use Auth;
 use App\User;
 use Illuminate\Foundation\Console\Presets\React;
@@ -64,6 +65,7 @@ class PersonController extends Controller
               'name' => $request->input('name'),
               'email' => $request->input('email'),
               'address' => $request->input('address'),
+              'password' => Hash::make($request->input('password')),
           ]);
 
         return redirect('admin/home')->with('flash_message', '変更しました');

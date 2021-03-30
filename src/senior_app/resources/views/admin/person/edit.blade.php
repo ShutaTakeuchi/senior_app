@@ -21,6 +21,11 @@
             <label for="address">住所</label>
             <input type="text" class="form-control" id="address" value="{{ $user['address'] }}" name="address">
         </div>
+
+        <div class="form-group">
+            <label for="address">パスワード</label>
+            <input type="password" class="form-control" id="address" value="" name="password">
+        </div>
         
         <input type="hidden" name="id" value="{{ $user['id'] }}">
 
