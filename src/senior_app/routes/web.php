@@ -130,3 +130,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     // アカウント削除完了
     Route::post('person/delete/comp', 'Admin\PersonController@delete')->name('admin.person.delete');
 });
+
+// 訪問型会員登録
+Route::get('visit/form', function () {
+    return view('visit/form');
+});
+
+// NoLogin
+Route::get('welcome/', 'WelcomeController@index')->name('welcome.index');
+// 営業所の住所
+Route::get('welcome/address', 'WelcomeController@address')->name('welcome.address');
+// 訪問型の会員登録
+Route::get('welcome/visit/form', 'WelcomeController@form')->name('welcome.form');

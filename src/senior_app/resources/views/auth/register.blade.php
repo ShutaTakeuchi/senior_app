@@ -122,6 +122,14 @@
                             </div>
                         </div>
                     </form>
+                    <br>
+
+                    <div class="col-md-12">
+                        <a href="{{ route('welcome.index') }}" class="btn btn-danger">
+                            {{ __('使い方が分からない') }}
+                        </a>
+                    </div>
+
                 </div>
             </div>
         </div>
