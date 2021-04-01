@@ -72,6 +72,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     // 投稿
     Route::post('/post', 'PostController@post')->name('post');
+
+    // 個人情報
+    Route::get('/user/index', 'UserController@index')->name('user.index');
 });
 
 // admin認証のルーティング
