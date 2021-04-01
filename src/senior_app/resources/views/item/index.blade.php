@@ -29,6 +29,10 @@
         </div>
         <button type="submit" class="btn btn-info btn-lg btn-block">さがす</button>
       </form>
+
+      <br>
+
+      <a href="{{ route('home') }}" class="btn btn-dark btn-lg">戻る</a>
   </div>
 </header>
 @endsection

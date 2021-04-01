@@ -26,6 +26,10 @@
                     </tr>
             </table>
 
+            <br>
+
+            <a href="{{ route('home') }}" class="btn btn-dark btn-lg">戻る</a>
+
         </div>
     </header>
 @endsection

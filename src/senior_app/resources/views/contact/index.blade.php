@@ -12,6 +12,10 @@
         <a href="{{ route('contact.show.order') }}" class="btn btn-info btn-lg btn-block">商品のキャンセル</a>
         <br>
         <a href="{{ route('contact.emergency') }}" class="btn btn-danger btn-lg btn-block">緊急・救急</a>
+
+        <br>
+
+        <a href="{{ route('home') }}" class="btn btn-dark btn-lg">戻る</a>
     </div>
   </header>
 @endsection

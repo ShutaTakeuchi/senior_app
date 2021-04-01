@@ -11,7 +11,7 @@
         <br>
         <a href="{{ route('contact.comp.taxi') }}"  class="btn btn-info btn-lg">予約します</a>
         <br>
-        <a href="{{ route('home') }}" class="btn btn-dark btn-lg">いいえ</a>
+        <a href="{{ route('home') }}" class="btn btn-dark btn-lg">戻る</a>
     </div>
   </header>
 @endsection
