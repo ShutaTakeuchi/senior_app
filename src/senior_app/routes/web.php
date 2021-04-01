@@ -60,6 +60,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/contact/comp/cancel', 'ContactController@comp_cancel')->name('contact.comp.cancel');
     // 予約完了
     Route::get('/contact/comp/taxi', 'ContactController@comp_taxi')->name('contact.comp.taxi');
+    // 個人情報変更申請完了
+    Route::get('/contact/conf/edit', 'ContactController@conf_edit_user_info')->name('contact.conf.edit');
+    // 個人情報変更申請完了
+    Route::get('/contact/comp/edit', 'ContactController@comp_edit_user_info')->name('contact.comp.edit');
 
     // 天気予報API
     Route::get('/weather', 'HomeController@get_weather')->name('weather.index');
