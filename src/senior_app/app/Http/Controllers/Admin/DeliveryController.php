@@ -19,7 +19,7 @@ class DeliveryController extends Controller
         // 管理者以外をブロック
         $me = Auth::user();
         if ($me->id !== 1){
-            return redirect('admin/home');
+            return redirect('admin/task/delivery');
         }
 
         $deliveries = Delivery::all();

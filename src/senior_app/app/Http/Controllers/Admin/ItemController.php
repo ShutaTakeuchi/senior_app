@@ -20,7 +20,6 @@ class ItemController extends Controller
         if ($me->id !== 1){
             return redirect('admin/home');
         }
-
         return view('admin.item.index');
     }
 
