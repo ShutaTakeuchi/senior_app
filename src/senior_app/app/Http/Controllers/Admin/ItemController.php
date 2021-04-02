@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Item;
+use App\Admin;
 use Auth;
  
 class ItemController extends Controller
@@ -18,9 +19,34 @@ class ItemController extends Controller
         // 管理者以外をブロック
         $me = Auth::user();
         if ($me->id !== 1){
-            return redirect('admin/home');
+            return redirect('admin/task/item');
         }
-        return view('admin.item.index');
+
+        $items = Item::all();
+        $data = [
+            'items' => $items
+        ];
+        return view('admin.item.index', $data);
+    }
+
+    public function insert_staff(Request $request)
+    {
+        $items = Admin::all();
+        $data = [
+            'items' => $items,
+            'item_id' => $request->input('item_id')
+        ];
+
+        return view('admin.item.insert_staff', $data);
+    }
+
+    public function store_staff(Request $request)
+    {
+        
+        Item::where('id', $request->input('item_id'))
+          ->update(['admin_id' => $request->input('id')]);
+        
+        return view('admin/home');
     }
 
     /**

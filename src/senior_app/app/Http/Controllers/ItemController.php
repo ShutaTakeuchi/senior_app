@@ -127,6 +127,7 @@ class ItemController extends Controller
         $item->user_id = Auth::user()['id'];
         $item->item_id = $item_id;
         $item->item_name = $item_name;
+        $item->status = '注文済み';
         $item->save();
     }
 }

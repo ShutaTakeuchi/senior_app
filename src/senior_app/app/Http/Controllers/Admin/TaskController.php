@@ -21,6 +21,21 @@ class TaskController extends Controller
             'deliveries' => $deliveries
         ];
 
-        return view('Admin.task.index', $data);
+        return view('Admin.task.delivery_index', $data);
+    }
+
+    public function item_show()
+    {
+        $me = Auth::user();
+        if ($me->id === 1){
+            return view('admin/home');
+        }
+
+        $items = Admin::find(Auth::user()['id'])->items;
+        $data = [
+            'items' => $items
+        ];
+
+        return view('Admin.task.item_index', $data);
     }
 }

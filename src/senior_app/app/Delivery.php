@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Delivery extends Model
 {
-    protected $fillable = ['user_id', 'shop_id', 'shop_name', 'admin_id'];
+    protected $fillable = ['user_id', 'shop_id', 'shop_name', 'admin_id', 'status'];
 
     public function user()
     {

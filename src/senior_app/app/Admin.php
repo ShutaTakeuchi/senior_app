@@ -32,4 +32,9 @@ class Admin extends Authenticatable
         return $this->hasMany('App\Delivery');
     }
 
+    public function items()
+    {
+        return $this->hasMany('App\Item');
+    }
+
 }

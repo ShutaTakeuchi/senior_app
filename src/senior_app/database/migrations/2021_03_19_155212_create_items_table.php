@@ -18,6 +18,8 @@ class CreateItemsTable extends Migration
             $table->integer('user_id');
             $table->string('item_id');
             $table->string('item_name');
+            $table->string('admin_id')->nullable();
+            $table->string('status');
             $table->timestamps();
         });
     }
