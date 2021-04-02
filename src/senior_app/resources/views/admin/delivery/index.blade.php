@@ -37,16 +37,16 @@
                     <td>{{ $delivery->user->tel }}</td>
                     <td>{{ $delivery->shop_name }}</td>
                     <td>
-                      @if ($delivery->staff === null)
+                      @if ($delivery->admin_id === null)
                         <form action="{{ route('admin.staff.delivery') }}" method="get">
-                          <input type="hidden" name="id" value="{{ $delivery->id }}">
+                          <input type="hidden" name="shop_id" value="{{ $delivery->id }}">
                           <input type="submit" class="btn btn-warning btn-sm" value="未定">
                         </form>
                       {{-- 担当者が入力済みの場合は、担当者名を表示する --}}
                       @else
                         <form action="{{ route('admin.staff.delivery') }}" method="get">
-                          <input type="hidden" name="id" value="{{ $delivery->id }}">
-                          <input type="submit" class="btn btn-body btn-sm" value="{{ $delivery->staff }}">
+                          <input type="hidden" name="shop_id" value="{{ $delivery->id }}">
+                          <input type="submit" class="btn btn-body btn-sm" value="{{ $delivery->admin->name }}">
                         </form>
                       @endif
                     </td>

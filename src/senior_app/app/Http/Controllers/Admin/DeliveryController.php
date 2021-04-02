@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Delivery;
+use App\Admin;
 use Auth;
  
 class DeliveryController extends Controller
@@ -24,16 +25,20 @@ class DeliveryController extends Controller
 
     public function insert_staff(Request $request)
     {
+        $deliveries = Admin::all();
         $data = [
-            'order' => $request->input('id')
+            'deliveries' => $deliveries,
+            'shop_id' => $request->input('shop_id')
         ];
+
         return view('admin.delivery.insert_staff', $data);
     }
 
     public function store_staff(Request $request)
     {
-        Delivery::where('id', $request->input('id'))
-          ->update(['staff' => $request->input('staff_name')]);
+        
+        Delivery::where('id', $request->input('shop_id'))
+          ->update(['admin_id' => $request->input('id')]);
         
         return view('admin/home');
     }
