@@ -11,11 +11,31 @@ use Auth;
 class DeliveryController extends Controller
 {
     /**
-     * delivery お客様検索
+     * delivery 注文中の商品を一覧表示
      */
     public function search(Request $request)
     {
-        return view('admin.delivery.index');
+        $deliveries = Delivery::all();
+        $data = [
+            'deliveries' => $deliveries
+        ];
+        return view('admin.delivery.index', $data);
+    }
+
+    public function insert_staff(Request $request)
+    {
+        $data = [
+            'order' => $request->input('id')
+        ];
+        return view('admin.delivery.insert_staff', $data);
+    }
+
+    public function store_staff(Request $request)
+    {
+        Delivery::where('id', $request->input('id'))
+          ->update(['staff' => $request->input('staff_name')]);
+        
+        return view('admin/home');
     }
 
     /**

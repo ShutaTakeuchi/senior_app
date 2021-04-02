@@ -31,8 +31,6 @@ admin認証
 php artisan tinker
 App\Admin::create(['name' => 'admin', 'email' => 'admin@admin.com', 'password' => bcrypt('password123')]);
 
-サービス名
-    ＊homey(家庭的な)
-    ＊home
-    ＊Live
-
+admin画面
+    ＊ごはん：注文中の商品の一覧
+    ＊おかいもの：注文中の商品の一覧

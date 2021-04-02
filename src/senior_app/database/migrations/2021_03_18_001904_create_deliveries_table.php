@@ -18,6 +18,7 @@ class CreateDeliveriesTable extends Migration
             $table->integer('user_id');
             $table->string('shop_id');
             $table->string('shop_name');
+            $table->string('staff')->nullable();
             $table->timestamps();
         });
     }

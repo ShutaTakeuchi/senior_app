@@ -106,6 +106,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     // delivery
     // 検索
     Route::get('delivery/search', 'Admin\DeliveryController@search')->name('admin.search.delivery');
+    // 担当者入力画面
+    Route::get('delivery/insert/staff', 'Admin\DeliveryController@insert_staff')->name('admin.staff.delivery');
+    // 担当者保存
+    Route::post('delivery/store/staff', 'Admin\DeliveryController@store_staff')->name('admin.store_staff.delivery');
+
     // // 一覧
     Route::get('delivery/show_all', 'Admin\DeliveryController@show_all')->name('admin.delivery.show_all');
     // 検索結果
@@ -138,10 +143,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::post('person/delete/comp', 'Admin\PersonController@delete')->name('admin.person.delete');
 });
 
+
+
 // 訪問型会員登録
 Route::get('visit/form', function () {
     return view('visit/form');
 });
+
+
 
 // NoLogin
 Route::get('welcome/', 'WelcomeController@index')->name('welcome.index');

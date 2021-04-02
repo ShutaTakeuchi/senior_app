@@ -16,4 +16,52 @@
                 </div>
               </form>
               <a class="btn btn-info" href="{{ route('admin.delivery.show_all') }}">全て</a>
+
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">お名前</th>
+                    <th scope="col">住所</th>
+                    <th scope="col">電話番号</th>
+                    <th scope="col">商品名</th>
+                    <th scope="col">担当</th>
+                    <th scope="col">状況</th>
+                    <th scope="col">キャンセル</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach($deliveries as $delivery)
+                  <tr>
+                    <th>{{ $delivery->user->name }}</th>
+                    <td>{{ $delivery->user->address }}</td>
+                    <td>{{ $delivery->user->tel }}</td>
+                    <td>{{ $delivery->shop_name }}</td>
+                    <td>
+                      @if ($delivery->staff === null)
+                        <form action="{{ route('admin.staff.delivery') }}" method="get">
+                          <input type="hidden" name="id" value="{{ $delivery->id }}">
+                          <input type="submit" class="btn btn-warning btn-sm" value="未定">
+                        </form>
+                      {{-- 担当者が入力済みの場合は、担当者名を表示する --}}
+                      @else
+                        <form action="{{ route('admin.staff.delivery') }}" method="get">
+                          <input type="hidden" name="id" value="{{ $delivery->id }}">
+                          <input type="submit" class="btn btn-body btn-sm" value="{{ $delivery->staff }}">
+                        </form>
+                      @endif
+                    </td>
+                    <td>
+                      {{-- 状況　注文済み・購入済み --}}
+                    </td>
+                    <td>
+                      {{-- キャンセル --}}
+                      <form action="" method="post">
+                        <input type="hidden" value="{{ $delivery->id }}">
+                        <input type="submit" class="btn btn-danger btn-sm" value="キャンセル">
+                      </form>
+                    </td>
+                  </tr>
+                  @endforeach                   
+                </tbody>
+              </table>
 @endsection
