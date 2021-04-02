@@ -141,6 +141,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::post('person/delete/conf', 'Admin\PersonController@conf_delete')->name('admin.person.conf_del');
     // アカウント削除完了
     Route::post('person/delete/comp', 'Admin\PersonController@delete')->name('admin.person.delete');
+
+    // 社員情報一覧
+    Route::get('staff/index', 'Admin\AdminController@index')->name('admin.staff.index');
+    // 社員の新規登録フォーム
+    Route::get('staff/create', 'Admin\AdminController@create_staff')->name('admin.staff.create');
+    // 社員の新規登録完了
+    Route::post('staff/store', 'Admin\AdminController@store_staff')->name('admin.staff.store');
+    // 社員アカウント削除確認画面
+    Route::get('staff/delete/conf', 'Admin\AdminController@conf_delete')->name('admin.delete.conf');
+    // 社員アカウント削除完了
+    Route::post('staff/delete/comp', 'Admin\AdminController@comp_delete')->name('admin.delete.comp');
 });
 
 
