@@ -152,6 +152,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::get('staff/delete/conf', 'Admin\AdminController@conf_delete')->name('admin.delete.conf');
     // 社員アカウント削除完了
     Route::post('staff/delete/comp', 'Admin\AdminController@comp_delete')->name('admin.delete.comp');
+
+    // test
+    Route::get('test', 'Admin\TaskController@index');
 });
 
 

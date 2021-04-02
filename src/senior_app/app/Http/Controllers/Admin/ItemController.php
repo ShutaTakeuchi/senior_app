@@ -15,6 +15,12 @@ class ItemController extends Controller
      */
     public function search(Request $request)
     {
+        // 管理者以外をブロック
+        $me = Auth::user();
+        if ($me->id !== 1){
+            return redirect('admin/home');
+        }
+
         return view('admin.item.index');
     }
 

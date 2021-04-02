@@ -16,6 +16,13 @@ class PersonController extends Controller
      */
     public function show_people()
     {
+
+        // 管理者以外をブロック
+        $me = Auth::user();
+        if ($me->id !== 1){
+            return redirect('admin/home');
+        }
+        
         $users = User::all();
         $data = [
             'users' => $users

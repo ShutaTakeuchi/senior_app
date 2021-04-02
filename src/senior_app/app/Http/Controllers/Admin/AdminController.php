@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Admin;
+use Auth;
 
 class AdminController extends Controller
 {
@@ -14,6 +15,12 @@ class AdminController extends Controller
      */
     public function index()
     {
+        // 管理者以外をブロック
+        $me = Auth::user();
+        if ($me->id !== 1){
+            return redirect('admin/home');
+        }
+
         $admin_people = Admin::all();
         $data = [
             'people' => $admin_people

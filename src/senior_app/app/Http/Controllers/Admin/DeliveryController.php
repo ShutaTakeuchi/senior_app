@@ -16,6 +16,12 @@ class DeliveryController extends Controller
      */
     public function search(Request $request)
     {
+        // 管理者以外をブロック
+        $me = Auth::user();
+        if ($me->id !== 1){
+            return redirect('admin/home');
+        }
+
         $deliveries = Delivery::all();
         $data = [
             'deliveries' => $deliveries
