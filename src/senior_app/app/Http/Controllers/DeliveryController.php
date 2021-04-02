@@ -120,6 +120,7 @@ class DeliveryController extends Controller
         $delivery->user_id = Auth::user()['id'];
         $delivery->shop_id = $shop_id;
         $delivery->shop_name = $shop_name;
+        $delivery->status = '注文済み';
         $delivery->save();
     }
 }

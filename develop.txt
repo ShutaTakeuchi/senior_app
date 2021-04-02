@@ -34,3 +34,5 @@ App\Admin::create(['name' => 'admin', 'email' => 'admin@admin.com', 'password' =
 admin画面
     ＊ごはん：注文中の商品の一覧
     ＊おかいもの：注文中の商品の一覧
+
+社員1人1人に社員番号をつける
