@@ -71,7 +71,7 @@
         </nav>
 
         <div class="py-4">
-            <header class="masthead bg-primary text-white text-center" style="margin-top: -25px; height: 100%;">
+            <header class="masthead bg-white text-body text-center" style="margin-top: -25px; height: 100%;">
                 <div class="container d-flex align-items-center flex-column">
                     @yield('content')
                 </div>
