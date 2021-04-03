@@ -9,13 +9,11 @@ use App\Admin;
 
 class TaskController extends Controller
 {
+    /**
+     * delivery担当の業務を表示
+     */
     public function delivery_show()
     {
-        $me = Auth::user();
-        if ($me->id === 1){
-            return view('admin/home');
-        }
-
         $deliveries = Admin::find(Auth::user()['id'])->deliveries;
         $data = [
             'deliveries' => $deliveries
@@ -24,13 +22,19 @@ class TaskController extends Controller
         return view('Admin.task.delivery_index', $data);
     }
 
+    /**
+     * ステータスを変更する
+     */
+    public function change_status(Request $request)
+    {
+        
+    }
+
+    /**
+     * item担当の業務を表示
+     */
     public function item_show()
     {
-        $me = Auth::user();
-        if ($me->id === 1){
-            return view('admin/home');
-        }
-
         $items = Admin::find(Auth::user()['id'])->items;
         $data = [
             'items' => $items
