@@ -71,8 +71,9 @@
             </div>
         </nav>
 
+        {{-- 内容 --}}
         <div class="py-4">
-            <header class="masthead bg-white text-body text-center" style="margin-top: -25px; height: 100%;">
+            <header class="masthead bg-white text-body text-center" style="margin-top: -160px; height: 100%; min-height:750px;">
                 <div class="container d-flex align-items-center flex-column">
                     @yield('content')
                 </div>

@@ -26,7 +26,7 @@
     </form>
     <a class="btn btn-info" href="{{ route('admin.delivery.show_all') }}">全て</a> --}}
 
-    <table class="table table-bordered">
+    <table class="table table-bordered table-wrap">
         <thead>
             <tr>
                 <th scope="col">お名前</th>
