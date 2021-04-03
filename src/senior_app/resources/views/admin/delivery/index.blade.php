@@ -11,7 +11,7 @@
     @endif
     <h2>ごはん</h2>
     <br>
-    
+
     {{-- <h2>ご注文検索</h2>
     <h5>お客様の電話番号を入力してください。</h5>
     <h5>（ハイフン無し）</h5>
@@ -51,21 +51,26 @@
                                 <input type="hidden" name="shop_id" value="{{ $delivery->id }}">
                                 <input type="submit" class="btn text-danger btn-sm" value="未定">
                             </form>
-                            {{-- 担当者が入力済みの場合は、担当者名を表示する --}}
-                        @else
-                            <form action="{{ route('admin.staff.delivery') }}" method="get">
-                                <input type="hidden" name="shop_id" value="{{ $delivery->id }}">
-                                <input type="submit" class="btn btn-body btn-sm" value="{{ $delivery->admin->name }}">
-                            </form>
-                        @endif
+                            @elseif ($delivery->admin_id === '未定')
+                                <form action="{{ route('admin.staff.delivery') }}" method="get">
+                                    <input type="hidden" name="shop_id" value="{{ $delivery->id }}">
+                                    <input type="submit" class="btn text-danger btn-sm" value="未定">
+                                </form>
+                            @else
+                                <form action="{{ route('admin.staff.delivery') }}" method="get">
+                                    <input type="hidden" name="shop_id" value="{{ $delivery->id }}">
+                                    <input type="submit" class="btn btn-body btn-sm"
+                                        value="{{ $delivery->admin->name }}">
+                                </form>
+                            @endif
                     </td>
                     <td>
-                        {{ $delivery->status }}
+                        <button class="btn btn-danger btn-sm">{{ $delivery->status }}</button>
                     </td>
                     <td>
                         {{-- キャンセル --}}
-                        <form action="{{ route('admin.conf.delete.delivery') }}" method="post">
-                            <input type="hidden" value="{{ $delivery->id }}">
+                        <form action="{{ route('admin.conf.delete.delivery') }}" method="get">
+                            <input type="hidden" name="id" value="{{ $delivery->id }}">
                             <input type="submit" class="btn btn-body btn-sm" value="削除">
                         </form>
                     </td>

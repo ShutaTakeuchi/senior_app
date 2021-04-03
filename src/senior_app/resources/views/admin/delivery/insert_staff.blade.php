@@ -8,6 +8,7 @@
         @csrf
         <div class="form-group">
             <select name="id" class="form-control">
+                <option value="未定">未定</option>
                 @foreach ($deliveries as $delivery)
                     @if($delivery->name !== 'admin')
                         <option value="{{ $delivery->id }}">{{ $delivery->name }}</option>
