@@ -129,13 +129,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::get('item/change/status/conf', 'Admin\ItemController@conf_change_to_in_stock')->name('admin.status.conf.item');
     // 入荷済みを確定する
     Route::post('item/change/status/comp', 'Admin\ItemController@comp_change_to_in_stock')->name('admin.status.comp.item');
+    // 削除の確認
+    Route::get('item/delete/conf', 'Admin\ItemController@conf_delete')->name('admin.conf.delete.item');
+    // 削除の処理
+    Route::post('item/delete/comp', 'Admin\ItemController@delete')->name('admin.comp.delete.item');
 
     // // 一覧
     Route::get('item/show_all', 'Admin\ItemController@show_all')->name('admin.item.show_all');
     // 検索結果
     Route::post('item/show', 'Admin\ItemController@show')->name('admin.item.show');
-    // 配達済み
-    Route::post('item/delete', 'Admin\ItemController@delete')->name('admin.item.delete');
+    // // 配達済み
+    // Route::post('item/delete', 'Admin\ItemController@delete')->name('admin.item.delete');
 
     // person
     // お客様一覧

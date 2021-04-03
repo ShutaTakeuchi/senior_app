@@ -11,7 +11,8 @@
     @endif
 
     <h2>おかいもの</h2>
-    <h2>ご注文検索</h2>
+    <br>
+    {{-- <h2>ご注文検索</h2>
     <h5>お客様の電話番号を入力してください。</h5>
     <h5>（ハイフン無し）</h5>
 
@@ -23,7 +24,7 @@
             <button type="submit" class="btn btn-info">検索</button>
         </div>
     </form>
-    <a class="btn btn-info" href="{{ route('admin.item.show_all') }}">全て</a>
+    <a class="btn btn-info" href="{{ route('admin.item.show_all') }}">全て</a> --}}
 
     <table class="table table-bordered">
         <thead>
@@ -34,13 +35,13 @@
                 <th scope="col">商品名</th>
                 <th scope="col">担当</th>
                 <th scope="col">状況</th>
-                <th scope="col">キャンセル</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
             @foreach ($items as $item)
                 <tr>
-                    <th>{{ $item->user->name }}</th>
+                    <td nowrap>{{ $item->user->name }}</th>
                     <td>{{ $item->user->address }}</td>
                     <td>{{ $item->user->tel }}</td>
                     <td>{{ $item->item_name }}</td>
@@ -80,9 +81,9 @@
                     </td>
                     <td>
                         {{-- キャンセル --}}
-                        <form action="" method="post">
-                            <input type="hidden" value="{{ $item->id }}">
-                            <input type="submit" class="btn btn-body btn-sm" value="キャンセル">
+                        <form action="{{ route('admin.conf.delete.item') }}" method="get">
+                            <input type="hidden" name="id" value="{{ $item->id }}">
+                            <input type="submit" class="btn btn-body btn-sm" value="削除">
                         </form>
                     </td>
                 </tr>
