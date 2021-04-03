@@ -46,6 +46,7 @@
                     <td>{{ $item->user->tel }}</td>
                     <td>{{ $item->item_name }}</td>
                     <td>
+                        {{-- 担当者 --}}
                         @if ($item->admin_id === null)
                         <form action="{{ route('admin.staff.item') }}" method="get">
                             <input type="hidden" name="item_id" value="{{ $item->id }}">

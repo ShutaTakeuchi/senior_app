@@ -110,6 +110,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::get('delivery/insert/staff', 'Admin\DeliveryController@insert_staff')->name('admin.staff.delivery');
     // 担当者保存
     Route::post('delivery/store/staff', 'Admin\DeliveryController@store_staff')->name('admin.store_staff.delivery');
+    // 削除の確認
+    Route::get('delivery/delete/conf', 'Admin\DeliveryController@conf_delete')->name('admin.conf.delete.delivery');
+    // 削除の処理
+    Route::post('delivery/delete/comp', 'Admin\DeliveryController@delete')->name('admin.comp.delete.delivery');
+
 
     // // 一覧
     Route::get('delivery/show_all', 'Admin\DeliveryController@show_all')->name('admin.delivery.show_all');

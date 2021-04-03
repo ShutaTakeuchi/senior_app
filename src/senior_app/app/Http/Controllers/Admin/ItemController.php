@@ -178,6 +178,9 @@ class ItemController extends Controller
         return view('admin.item.conf_delete', $data);
     }
 
+    /**
+     * 削除の処理
+     */
     public function delete(Request $request)
     {
         Item::find($request->input('id'))->delete();
