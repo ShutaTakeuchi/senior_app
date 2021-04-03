@@ -13,6 +13,7 @@
     <h2>おかいもの一覧</h2>
 
     @foreach ($items as $item)
+    @if ($item->status === '入荷済み')
     <table class="table table-bordered">
             <tr>
                 <th>商品名</th>
@@ -39,5 +40,6 @@
                 <td><a href="">配達済み</a></td>
             </tr>
     </table>
+    @endif
     @endforeach
 @endsection

@@ -125,6 +125,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::get('item/insert/staff', 'Admin\ItemController@insert_staff')->name('admin.staff.item');
     // 担当者保存
     Route::post('item/store/staff', 'Admin\ItemController@store_staff')->name('admin.store_staff.item');
+    // 注文済みから入荷済みに変更する
+    Route::get('item/change/status/conf', 'Admin\ItemController@conf_change_to_in_stock')->name('admin.status.conf.item');
+    // 入荷済みを確定する
+    Route::post('item/change/status/comp', 'Admin\ItemController@comp_change_to_in_stock')->name('admin.status.comp.item');
 
     // // 一覧
     Route::get('item/show_all', 'Admin\ItemController@show_all')->name('admin.item.show_all');

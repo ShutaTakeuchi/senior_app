@@ -2,6 +2,14 @@
 @extends('layouts.app_admin')
 
 @section('content')
+
+    <!-- フラッシュメッセージ -->
+    @if (session('flash_message'))
+        <div class="flash_message text-danger">
+            <h2>{{ session('flash_message') }}</h2>
+        </div>
+    @endif
+
     <h2>おかいもの</h2>
     <h2>ご注文検索</h2>
     <h5>お客様の電話番号を入力してください。</h5>
@@ -38,11 +46,15 @@
                     <td>{{ $item->item_name }}</td>
                     <td>
                         @if ($item->admin_id === null)
+                        <form action="{{ route('admin.staff.item') }}" method="get">
+                            <input type="hidden" name="item_id" value="{{ $item->id }}">
+                            <input type="submit" class="btn text-danger btn-sm" value="未定">
+                        </form>
+                        @elseif ($item->admin_id === '未定')
                             <form action="{{ route('admin.staff.item') }}" method="get">
                                 <input type="hidden" name="item_id" value="{{ $item->id }}">
-                                <input type="submit" class="btn btn-warning btn-sm" value="未定">
+                                <input type="submit" class="btn text-danger btn-sm" value="未定">
                             </form>
-                            {{-- 担当者が入力済みの場合は、担当者名を表示する --}}
                         @else
                             <form action="{{ route('admin.staff.item') }}" method="get">
                                 <input type="hidden" name="item_id" value="{{ $item->id }}">
@@ -51,13 +63,26 @@
                         @endif
                     </td>
                     <td>
-                        {{ $item->status }}
+                        {{-- 状況 --}}
+                        <form action="{{ route('admin.status.conf.item') }}" method="get">
+                            <input type="hidden" name="id" value="{{ $item->id }}">
+                            @if ($item->status === '入荷済み')
+                                <input type="hidden" name="status" value="入荷済み">
+                                <input type="submit" class="btn btn-info btn-sm" value="入荷済み">
+                            @elseif ($item->status === '注文済み')
+                                <input type="hidden" name="status" value="注文済み">
+                                <input type="submit" class="btn btn-warning btn-sm" value="注文済み">
+                            @elseif ($item->status === '注文依頼')
+                                <input type="hidden" name="status" value="注文依頼">
+                                <input type="submit" class="btn btn-danger btn-sm" value="注文依頼">
+                            @endif
+                        </form>
                     </td>
                     <td>
                         {{-- キャンセル --}}
                         <form action="" method="post">
                             <input type="hidden" value="{{ $item->id }}">
-                            <input type="submit" class="btn btn-danger btn-sm" value="キャンセル">
+                            <input type="submit" class="btn btn-body btn-sm" value="キャンセル">
                         </form>
                     </td>
                 </tr>

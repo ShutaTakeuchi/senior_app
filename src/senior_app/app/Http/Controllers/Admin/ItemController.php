@@ -132,4 +132,36 @@ class ItemController extends Controller
 
         return redirect('/admin/home')->with('flash_message', 'お疲れ様でした！');
     }
+
+    /**
+     * 注文済みから入荷済みに変更する
+     */
+    public function conf_change_to_in_stock(Request $request)
+    {
+        $data = [
+            'id' => $request->input('id'),
+            'status' => $request->input('status')
+        ];
+        return view('admin.item.conf_change_to_in_stock', $data);
+    }
+
+    /**
+     * 入荷済みを確定する
+     */
+    public function comp_change_to_in_stock(Request $request)
+    {
+        if($request->input('status') === '注文済み'){
+           Item::where('id', $request->input('id'))
+          ->update(['status' => '入荷済み']);  
+        }elseif($request->input('status') === '入荷済み'){
+            Item::where('id', $request->input('id'))
+          ->update(['status' => '注文依頼']);
+        }elseif($request->input('status') === '注文依頼'){
+            Item::where('id', $request->input('id'))
+          ->update(['status' => '注文済み']);
+        }
+        
+        
+        return redirect('/admin/item/search')->with('flash_message', '変更しました。');
+    }
 }
