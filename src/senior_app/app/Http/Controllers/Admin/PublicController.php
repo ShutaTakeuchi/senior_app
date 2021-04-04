@@ -13,7 +13,7 @@ class PublicController extends Controller
         /**
          * 業務終了時にlineで自動報告をする
          */
-        $channelToken = 'm3PQGwcOS0ahPTO1YQtgarFT9b9RzAStkA5DLQqDlPYUs2BdBQSvOBV5pDzBLEqvn8lFuIsY3vmad7y7NQHOqJ86TOWsnM72X/Ba77OIVCV4oP14Dg+T/bYfibPuKjcUStCbJp9VZFeylmWPyPaPSAdB04t89/1O/w1cDnyilFU=';
+        $channelToken = 'wYch/Z3t+Rzc9GVTlzkXQncnTfOQjHl4lKlhvp/nyDg8tvvI7aLAkbhwYBySmD2zm0xdAaURP/O8rs1KOCrDOKHXtgdnf2PkicR2GBfXOes3MMgKhvADAOHBnSrGwtfzZk91r9/JrxR4JgYxN+ijQwdB04t89/1O/w1cDnyilFU=';
         $headers = [
             'Authorization: Bearer ' . $channelToken,
             'Content-Type: application/json; charset=utf-8',

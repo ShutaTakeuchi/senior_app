@@ -146,8 +146,6 @@ class TaskController extends Controller
             ];
             $public_func->google_sheets_api($order, 'item');
 
-            return;
-
             // 削除処理
             $item->delete();
         }
