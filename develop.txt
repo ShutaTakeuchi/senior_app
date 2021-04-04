@@ -1,7 +1,4 @@
 すること
-    ＊itemのtaskの「配達中」を追加する
-    ＊line apiとgoogle sheets apiを追加する
-    ＊google sheets api　には　配達完了後のデータを残す
     ＊全体のUIを整える
     ＊全体のコードを整える
 

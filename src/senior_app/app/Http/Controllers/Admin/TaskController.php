@@ -33,7 +33,7 @@ class TaskController extends Controller
             Delivery::where('id', $request->input('id'))
                 ->update(['status' => '配達中']);
             return redirect('/admin/task/delivery')->with('flash_message', '変更しました。');
-        }else{
+        } else {
             Item::where('id', $request->input('id'))
                 ->update(['status' => '配達中']);
             return redirect('/admin/task/item')->with('flash_message', '変更しました。');
@@ -80,11 +80,78 @@ class TaskController extends Controller
      */
     public function finish(Request $request)
     {
+        // Delivery
         if ($request->input('category') === 'delivery') {
-            Delivery::find($request->input('id'))->delete();
+
+            // line api
+            $delivery = Delivery::find($request->input('id'));
+            $user_name = $delivery->user->name;
+            $shop_name = $delivery->shop_name;
+            $staff_name = Auth::user()['name'];
+            $message = <<<EOF
+            【ごはん　配達済み連絡】
+            お疲れ様です。
+            {$user_name} 様へ
+            {$shop_name} の商品を
+            配達致しました。
+            担当者：{$staff_name}
+            EOF;
+            $public_func = app()->make('App\Http\Controllers\Admin\PublicController');
+            $public_func->line_api($message);
+
+            // google sheets api
+            $tel = $delivery->user->tel;
+            $time = date('Y-m-d H:i:s');
+            $order = [
+                $delivery->user->name,
+                $delivery->user->address,
+                "'$tel",
+                $delivery->shop_name,
+                Auth::user()['name'],
+                $time
+            ];
+            $public_func->google_sheets_api($order, 'delivery');
+
+            // 削除処理
+            $delivery->delete();
+
+            // Item
         } else {
-            Item::find($request->input('id'))->delete();
+            $item = Item::find($request->input('id'));
+            // line api
+            $user_name = $item->user->name;
+            $item_name = $item->item_name;
+            $staff_name = Auth::user()['name'];
+            $message = <<<EOF
+            【おかいもの　配達済み連絡】
+            お疲れ様です。
+            {$user_name} 様へ
+            {$item_name} の商品を
+            配達致しました。
+            担当者：{$staff_name}
+            EOF;
+            $public_func = app()->make('App\Http\Controllers\Admin\PublicController');
+            $public_func->line_api($message);
+
+            // google sheets api
+            $tel = $item->user->tel;
+            $time = date('Y-m-d H:i:s');
+            $order = [
+                $item->user->name,
+                $item->user->address,
+                "'$tel",
+                $item->item_name,
+                Auth::user()['name'],
+                $time
+            ];
+            $public_func->google_sheets_api($order, 'item');
+
+            return;
+
+            // 削除処理
+            $item->delete();
         }
+
         return redirect('admin/home')->with('flash_message', 'お疲れ様でした！');
     }
 }
