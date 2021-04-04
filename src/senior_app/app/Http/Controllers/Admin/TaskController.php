@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Admin;
+use App\Delivery;
+use App\Item;
 
 class TaskController extends Controller
 {
@@ -25,9 +27,11 @@ class TaskController extends Controller
     /**
      * ステータスを変更する
      */
-    public function change_status(Request $request)
+    public function change_status_bought(Request $request)
     {
-        
+        Delivery::where('id', $request->input('id'))
+            ->update(['status' => '配達中']);
+        return redirect('/admin/task/delivery')->with('flash_message', '変更しました。');
     }
 
     /**
@@ -41,5 +45,40 @@ class TaskController extends Controller
         ];
 
         return view('Admin.task.item_index', $data);
+    }
+
+    /**
+     * deliveryとitemの配達完了の確認ページ
+     */
+    public function conf_finish(Request $request)
+    {
+        if ($request->input('category') === 'delivery') {
+            $delivery = Delivery::find($request->input('id'));
+            $data = [
+                'category' => 'delivery',
+                'delivery' => $delivery
+            ];
+        } else {
+            $item = Item::find($request->input('id'));
+            $data = [
+                'category' => 'item',
+                'item' => $item
+            ];
+        }
+
+        return view('admin.task.conf_finish', $data);
+    }
+
+    /**
+     * deliveryとitemの配達完了の処理
+     */
+    public function finish(Request $request)
+    {
+        if ($request->input('category') === 'delivery') {
+            Delivery::find($request->input('id'))->delete();
+        } else {
+            Item::find($request->input('id'))->delete();
+        }
+        return redirect('admin/home')->with('flash_message', 'お疲れ様でした！');
     }
 }

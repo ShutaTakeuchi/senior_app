@@ -51,21 +51,24 @@
                                 <input type="hidden" name="shop_id" value="{{ $delivery->id }}">
                                 <input type="submit" class="btn text-danger btn-sm" value="未定">
                             </form>
-                            @elseif ($delivery->admin_id === '未定')
-                                <form action="{{ route('admin.staff.delivery') }}" method="get">
-                                    <input type="hidden" name="shop_id" value="{{ $delivery->id }}">
-                                    <input type="submit" class="btn text-danger btn-sm" value="未定">
-                                </form>
-                            @else
-                                <form action="{{ route('admin.staff.delivery') }}" method="get">
-                                    <input type="hidden" name="shop_id" value="{{ $delivery->id }}">
-                                    <input type="submit" class="btn btn-body btn-sm"
-                                        value="{{ $delivery->admin->name }}">
-                                </form>
-                            @endif
+                        @elseif ($delivery->admin_id === '未定')
+                            <form action="{{ route('admin.staff.delivery') }}" method="get">
+                                <input type="hidden" name="shop_id" value="{{ $delivery->id }}">
+                                <input type="submit" class="btn text-danger btn-sm" value="未定">
+                            </form>
+                        @else
+                            <form action="{{ route('admin.staff.delivery') }}" method="get">
+                                <input type="hidden" name="shop_id" value="{{ $delivery->id }}">
+                                <input type="submit" class="btn btn-body btn-sm" value="{{ $delivery->admin->name }}">
+                            </form>
+                        @endif
                     </td>
                     <td>
-                        <button class="btn btn-danger btn-sm">{{ $delivery->status }}</button>
+                        @if ($delivery->status === '注文依頼')
+                            <button class="btn btn-danger btn-sm">{{ $delivery->status }}</button>
+                        @elseif ($delivery->status === '配達中')
+                            <button class="btn btn-info btn-sm">{{ $delivery->status }}</button>
+                        @endif
                     </td>
                     <td>
                         {{-- キャンセル --}}

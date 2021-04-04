@@ -6,7 +6,7 @@
     <!-- フラッシュメッセージ -->
     @if (session('flash_message'))
         <div class="flash_message text-danger">
-            {{ session('flash_message') }}
+            <h2>{{ session('flash_message') }}</h2>
         </div>
     @endif
 
@@ -35,9 +35,8 @@
                 <tr>
                     <th></th>
                     <td>
-                        <form action="" method="get">
+                        <form action="{{ route('admin.task.delivery.bought') }}" method="get">
                             <input type="hidden" name="id" value="{{ $delivery->id }}">
-                            <input type="hidden" name="status" value="購入済み">
                             <input type="submit" class="btn btn-warning btn-sm" value="購入済み">
                         </form>
                     </td>
@@ -46,9 +45,9 @@
                 <tr>
                     <th></th>
                     <td>
-                        <form action="" method="get">
+                        <form action="{{ route('admin.task.conf.finish') }}" method="get">
                             <input type="hidden" name="id" value="{{ $delivery->id }}">
-                            <input type="hidden" name="status" value="配達済み">
+                            <input type="hidden" name="category" value="delivery">
                             <input type="submit" class="btn btn-info btn-sm" value="配達済み">
                         </form>
                     </td>

@@ -33,11 +33,13 @@
             </tr>
             <tr>
                 <th></th>
-                <td><a href="">購入済み</a></td>
-            </tr>
-            <tr>
-                <th></th>
-                <td><a href="">配達済み</a></td>
+                <td>
+                    <form action="{{ route('admin.task.conf.finish') }}" method="get">
+                        <input type="hidden" name="id" value="{{ $item->id }}">
+                        <input type="hidden" name="category" value="item">
+                        <input type="submit" class="btn btn-info btn-sm" value="配達済み">
+                    </form>
+                </td>
             </tr>
     </table>
     @endif
