@@ -37,6 +37,7 @@
                     <td>
                         <form action="{{ route('admin.task.delivery.bought') }}" method="get">
                             <input type="hidden" name="id" value="{{ $delivery->id }}">
+                            <input type="hidden" name="category" value="delivery">
                             <input type="submit" class="btn btn-warning btn-sm" value="購入済み">
                         </form>
                     </td>

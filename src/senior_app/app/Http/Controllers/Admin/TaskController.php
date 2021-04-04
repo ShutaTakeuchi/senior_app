@@ -25,13 +25,19 @@ class TaskController extends Controller
     }
 
     /**
-     * ステータスを変更する
+     * deliveryのステータスを変更する
      */
     public function change_status_bought(Request $request)
     {
-        Delivery::where('id', $request->input('id'))
-            ->update(['status' => '配達中']);
-        return redirect('/admin/task/delivery')->with('flash_message', '変更しました。');
+        if ($request->input('category') === 'delivery') {
+            Delivery::where('id', $request->input('id'))
+                ->update(['status' => '配達中']);
+            return redirect('/admin/task/delivery')->with('flash_message', '変更しました。');
+        }else{
+            Item::where('id', $request->input('id'))
+                ->update(['status' => '配達中']);
+            return redirect('/admin/task/item')->with('flash_message', '変更しました。');
+        }
     }
 
     /**

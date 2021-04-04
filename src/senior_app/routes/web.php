@@ -174,11 +174,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     // task
     // delivery
     Route::get('task/delivery', 'Admin\TaskController@delivery_show')->name('admin.task.delivery.show');
-    // 店頭で購入時に「配達中」に変更する
-    Route::get('task/delivery/change/status/bought', 'Admin\TaskController@change_status_bought')->name('admin.task.delivery.bought');
     // item
     Route::get('task/item', 'Admin\TaskController@item_show')->name('admin.task.item.show');
     // 共通
+    // 店頭で購入時に「配達中」に変更する
+    Route::get('task/delivery/change/status/bought', 'Admin\TaskController@change_status_bought')->name('admin.task.delivery.bought');
     // 配達完了の確認ページ
     Route::get('task/finish/conf', 'Admin\TaskController@conf_finish')->name('admin.task.conf.finish');
     // 配達完了の処理

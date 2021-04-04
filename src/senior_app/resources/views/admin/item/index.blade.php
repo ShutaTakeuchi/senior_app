@@ -48,10 +48,10 @@
                     <td>
                         {{-- 担当者 --}}
                         @if ($item->admin_id === null)
-                        <form action="{{ route('admin.staff.item') }}" method="get">
-                            <input type="hidden" name="item_id" value="{{ $item->id }}">
-                            <input type="submit" class="btn text-danger btn-sm" value="未定">
-                        </form>
+                            <form action="{{ route('admin.staff.item') }}" method="get">
+                                <input type="hidden" name="item_id" value="{{ $item->id }}">
+                                <input type="submit" class="btn text-danger btn-sm" value="未定">
+                            </form>
                         @elseif ($item->admin_id === '未定')
                             <form action="{{ route('admin.staff.item') }}" method="get">
                                 <input type="hidden" name="item_id" value="{{ $item->id }}">
@@ -77,6 +77,8 @@
                             @elseif ($item->status === '注文依頼')
                                 <input type="hidden" name="status" value="注文依頼">
                                 <input type="submit" class="btn btn-danger btn-sm" value="注文依頼">
+                            @elseif ($item->status === '配達中')
+                                <button disabled class="btn btn-info btn-sm">配達中</button>
                             @endif
                         </form>
                     </td>

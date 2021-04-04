@@ -13,7 +13,7 @@
     <h2>おかいもの一覧</h2>
 
     @foreach ($items as $item)
-    @if ($item->status === '入荷済み')
+    @if ($item->status === '入荷済み' || $item->status === '配達中')
     <table class="table table-bordered">
             <tr>
                 <th>商品名</th>
@@ -31,6 +31,19 @@
                 <th>電話番号</th>
                 <td>{{ $item->user->tel }}</td>
             </tr>
+            
+            @if($item->status === '入荷済み')
+            <tr>
+                <th></th>
+                <td>
+                    <form action="{{ route('admin.task.delivery.bought') }}" method="get">
+                        <input type="hidden" name="id" value="{{ $item->id }}">
+                        <input type="hidden" name="category" value="item">
+                        <input type="submit" class="btn btn-info btn-sm" value="配達中">
+                    </form>
+                </td>
+            </tr>
+            @elseif ($item->status === '配達中')
             <tr>
                 <th></th>
                 <td>
@@ -41,6 +54,7 @@
                     </form>
                 </td>
             </tr>
+            @endif
     </table>
     @endif
     @endforeach
