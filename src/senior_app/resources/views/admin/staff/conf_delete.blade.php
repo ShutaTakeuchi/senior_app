@@ -16,7 +16,7 @@
             <br>
             <h4>{{ $staff['email'] }}</h4>
         </div>
-      </div>
+    </div>
     <br>
     <br>
 
@@ -30,4 +30,3 @@
 
     <a href="{{ route('admin.staff.index') }}" class="btn btn-dark">戻る</a>
 @endsection
-

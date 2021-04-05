@@ -69,7 +69,21 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/post', 'PostController@post')->name('post');
 
     // 個人情報
+    // 情報表示
     Route::get('/user/index', 'UserController@index')->name('user.index');
+    // 編集フォーム
+    Route::get('/user/edit', 'UserController@edit')->name('user.edit');
+    // 変更完了処理
+    Route::post('/user/edit', 'UserController@update')->name('user.update');
+    // パスワード変更フォーム
+    Route::get('/user/reset_password', 'UserController@reset_password_form')->name('user.reset.form');
+    // パスワード変更処理
+    Route::post('/user/reset_password', 'UserController@reset_password')->name('user.reset');
+    // 削除確認画面
+    Route::get('/user/delete', 'UserController@conf_delete')->name('user.delete.conf');
+    // 削除処理
+    Route::post('/user/delete', 'UserController@delete')->name('user.delete');
+    
 });
 
 // admin認証のルーティング

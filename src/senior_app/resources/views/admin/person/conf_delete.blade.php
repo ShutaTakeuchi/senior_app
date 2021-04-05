@@ -3,14 +3,23 @@
 
 @section('content')
     <h2>お客様のアカウント削除の確認画面</h2>
-    <h3>本当にこちらのアカウントを削除しますか？</h3>
+    <br>
+    <br>
+    <h3 class="text-danger">本当にこちらのアカウントを削除しますか？</h3>
     <br>
     <br>
 
-    <h4>お名前：{{ $user['name'] }}</h4>
-    <h4>メールアドレス：{{ $user['email'] }}</h4>
-    <h4>住所：{{ $user['address'] }}</h4>
-    <h4>電話番号：{{ $user['tel'] }}</h4>
+    <div class="card">
+        <div class="card-body">
+            <h4>{{ $user['name'] }}</h4>
+            <br>
+            <h4>{{ $user['email'] }}</h4>
+            <br>
+            <h4>{{ $user['address'] }}</h4>
+            <br>
+            <h4>{{ $user['tel'] }}</h4>
+        </div>
+    </div>
 
     <br>
     <br>
@@ -23,5 +32,4 @@
 
     <br>
 
-    <a href="{{ route('admin.person.show') }}" class="btn btn-info">戻る</a>
-@endsection
+<a href="{{ route('admin.person.show') }}" class="btn btn-dark">戻る</a @endsection

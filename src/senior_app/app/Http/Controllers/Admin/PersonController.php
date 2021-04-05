@@ -72,7 +72,7 @@ class PersonController extends Controller
               'name' => $request->input('name'),
               'email' => $request->input('email'),
               'address' => $request->input('address'),
-              'password' => Hash::make($request->input('password')),
+            //   'password' => Hash::make($request->input('password')),
           ]);
 
         return redirect('admin/home')->with('flash_message', '変更しました');
