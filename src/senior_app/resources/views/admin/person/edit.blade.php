@@ -2,8 +2,12 @@
 @extends('layouts.app_admin')
 
 @section('content')
-    <h2>お客様情報一覧</h2>
-    <h3>電話番号は変更できません。</h3>
+    <h2>お客様情報編集</h2>
+    <br>
+    <h5 class="text-danger">電話番号は変更できません</h5>
+
+    <br>
+    <br>
 
     <form action="{{ route('admin.person.update') }}" method="post">
         @csrf

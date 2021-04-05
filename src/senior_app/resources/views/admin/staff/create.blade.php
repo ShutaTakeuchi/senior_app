@@ -33,4 +33,7 @@
         <button type="submit" class="btn btn-primary">登録する</button>
     </form>
 
+    <br>
+    <a href="{{ route('admin.staff.index') }}" class="btn btn-dark">戻る</a>
+
 @endsection

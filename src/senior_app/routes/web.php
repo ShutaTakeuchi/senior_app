@@ -65,15 +65,6 @@ Route::group(['middleware' => 'auth'], function () {
     // 個人情報変更申請完了
     Route::get('/contact/comp/edit', 'ContactController@comp_edit_user_info')->name('contact.comp.edit');
 
-    // 天気予報API
-    Route::get('/weather', 'HomeController@get_weather')->name('weather.index');
-
-
-    // 健康状態管理
-    // 入力フォーム
-    // Route::get('/health', 'HealthController@index')->name('health.index');
-    // Route::post('/health/submit', 'HealthController@insert')->name('health.insert');
-
     // 投稿
     Route::post('/post', 'PostController@post')->name('post');
 

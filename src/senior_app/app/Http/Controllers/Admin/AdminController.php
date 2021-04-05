@@ -29,6 +29,9 @@ class AdminController extends Controller
         return view('admin.staff.index', $data);
     }
 
+    /**
+     * 新規登録フォーム
+     */
     public function create_staff()
     {
         return view('admin.staff.create');
@@ -42,7 +45,7 @@ class AdminController extends Controller
         $admin->password = Hash::make($request->input('password'));
         $admin->save();
 
-        return redirect('admin/staff/index')->with('flash_message', '新規登録が完了しました。');
+        return redirect('admin/staff/index')->with('flash_message', '登録が完了しました。よろしくお願いします！');
     }
 
     public function conf_delete(Request $request)

@@ -4,6 +4,9 @@
 @section('content')
     <h2>お客様情報一覧</h2>
 
+    <br>
+    <br>
+
     <!-- フラッシュメッセージ -->
     @if (session('flash_message'))
         <div class="flash_message text-danger">
@@ -15,8 +18,9 @@
         @csrf
         <div class="form-group">
             <input type="test" name="tel" class="form-control" placeholder="00011112222" value="{{ old('tel') }}">
+            <button type="submit" class="btn btn-info">検索</button>
         </div>
-        <button type="submit" class="btn btn-info">検索</button>
+        
     </form>
 
     <br>
