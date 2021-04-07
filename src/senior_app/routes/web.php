@@ -82,7 +82,7 @@ Route::group(['middleware' => 'auth'], function () {
     // 削除確認画面
     Route::get('/user/delete', 'UserController@conf_delete')->name('user.delete.conf');
     // 削除処理
-    Route::post('/user/delete', 'UserController@delete')->name('user.delete');
+    Route::get('/user/delete/comp', 'UserController@delete')->name('user.delete');
     
 });
 

@@ -78,6 +78,7 @@ class UserController extends Controller
      */
     public function delete()
     {
-
+        User::find(Auth::id())->delete();
+        return redirect('/login')->with('flash_message', 'また是非ご利用くださいませ。');
     }
 }

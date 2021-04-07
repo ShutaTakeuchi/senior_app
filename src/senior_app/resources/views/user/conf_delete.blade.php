@@ -13,7 +13,6 @@
             <br>
 
             <form action="{{ route('user.delete') }}" method="get">
-                @csrf
                 <button type="submit" class="btn btn-danger">削除します</button>
             </form>
 
