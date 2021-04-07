@@ -42,18 +42,6 @@ class HomeController extends Controller
     }
 
     /**
-     * 天気予報を取得
-     */
-    // public function get_weather()
-    // {
-    //     $url = 'https://weather.tsukumijima.net/api/forecast/city/440010';
-    //     $json = file_get_contents($url);
-    //     $json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
-    //     $arr = json_decode($json,true);
-    //     return $arr;
-    // }
-
-    /**
      * 配食の注文内容を取得
      */
     public function show_reserve_delivery()

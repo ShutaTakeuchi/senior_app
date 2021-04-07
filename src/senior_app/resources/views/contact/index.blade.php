@@ -9,9 +9,8 @@
         <br>
         <a href="{{ route('contact.conf.taxi') }}" class="btn btn-info btn-lg btn-block">タクシーをつかいたい</a>
         <br>
-        <a href="{{ route('contact.show.order') }}" class="btn btn-info btn-lg btn-block">商品のキャンセル</a>
-        <br>
-        <a href="{{ route('contact.conf.edit') }}" class="btn btn-info btn-lg btn-block">個人情報の変更</a>
+        <a href="{{ route('contact.show.order') }}" class="btn btn-info btn-lg btn-block">商品をキャンセルしたい</a>
+        {{-- <a href="{{ route('contact.conf.edit') }}" class="btn btn-info btn-lg btn-block">個人情報の変更</a> --}}
         <br>
         <a href="{{ route('contact.emergency') }}" class="btn btn-danger btn-lg btn-block">緊急・救急</a>
 
