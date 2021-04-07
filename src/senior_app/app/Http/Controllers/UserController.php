@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -52,9 +53,9 @@ class UserController extends Controller
     /**
      * パスワード変更フォーム
      */
-    public function reset_password_form(Request $request)
+    public function reset_password_form()
     {
-
+        return view('user.reset_password');
     }
 
     /**
@@ -62,7 +63,12 @@ class UserController extends Controller
      */
     public function reset_password(Request $request)
     {
-            //   'password' => Hash::make($request->input('password')),
+        User::where('id', Auth::id())
+          ->update([
+              'password' => bcrypt($request->input('password'))
+          ]);
+
+        return redirect('/user/index')->with('flash_message', 'パスワードを変更しました');
     }
 
     /**

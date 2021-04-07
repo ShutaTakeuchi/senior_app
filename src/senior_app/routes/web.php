@@ -76,9 +76,9 @@ Route::group(['middleware' => 'auth'], function () {
     // 変更完了処理
     Route::post('/user/edit', 'UserController@update')->name('user.update');
     // パスワード変更フォーム
-    Route::get('/user/reset_password', 'UserController@reset_password_form')->name('user.reset.form');
+    Route::get('/user/reset_password', 'UserController@reset_password_form')->name('user.password.reset_form');
     // パスワード変更処理
-    Route::post('/user/reset_password', 'UserController@reset_password')->name('user.reset');
+    Route::post('/user/reset_password', 'UserController@reset_password')->name('user.password.reset_comp');
     // 削除確認画面
     Route::get('/user/delete', 'UserController@conf_delete')->name('user.delete.conf');
     // 削除処理
