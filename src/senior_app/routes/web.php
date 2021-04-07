@@ -209,3 +209,8 @@ Route::get('welcome/visit/form', 'WelcomeController@form')->name('welcome.form')
 Route::post('welcome/visit/form/conf', 'WelcomeController@conf')->name('welcome.form.conf');
 // 訪問型の会員登録の確認画面
 Route::post('welcome/visit/form/comp', 'WelcomeController@comp')->name('welcome.form.comp');
+
+// パスワードを忘れた時の入力フォーム
+Route::get('forget/password', 'Auth\LoginController@show_form')->name('login.forget.form');
+// パスワードを忘れた時の入力完了時の処理（LINE API)
+Route::post('forget/password', 'Auth\LoginController@forget_comp')->name('login.forget.comp');

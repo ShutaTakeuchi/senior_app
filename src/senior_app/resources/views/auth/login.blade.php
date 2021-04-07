@@ -90,15 +90,15 @@
                                         <br>
                                         <a class="btn btn-link" href="{{ route('register') }}"
                                             style="text-decoration: none;">
-                                            {{ __('初めての方はこちらへ') }}
+                                            {{ __('はじめての方はこちらへ') }}
                                         </a>
                                         <br>
-                                        @if (Route::has('password.request'))
-                                            <a class="btn btn-link" href="{{ route('password.request') }}"
-                                                style="text-decoration: none;">
-                                                {{ __('パスワードを忘れた方はこちらへ') }}
-                                            </a>
-                                        @endif
+                                        {{-- @if (Route::has('password.request')) --}}
+                                        <a class="btn btn-link" href="{{ route('login.forget.form') }}"
+                                            style="text-decoration: none;">
+                                            {{ __('パスワードをお忘れの方はこちらへ') }}
+                                        </a>
+                                        {{-- @endif --}}
                                         <br>
                                     </div>
                                 </div>
