@@ -45,15 +45,13 @@
 
     <br>
 
-    <form action="" method="post">
-        @csrf
-        <input type="hidden" name="id" value="{{ $user['id'] }}">
+    <form action="{{ route('user.delete.conf') }}" method="get">
         <button type="submit" class="btn btn-danger">退会したい</button>
     </form>
 
     <br>
 
-    <a href="" class="btn btn-dark">戻る</a>
+    <a href="{{ route('user.index') }}" class="btn btn-dark">戻る</a>
 
 
 </div>

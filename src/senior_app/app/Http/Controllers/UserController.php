@@ -68,15 +68,15 @@ class UserController extends Controller
     /**
      * ユーザ削除確認フォーム
      */
-    public function conf_delete(Request $request)
+    public function conf_delete()
     {
-
+        return view('user.conf_delete');
     }
 
     /**
      * 削除完了処理
      */
-    public function delete(Request $request)
+    public function delete()
     {
 
     }

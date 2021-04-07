@@ -32,4 +32,6 @@
 
     <br>
 
-<a href="{{ route('admin.person.show') }}" class="btn btn-dark">戻る</a @endsection
+<a href="{{ route('admin.person.show') }}" class="btn btn-dark">戻る</a>
+
+@endsection
