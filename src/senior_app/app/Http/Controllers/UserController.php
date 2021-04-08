@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use App\Delivery;
+use App\Item;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -85,6 +87,9 @@ class UserController extends Controller
     public function delete()
     {
         User::find(Auth::id())->delete();
+        Delivery::where('user_id', Auth::id())->delete();
+        Item::where('user_id', Auth::id())->delete();
+        
         return redirect('/login')->with('flash_message', 'また是非ご利用くださいませ。');
     }
 }

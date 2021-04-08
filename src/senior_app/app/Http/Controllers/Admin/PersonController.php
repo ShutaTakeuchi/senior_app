@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Auth;
 use App\User;
+use App\Delivery;
+use App\Item;
 use Illuminate\Foundation\Console\Presets\React;
 
 class PersonController extends Controller
@@ -95,7 +97,9 @@ class PersonController extends Controller
      */
     public function delete(Request $request)
     {
-        $user = User::find($request->input('id'))->delete();
+        User::find($request->input('id'))->delete();
+        Delivery::where('user_id', Auth::id())->delete();
+        Item::where('user_id', Auth::id())->delete();
         
         return redirect('admin/home')->with('flash_message', 'アカウントを削除しました。');        
     }
