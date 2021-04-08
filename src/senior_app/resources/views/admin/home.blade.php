@@ -11,8 +11,8 @@
             <div class="flash_message">
                 <h2 class="text-danger">{{ session('flash_message') }}</h2>
             </div>
-            @endif
             <br>
+            @endif
 
             <h2 class="text-center">配達管理</h2>
             <a href="{{ route('admin.search.delivery') }}" type="button" class="btn btn-success btn-lg btn-block">食</a>

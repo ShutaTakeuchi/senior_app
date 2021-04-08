@@ -38,6 +38,8 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+
+    
     /**
      * パスワードを忘れた時の入力フォーム
      */

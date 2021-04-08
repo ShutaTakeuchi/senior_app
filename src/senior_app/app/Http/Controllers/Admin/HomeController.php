@@ -21,12 +21,12 @@ class HomeController extends Controller
     }
  
     /**
-     * Show the application dashboard.
+     * 管理画面のトップページ
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
         return view('admin.home');
     }
 }
