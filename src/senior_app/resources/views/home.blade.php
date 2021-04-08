@@ -156,6 +156,7 @@
             {{-- ごはん --}}
             <div class="container">
                 <h1 class="page-section-heading text-center text-uppercase text-white">注文中</h1>
+                <br>
                 <div class="row">
                     <div class="col-md-6">
                         <h3 class=" text-center text-uppercase text-dark">ごはん</h3>
