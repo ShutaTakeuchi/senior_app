@@ -3,10 +3,9 @@
 
 @section('content')
     <h2>お客様情報一覧</h2>
-
-    <br>
     <br>
 
+    <h5>電話番号で検索する</h5>
     <!-- フラッシュメッセージ -->
     @if (session('flash_message'))
         <div class="flash_message text-danger">
@@ -18,7 +17,7 @@
         @csrf
         <div class="form-group">
             <input type="test" name="tel" class="form-control" placeholder="00011112222" value="{{ old('tel') }}">
-            <button type="submit" class="btn btn-info">検索</button>
+            <button type="submit" class="btn btn-warning" style="margin-top: 7px;">検索</button>
         </div>
         
     </form>
