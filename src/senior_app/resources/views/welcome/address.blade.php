@@ -10,7 +10,7 @@
         <br>
         <h4>お越しの際は、お持ちの<strong>スマートフォンをご持参ください。</strong></h4>
         <br>
-        <a href="{{ route('register') }}" class="btn btn-info btn-lg">会員登録へ戻る</a>
+        <a href="{{ route('register') }}" class="btn btn-dark btn-lg">会員登録へ戻る</a>
     </div>
   </header>
 @endsection

@@ -4,11 +4,14 @@
 @section('content')
 <header class="masthead bg-primary text-white text-center" style="margin-top: -120px; height: 800px;">
     <div class="container d-flex align-items-center flex-column">
+
         <h2>お客様情報の確認</h2>
         <br>
-        <h3>お名前：{{ $user['name'] }}</h3>
-        <h3>住所：{{ $user['address'] }}</h3>
-        <h3>電話番号：{{ $user['tel'] }}</h3>
+        <div class="text-body">
+        <h3>{{ $user['name'] }}</h3>
+        <h3>{{ $user['address'] }}</h3>
+        <h3>{{ $user['tel'] }}</h3>
+      </div>
         <br>
 
         <form action="{{ route('welcome.form.comp') }}" method="post">
@@ -20,7 +23,7 @@
         </form>
         <br>
 
-        <a href="{{ route('welcome.form') }}" class="btn btn-danger">会員登録へ戻る</a>
+        <a href="{{ route('welcome.form') }}" class="btn btn-dark">会員登録へ戻る</a>
     </div>
   </header>
 @endsection

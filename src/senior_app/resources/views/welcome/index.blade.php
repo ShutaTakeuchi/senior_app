@@ -11,7 +11,7 @@
         <br>
         <a href="{{ route('welcome.form') }}" class="btn btn-info btn-lg btn-block">家に来てもらう</a>
         <br>
-        <a href="{{ route('register') }}" class="btn btn-danger btn-lg btn-block">会員登録へ戻る</a>
+        <a href="{{ route('register') }}" class="btn btn-dark btn-lg btn-block">会員登録へ戻る</a>
     </div>
   </header>
 @endsection

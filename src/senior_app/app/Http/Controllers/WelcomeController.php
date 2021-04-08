@@ -49,10 +49,12 @@ class WelcomeController extends Controller
         $sheet_id = '1FH7nkXPNeqa8ay_8IcEcMjADq8K8ibqQTBCCytZJYAY';
 
         // 個人情報と注文データを定義
+        $time = date('Y-m-d H:i:s');
         $order = [
             $request->input('name'),
             $request->input('address'),
             $request->input('tel'),
+            $time
         ];
 
         $values = new \Google_Service_Sheets_ValueRange();
@@ -68,9 +70,8 @@ class WelcomeController extends Controller
         );
 
         // フラッシュメッセージ
-        return redirect('/')->with([
-            'message_1' => 'ありがとうございます。',
-            'message_2' => '後ほどご連絡させていただきます。'
+        return redirect('/login')->with([
+            'flash_message' => 'ありがとうございます。ご連絡をおまちください。',
         ]);
 
     }

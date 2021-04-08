@@ -7,7 +7,7 @@
                 <div class="col-md-6">
                     <div class="text-center">
 
-                        <!-- 退会完了のフラッシュメッセージ -->
+                        <!-- フラッシュメッセージ -->
                         @if (session('flash_message'))
                             <div class="flash_message text-danger">
                                 <h3>{{ session('flash_message') }}</h3>

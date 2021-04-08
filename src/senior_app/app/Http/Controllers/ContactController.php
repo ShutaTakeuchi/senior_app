@@ -256,72 +256,70 @@ class ContactController extends Controller
         ]);
     }
 
-    // public function conf_edit_user_info()
-    // {
-    //     return view('contact.edit_user');
-    // }
+    /**
+     * その他のお問い合わせ
+     */
+    public function other_contact()
+    {
+        $channelToken = 'm3PQGwcOS0ahPTO1YQtgarFT9b9RzAStkA5DLQqDlPYUs2BdBQSvOBV5pDzBLEqvn8lFuIsY3vmad7y7NQHOqJ86TOWsnM72X/Ba77OIVCV4oP14Dg+T/bYfibPuKjcUStCbJp9VZFeylmWPyPaPSAdB04t89/1O/w1cDnyilFU=';
+        $headers = [
+            'Authorization: Bearer ' . $channelToken,
+            'Content-Type: application/json; charset=utf-8',
+        ];
 
-    // public function comp_edit_user_info()
-    // {
-    //     $channelToken = 'm3PQGwcOS0ahPTO1YQtgarFT9b9RzAStkA5DLQqDlPYUs2BdBQSvOBV5pDzBLEqvn8lFuIsY3vmad7y7NQHOqJ86TOWsnM72X/Ba77OIVCV4oP14Dg+T/bYfibPuKjcUStCbJp9VZFeylmWPyPaPSAdB04t89/1O/w1cDnyilFU=';
-    //     $headers = [
-    //         'Authorization: Bearer ' . $channelToken,
-    //         'Content-Type: application/json; charset=utf-8',
-    //     ];
+        $user_name = Auth::user()['name'];
+        $user_tel = Auth::user()['tel'];
 
-    //     $user_name = Auth::user()['name'];
-    //     $user_email = Auth::user()['email'];
-    //     $user_tel = Auth::user()['tel'];
-    //     $message = <<<EOF
-    //     【個人情報変更申請】
-    //     お名前：{$user_name} 様　
-    //     メールアドレス：{$user_email}
-    //     電話番号：{$user_tel}
-    //     EOF;
+        $message = <<<EOF
+        【その他お問い合わせ】
+        お客様へご連絡をお願いします。
+        お名前：{$user_name} 様
+        電話番号：{$user_tel}
+        EOF;
 
-    //     // POSTデータを設定してJSONにエンコード
-    //     $post = [
-    //         'to' => 'U1bfc80088869c07efb51e9c6e8d18185',
-    //         'messages' => [
-    //             [
-    //                 'type' => 'text',
-    //                 'text' => $message,
-    //             ],
-    //         ],
-    //     ];
-    //     $post = json_encode($post);
+        // POSTデータを設定してJSONにエンコード
+        $post = [
+            'to' => 'U1bfc80088869c07efb51e9c6e8d18185',
+            'messages' => [
+                [
+                    'type' => 'text',
+                    'text' => $message,
+                ],
+            ],
+        ];
+        $post = json_encode($post);
 
-    //     // HTTPリクエストを設定
-    //     $ch = curl_init('https://api.line.me/v2/bot/message/push');
-    //     $options = [
-    //         CURLOPT_CUSTOMREQUEST => 'POST',
-    //         CURLOPT_HTTPHEADER => $headers,
-    //         CURLOPT_RETURNTRANSFER => true,
-    //         CURLOPT_BINARYTRANSFER => true,
-    //         CURLOPT_HEADER => true,
-    //         CURLOPT_POSTFIELDS => $post,
-    //     ];
-    //     curl_setopt_array($ch, $options);
+        // HTTPリクエストを設定
+        $ch = curl_init('https://api.line.me/v2/bot/message/push');
+        $options = [
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_HTTPHEADER => $headers,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_BINARYTRANSFER => true,
+            CURLOPT_HEADER => true,
+            CURLOPT_POSTFIELDS => $post,
+        ];
+        curl_setopt_array($ch, $options);
 
-    //     // 実行
-    //     $result = curl_exec($ch);
+        // 実行
+        $result = curl_exec($ch);
 
-    //     // エラーチェック
-    //     $errno = curl_errno($ch);
-    //     if ($errno) {
-    //         return;
-    //     }
+        // エラーチェック
+        $errno = curl_errno($ch);
+        if ($errno) {
+            return;
+        }
 
-    //     // HTTPステータスを取得
-    //     $info = curl_getinfo($ch);
-    //     $httpStatus = $info['http_code'];
+        // HTTPステータスを取得
+        $info = curl_getinfo($ch);
+        $httpStatus = $info['http_code'];
 
-    //     $responseHeaderSize = $info['header_size'];
-    //     $body = substr($result, $responseHeaderSize);
+        $responseHeaderSize = $info['header_size'];
+        $body = substr($result, $responseHeaderSize);
 
-    //     return redirect('/')->with([
-    //         'message_1' => '変更を申請しました。',
-    //         'message_2' => 'ご連絡をおまちください。。'
-    //     ]);
-    // }
+        return redirect('/')->with([
+            'message_1' => 'こちらからご連絡いたします。',
+            'message_2' => 'しばらくおまちください。'
+        ]);
+    }
 }
