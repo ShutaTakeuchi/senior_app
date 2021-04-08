@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Delivery;
+use App\Item;
 use Auth;
  
 class HomeController extends Controller
@@ -27,6 +28,16 @@ class HomeController extends Controller
      */
     public function index()
     {   
-        return view('admin.home');
+        // 各データステータスの件数
+        $data = [
+            'delivery_not_buy' => Delivery::where('status', '注文依頼')->count(),
+            'delivery_delivering' => Delivery::where('status', '配達中')->count(),
+            'item_not_buy' => Item::where('status', '注文依頼')->count(),
+            'item_bought' => Item::where('status', '注文済み')->count(),
+            'item_got' => Item::where('status', '入荷済み')->count(),
+            'item_delivering' => Item::where('status', '配達中')->count()
+        ];
+        
+        return view('admin.home', $data);
     }
 }
