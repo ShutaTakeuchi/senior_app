@@ -30,6 +30,9 @@ class WelcomeController extends Controller
         return view('welcome.form');
     }
 
+    /**
+     * 入力確認画面
+     */
     public function conf(Request $request)
     {
         $data = [
@@ -38,6 +41,9 @@ class WelcomeController extends Controller
         return view('welcome.conf', $data);
     }
 
+    /**
+     * 入力完了処理画面
+     */
     public function comp(Request $request)
     {
         $credentials_path = storage_path('app/json/credentials.json');
@@ -50,10 +56,11 @@ class WelcomeController extends Controller
 
         // 個人情報と注文データを定義
         $time = date('Y-m-d H:i:s');
+        $tel = $request->input('tel');
         $order = [
             $request->input('name'),
             $request->input('address'),
-            $request->input('tel'),
+            "'$tel",
             $time
         ];
 
