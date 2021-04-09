@@ -34,18 +34,18 @@
                     <td>
                     {{-- in charge --}}
                         @if ($taxi->admin_id === null)
-                            <form action="" method="get">
-                                <input type="hidden" name="shop_id" value="{{ $taxi->id }}">
+                            <form action="{{ route('admin.taxi.select.staff') }}" method="get">
+                                <input type="hidden" name="taxi_id" value="{{ $taxi->id }}">
                                 <input type="submit" class="btn text-danger btn-sm" value="未定">
                             </form>
                         @elseif ($taxi->admin_id === '未定')
-                            <form action="" method="get">
-                                <input type="hidden" name="shop_id" value="{{ $taxi->id }}">
+                            <form action="{{ route('admin.taxi.select.staff') }}" method="get">
+                                <input type="hidden" name="taxi_id" value="{{ $taxi->id }}">
                                 <input type="submit" class="btn text-danger btn-sm" value="未定">
                             </form>
                         @else
-                            <form action="" method="get">
-                                <input type="hidden" name="shop_id" value="{{ $taxi->id }}">
+                            <form action="{{ route('admin.taxi.select.staff') }}" method="get">
+                                <input type="hidden" name="taxi_id" value="{{ $taxi->id }}">
                                 <input type="submit" class="btn btn-body btn-sm" value="{{ $taxi->admin->name }}">
                             </form>
                         @endif

@@ -30,18 +30,18 @@
                         <table class="table table-bordered">
                             <tr>
                                 <th>注文依頼</th>
-                                @if($delivery_not_buy > 0)
-                                <td class="text-danger">{{ $delivery_not_buy }}</td>
+                                @if ($delivery_not_buy > 0)
+                                    <td class="text-danger">{{ $delivery_not_buy }}</td>
                                 @else
-                                <td>{{ $delivery_not_buy }}</td>
+                                    <td>{{ $delivery_not_buy }}</td>
                                 @endif
                             </tr>
                             <tr>
                                 <th>配達中</th>
-                                @if($delivery_delivering > 0)
-                                <td class="text-danger">{{ $delivery_delivering }}</td>
+                                @if ($delivery_delivering > 0)
+                                    <td class="text-danger">{{ $delivery_delivering }}</td>
                                 @else
-                                <td>{{ $delivery_delivering }}</td>
+                                    <td>{{ $delivery_delivering }}</td>
                                 @endif
                             </tr>
                         </table>
@@ -65,33 +65,33 @@
                             <tr>
                                 <th>注文依頼</th>
                                 @if ($item_not_buy > 0)
-                                <td class="text-danger">{{ $item_not_buy }}</td>
+                                    <td class="text-danger">{{ $item_not_buy }}</td>
                                 @else
-                                <td>{{ $item_not_buy }}</td>
+                                    <td>{{ $item_not_buy }}</td>
                                 @endif
                             </tr>
                             <tr>
                                 <th>注文済み</th>
-                                @if($item_bought > 0)
-                                <td class="text-danger">{{ $item_bought }}</td>
+                                @if ($item_bought > 0)
+                                    <td class="text-danger">{{ $item_bought }}</td>
                                 @else
-                                <td>{{ $item_bought }}</td>
+                                    <td>{{ $item_bought }}</td>
                                 @endif
                             </tr>
                             <tr>
                                 <th>入荷済み</th>
-                                @if($item_got > 0)
-                                <td class="text-danger">{{ $item_got }}</td>
+                                @if ($item_got > 0)
+                                    <td class="text-danger">{{ $item_got }}</td>
                                 @else
-                                <td>{{ $item_got }}</td>
+                                    <td>{{ $item_got }}</td>
                                 @endif
                             </tr>
                             <tr>
                                 <th>配達中</th>
-                                @if($item_delivering > 0)
-                                <td class="text-danger">{{ $item_delivering }}</td>
+                                @if ($item_delivering > 0)
+                                    <td class="text-danger">{{ $item_delivering }}</td>
                                 @else
-                                <td>{{ $item_delivering }}</td>
+                                    <td>{{ $item_delivering }}</td>
                                 @endif
                             </tr>
                         </table>
@@ -102,6 +102,52 @@
                 </div>
             </div>
 
+        </div>
+
+        <br>
+
+        <div class="row justify-content-center">
+            {{-- タクシー --}}
+            <div class="col-md-6">
+                <div class="card text-center">
+                    <div class="card-header">
+                        タクシー
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">状況</h5>
+                        {{-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> --}}
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>配車依頼</th>
+                                @if ($taxi_order > 0)
+                                    <td class="text-danger">{{ $taxi_order }}</td>
+                                @else
+                                    <td>{{ $taxi_order }}</td>
+                                @endif
+                            </tr>
+                            <tr>
+                                <th>お迎え中</th>
+                                @if ($taxi_to_customer > 0)
+                                    <td class="text-danger">{{ $taxi_to_customer }}</td>
+                                @else
+                                    <td>{{ $taxi_to_customer }}</td>
+                                @endif
+                            </tr>
+                            <tr>
+                                <th>送迎中</th>
+                                @if ($taxi_to_destination > 0)
+                                    <td class="text-danger">{{ $taxi_to_destination }}</td>
+                                @else
+                                    <td>{{ $taxi_to_destination }}</td>
+                                @endif
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <a href="{{ route('admin.taxi.index') }}" class="btn btn-primary">詳細</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

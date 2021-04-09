@@ -5,26 +5,26 @@
     <h2>担当者を入力してください。</h2>
     <br>
 
-    <form action="" method="post">
+    <form action="{{ route('admin.taxi.store.staff') }}" method="post">
         @csrf
         <div class="form-group">
             <select name="id" class="form-control form-control-lg">
                 <option value="未定">未定</option>
-                @foreach ($deliveries as $delivery)
-                    @if($delivery->name !== 'admin')
-                        <option value="{{ $delivery->id }}">{{ $delivery->name }}</option>
+                @foreach ($admins as $admin)
+                    @if($admin->name !== 'admin')
+                        <option value="{{ $admin->id }}">{{ $admin->name }}</option>
                     @endif
                 @endforeach
             </select>
         </div>
         </div>
         <br>
-        <input type="hidden" name="shop_id" value="{{ $shop_id }}">
+        <input type="hidden" name="taxi_id" value="{{ $taxi_id }}">
         <button type="submit" class="btn btn-info">決定</button>
     </form>
     
     <br>
     <br>
-    <a href="{{ route('admin.home') }}" class="btn btn-dark">戻る</a>
+    <a href="{{ route('admin.taxi.index') }}" class="btn btn-dark">戻る</a>
 
 @endsection

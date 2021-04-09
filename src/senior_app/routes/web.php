@@ -155,6 +155,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     // taxi
     // 一覧表示
     Route::get('taxi/index', 'Admin\TaxiController@index')->name('admin.taxi.index');
+    // 担当者検索
+    Route::get('taxi/staff', 'Admin\TaxiController@insert_staff')->name('admin.taxi.select.staff');
+    // 担当者保存
+    Route::post('taxi/staff', 'Admin\TaxiController@store_staff')->name('admin.taxi.store.staff');
 
     // person
     // お客様一覧
