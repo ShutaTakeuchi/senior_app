@@ -59,7 +59,7 @@ Route::group(['middleware' => 'auth'], function () {
     // キャンセル申請の完了
     Route::post('/contact/comp/cancel', 'ContactController@comp_cancel')->name('contact.comp.cancel');
     // 予約完了
-    Route::get('/contact/comp/taxi', 'ContactController@comp_taxi')->name('contact.comp.taxi');
+    Route::post('/contact/comp/taxi', 'ContactController@comp_taxi')->name('contact.comp.taxi');
     // その他連絡
     Route::get('/contact/other', 'ContactController@other_contact')->name('contact.other');
     // // 個人情報変更申請完了

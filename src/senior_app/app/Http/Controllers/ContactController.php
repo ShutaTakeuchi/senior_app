@@ -92,7 +92,7 @@ class ContactController extends Controller
         return view('contact.conf', $message);
     }
 
-    public function comp_taxi()
+    public function comp_taxi(Request $request)
     {
         // LINE API
         $channelToken = 'm3PQGwcOS0ahPTO1YQtgarFT9b9RzAStkA5DLQqDlPYUs2BdBQSvOBV5pDzBLEqvn8lFuIsY3vmad7y7NQHOqJ86TOWsnM72X/Ba77OIVCV4oP14Dg+T/bYfibPuKjcUStCbJp9VZFeylmWPyPaPSAdB04t89/1O/w1cDnyilFU=';
@@ -156,10 +156,11 @@ class ContactController extends Controller
         $taxi = new Taxi;
         $taxi->user_id = Auth::user()['id'];
         $taxi->status = '配車依頼';
+        $taxi->place = $request->input('place');
         $taxi->save();
 
         return redirect('/')->with([
-            'message_1' => 'タクシーを予約致します。',
+            'message_1' => 'ありがとうございます。',
             'message_2' => '連絡をお待ちください。'
         ]);
     }

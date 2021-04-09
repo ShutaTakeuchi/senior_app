@@ -1,7 +1,7 @@
 <?php
- 
+
 namespace App\Http\Controllers\Admin;  // \Adminを追加
- 
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
@@ -19,7 +19,7 @@ class ItemController extends Controller
     {
         // 管理者以外をブロック
         $me = Auth::user();
-        if ($me->id !== 1){
+        if ($me->id !== 1) {
             return redirect('admin/task/item');
         }
 
@@ -43,11 +43,11 @@ class ItemController extends Controller
 
     public function store_staff(Request $request)
     {
-        
+
         Item::where('id', $request->input('item_id'))
-          ->update(['admin_id' => $request->input('id')]);
-        
-        return view('admin/home');
+            ->update(['admin_id' => $request->input('id')]);
+
+        return redirect('/admin/item/search')->with('flash_message', '変更しました');
     }
 
     /**
@@ -57,7 +57,7 @@ class ItemController extends Controller
     {
         $user_data = User::where('tel', $request->input('user_tel'))->first();
         // 未登録の電話番号の場合
-        if ($user_data === null){
+        if ($user_data === null) {
             $error = [
                 'message' => '登録されてない電話番号です。',
                 'href' => 'item/search'
@@ -151,18 +151,18 @@ class ItemController extends Controller
      */
     public function comp_change_to_in_stock(Request $request)
     {
-        if($request->input('status') === '注文済み'){
-           Item::where('id', $request->input('id'))
-          ->update(['status' => '入荷済み']);  
-        }elseif($request->input('status') === '入荷済み'){
+        if ($request->input('status') === '注文済み') {
             Item::where('id', $request->input('id'))
-          ->update(['status' => '注文依頼']);
-        }elseif($request->input('status') === '注文依頼'){
+                ->update(['status' => '入荷済み']);
+        } elseif ($request->input('status') === '入荷済み') {
             Item::where('id', $request->input('id'))
-          ->update(['status' => '注文済み']);
+                ->update(['status' => '注文依頼']);
+        } elseif ($request->input('status') === '注文依頼') {
+            Item::where('id', $request->input('id'))
+                ->update(['status' => '注文済み']);
         }
-        
-        
+
+
         return redirect('/admin/item/search')->with('flash_message', '変更しました。');
     }
 

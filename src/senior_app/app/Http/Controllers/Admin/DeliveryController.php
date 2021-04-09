@@ -1,14 +1,14 @@
 <?php
- 
+
 namespace App\Http\Controllers\Admin;  // \Adminを追加
- 
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Delivery;
 use App\Admin;
 use Auth;
- 
+
 class DeliveryController extends Controller
 {
     /**
@@ -18,7 +18,7 @@ class DeliveryController extends Controller
     {
         // 管理者以外をブロック
         $me = Auth::user();
-        if ($me->id !== 1){
+        if ($me->id !== 1) {
             return redirect('admin/task/delivery');
         }
 
@@ -29,6 +29,9 @@ class DeliveryController extends Controller
         return view('admin.delivery.index', $data);
     }
 
+    /**
+     * 担当者を選択するフォーム画面
+     */
     public function insert_staff(Request $request)
     {
         $deliveries = Admin::all();
@@ -42,11 +45,11 @@ class DeliveryController extends Controller
 
     public function store_staff(Request $request)
     {
-        
+
         Delivery::where('id', $request->input('shop_id'))
-          ->update(['admin_id' => $request->input('id')]);
-        
-        return view('admin/home');
+            ->update(['admin_id' => $request->input('id')]);
+
+        return redirect('/admin/delivery/search')->with('flash_message', '変更しました');
     }
 
     /**
@@ -56,7 +59,7 @@ class DeliveryController extends Controller
     {
         $user_data = User::where('tel', $request->input('user_tel'))->first();
         // 未登録の電話番号の場合
-        if ($user_data === null){
+        if ($user_data === null) {
             $error = [
                 'message' => '登録されてない電話番号です。',
                 'href' => 'delivery/search'

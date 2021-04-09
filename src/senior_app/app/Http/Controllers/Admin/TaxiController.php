@@ -20,4 +20,12 @@ class TaxiController extends Controller
 
         return view('admin.taxi.index', $data);
     }
+
+    /**
+     * 担当者を選択する
+     */
+    public function select_staff(Request $request)
+    {
+        
+    }
 }
