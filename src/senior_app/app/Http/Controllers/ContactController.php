@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\User;
 use App\Post;
+use App\Taxi;
 
 class ContactController extends Controller
 {
@@ -93,6 +94,7 @@ class ContactController extends Controller
 
     public function comp_taxi()
     {
+        // LINE API
         $channelToken = 'm3PQGwcOS0ahPTO1YQtgarFT9b9RzAStkA5DLQqDlPYUs2BdBQSvOBV5pDzBLEqvn8lFuIsY3vmad7y7NQHOqJ86TOWsnM72X/Ba77OIVCV4oP14Dg+T/bYfibPuKjcUStCbJp9VZFeylmWPyPaPSAdB04t89/1O/w1cDnyilFU=';
         $headers = [
             'Authorization: Bearer ' . $channelToken,
@@ -150,12 +152,21 @@ class ContactController extends Controller
         $responseHeaderSize = $info['header_size'];
         $body = substr($result, $responseHeaderSize);
 
+        // データベースに保存する
+        $taxi = new Taxi;
+        $taxi->user_id = Auth::user()['id'];
+        $taxi->status = '配車依頼';
+        $taxi->save();
+
         return redirect('/')->with([
             'message_1' => 'タクシーを予約致します。',
-            'message_2' => 'しばらくお待ちください。'
+            'message_2' => '連絡をお待ちください。'
         ]);
     }
 
+    /**
+     * キャンセルしたい商品を表示
+     */
     public function show_order()
     {
         // HomeControllerのメソッドを呼び出す
@@ -188,6 +199,9 @@ class ContactController extends Controller
         return view('contact.conf_cancel', $data);
     }
 
+    /**
+     * 商品のキャンセル申請の確定処理
+     */
     public function comp_cancel(Request $request)
     {
         $channelToken = 'm3PQGwcOS0ahPTO1YQtgarFT9b9RzAStkA5DLQqDlPYUs2BdBQSvOBV5pDzBLEqvn8lFuIsY3vmad7y7NQHOqJ86TOWsnM72X/Ba77OIVCV4oP14Dg+T/bYfibPuKjcUStCbJp9VZFeylmWPyPaPSAdB04t89/1O/w1cDnyilFU=';

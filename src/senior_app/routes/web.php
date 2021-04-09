@@ -152,6 +152,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     // // 配達済み
     // Route::post('item/delete', 'Admin\ItemController@delete')->name('admin.item.delete');
 
+    // taxi
+    // 一覧表示
+    Route::get('taxi/index', 'Admin\TaxiController@index')->name('admin.taxi.index');
+
     // person
     // お客様一覧
     Route::get('person/index', 'Admin\PersonController@show_people')->name('admin.person.show');

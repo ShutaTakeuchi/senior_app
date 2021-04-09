@@ -152,4 +152,36 @@ class TaskController extends Controller
 
         return redirect('admin/home')->with('flash_message', 'お疲れ様でした！');
     }
+
+    /**
+     * タクシーがお客様のところへ向かう時の処理
+     */
+    public function go_to_customer()
+    {
+
+    } 
+
+    /**
+     * 送迎開始の際の処理
+     */
+    public function start_taking()
+    {
+
+    }
+
+    /**
+     * 送迎が終了の確認
+     */
+    public function conf_finish_taxi()
+    {
+
+    }
+
+    /**
+     * 送迎が終了した時の処理
+     */
+    public function finish_taxi()
+    {
+
+    }
 }
