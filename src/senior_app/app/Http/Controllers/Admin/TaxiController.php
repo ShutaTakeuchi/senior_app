@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Taxi;
 use App\Admin;
+use Auth;
 
 class TaxiController extends Controller
 {
@@ -14,6 +15,13 @@ class TaxiController extends Controller
      */
     public function index()
     {
+
+        // 管理者以外をブロック
+        $me = Auth::user();
+        if ($me->id !== 1) {
+            return redirect('admin/task/taxi');
+        }
+
         $taxis = Taxi::all();
         $data = [
             'taxis' => $taxis

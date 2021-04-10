@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Admin;
 use App\Delivery;
 use App\Item;
+use App\Taxi;
 
 class TaskController extends Controller
 {
@@ -154,34 +155,87 @@ class TaskController extends Controller
     }
 
     /**
-     * タクシーがお客様のところへ向かう時の処理
+     * 担当のタクシー業務を表示
      */
-    public function go_to_customer()
+    public function taxi_index()
     {
+        // $taxi = Admin::find(Auth::user()['id'])->taxi;
+        $taxi = Taxi::where('admin_id', Auth::id())->get();
+        $data = [
+            'taxis' => $taxi
+        ];
 
-    } 
+        return view('Admin.task.taxi_index', $data);
+    }
 
     /**
-     * 送迎開始の際の処理
+     * タクシーがお客様のところへ向かう時の処理（お迎え中にする）
      */
-    public function start_taking()
+    public function go_to_customer(Request $request)
     {
+        Taxi::where('id', $request->input('id'))
+            ->update(['status' => 'お迎え中']);
+        return redirect('/admin/task/taxi')->with('flash_message', '変更しました。');
+    }
 
+    /**
+     * 送迎開始の際の処理（送迎中にする）
+     */
+    public function go_to_destination(Request $request)
+    {
+        Taxi::where('id', $request->input('id'))
+            ->update(['status' => '送迎中']);
+        return redirect('/admin/task/taxi')->with('flash_message', '変更しました。');
     }
 
     /**
      * 送迎が終了の確認
      */
-    public function conf_finish_taxi()
+    public function conf_finish_taxi(Request $request)
     {
-
+        $taxi = Taxi::find($request->input('id'));
+        $data = [
+            'taxi' => $taxi,
+            'category' => 'taxi'
+        ];
+        return view('admin.task.conf_finish', $data);
     }
 
     /**
      * 送迎が終了した時の処理
      */
-    public function finish_taxi()
+    public function finish_taxi(Request $request)
     {
+        // line api
+        $taxi = Taxi::find($request->input('id'));
+        $user_name = $taxi->user->name;
+        $staff_name = Auth::user()['name'];
+        $message = <<<EOF
+        【タクシー　送迎完了連絡】
+        お疲れ様です。
+        {$user_name} 様を
+        送迎致しました。
+        担当者：{$staff_name}
+        EOF;
+        $public_func = app()->make('App\Http\Controllers\Admin\PublicController');
+        $public_func->line_api($message);
+
+        // google sheets api
+        $tel = $taxi->user->tel;
+        $time = date('Y-m-d H:i:s');
+        $order = [
+            $taxi->user->name,
+            $taxi->user->address,
+            "'$tel",
+            Auth::user()['name'],
+            $time
+        ];
+        $public_func->google_sheets_api($order, 'taxi');
+
+        // 削除処理
+        $taxi->delete();
+
+        return redirect('admin/home')->with('flash_message', 'お疲れ様でした！');
 
     }
 }

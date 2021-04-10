@@ -160,6 +160,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     // 担当者保存
     Route::post('taxi/staff', 'Admin\TaxiController@store_staff')->name('admin.taxi.store.staff');
 
+
     // person
     // お客様一覧
     Route::get('person/index', 'Admin\PersonController@show_people')->name('admin.person.show');
@@ -197,6 +198,16 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::get('task/finish/conf', 'Admin\TaskController@conf_finish')->name('admin.task.conf.finish');
     // 配達完了の処理
     Route::post('task/finish/comp', 'Admin\TaskController@finish')->name('admin.task.comp.finish');
+    // taxi
+    Route::get('task/taxi', 'Admin\TaskController@taxi_index')->name('admin.task.taxi');
+    // taxi(お迎え中に変更)
+    Route::get('task/taxi/customer', 'Admin\TaskController@go_to_customer')->name('admin.taxk.taxi.go_to_customer');
+    // taxi（送迎中に変更）
+    Route::get('task/taxi/destination', 'Admin\TaskController@go_to_destination')->name('admin.taxk.taxi.go_to_destination');
+    // taxi（送迎完了の確認ページ）
+    Route::get('task/taxi/finish', 'Admin\TaskController@conf_finish_taxi')->name('admin.taxk.taxi.finish.conf');
+    // taxi（送迎完了の処理）
+    Route::post('task/taxi/finish', 'Admin\TaskController@finish_taxi')->name('admin.taxk.taxi.finish.comp');
 });
 
 

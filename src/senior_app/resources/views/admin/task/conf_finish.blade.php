@@ -2,8 +2,8 @@
 @extends('layouts.app_admin')
 
 @section('content')
-    <h2>配達完了確認</h2>
-    <h3 class="text-danger">配達が完了しましたか？</h3>
+    <h2>業務終了確認</h2>
+    <h3 class="text-danger">業務が完了しましたか？</h3>
     <br>
 
     {{-- delivery --}}
@@ -26,7 +26,7 @@
         <br>
         <a href="{{ route('admin.home') }}" class="btn btn-dark">戻る</a>
 
-    {{-- item --}}
+        {{-- item --}}
     @elseif($category === 'item')
         <h4>{{ $item->item_name }}</h4>
         <br>
@@ -46,5 +46,22 @@
         <br>
         <a href="{{ route('admin.home') }}" class="btn btn-dark">戻る</a>
 
+        {{-- taxi --}}
+    @elseif($category === 'taxi')
+        <h4>お名前：{{ $taxi->user->name }}</h4>
+        <br>
+        <h4>住所：{{ $taxi->user->address }}</h4>
+        <br>
+        <h4>電話番号：{{ $taxi->user->tel }}</h4>
+        <br>
+
+        <form action="{{ route('admin.taxk.taxi.finish.comp') }}" method="post">
+            @csrf
+            <input type="hidden" name="category" value="taxi">
+            <input type="hidden" name="id" value="{{ $taxi->id }}">
+            <input type="submit" class="btn btn-info" value="送迎しました">
+        </form>
+        <br>
+        <a href="{{ route('admin.home') }}" class="btn btn-dark">戻る</a>
     @endif
 @endsection
