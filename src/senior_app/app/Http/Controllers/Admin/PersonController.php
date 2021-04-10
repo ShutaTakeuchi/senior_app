@@ -52,7 +52,7 @@ class PersonController extends Controller
     }
 
     /**
-     * ユーザ情報の編集
+     * ユーザ情報の編集（パスワード以外）
      */
     public function edit(Request $request)
     {
@@ -65,7 +65,7 @@ class PersonController extends Controller
     }
 
     /**
-     * 変更完了
+     * 変更完了(パスワード以外)
      */
     public function update(Request $request)
     {
@@ -74,7 +74,6 @@ class PersonController extends Controller
               'name' => $request->input('name'),
               'email' => $request->input('email'),
               'address' => $request->input('address'),
-            //   'password' => Hash::make($request->input('password')),
           ]);
 
         return redirect('admin/home')->with('flash_message', '変更しました');
@@ -102,5 +101,31 @@ class PersonController extends Controller
         Item::where('user_id', Auth::id())->delete();
         
         return redirect('admin/home')->with('flash_message', 'アカウントを削除しました。');        
+    }
+
+    /**
+     * お客様のパスワードの変更フォーム
+     */
+    public function password_edit(Request $request)
+    {
+        $user = User::find($request->input('id'));
+        $data = [
+          'user' => $user
+        ];
+
+        return view('admin.person.password_edit', $data);
+    }
+
+    /**
+     * お客様のパスワードの変更完了処理
+     */
+    public function password_update(Request $request)
+    {
+        User::where('id', $request->input('id'))
+          ->update([
+            'password' => bcrypt($request->input('password'))
+          ]);
+
+        return redirect('admin/home')->with('flash_message', '変更しました');
     }
 }

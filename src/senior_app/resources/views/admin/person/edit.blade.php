@@ -34,6 +34,12 @@
     </form>
 
     <br>
+    <form action="{{ route('admin.person.password_edit') }}" method="post">
+        @csrf
+        <input type="hidden" name="id" value="{{ $user['id'] }}">
+        <button type="submit" class="btn btn-warning">パスワード変更</button>
+    </form>
+    <br>
 
     <form action="{{ route('admin.person.conf_del') }}" method="post">
         @csrf
