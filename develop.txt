@@ -40,3 +40,20 @@ admin画面
     ＊おかいもの：注文中の商品の一覧
 
 社員1人1人に社員番号をつける
+
+＊フラッシュメッセージ
+
+{{-- フラッシュメッセージ --}}
+        @if (session('message_1'))
+            <div class="flash_message">
+                <h3 class="text-center text-danger">{{ session('message_1') }}</h3>
+                <h3 class="text-center text-danger">{{ session('message_2') }}</h3>
+                <br>
+            </div>
+        @endif
+
+
+return redirect('/')->with([
+            'message_1' => '送信しました。',
+            'message_2' => 'ご連絡をお待ちください。'
+        ]);

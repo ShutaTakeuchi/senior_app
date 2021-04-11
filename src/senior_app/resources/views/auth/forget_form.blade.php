@@ -6,10 +6,14 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <h3>お客様の情報を</h3>
-                    <h3>入力してください。</h3>
+                    <h2>お客様の情報を</h2>
+                    <h2>入力してください。</h2>
                     <br>
-                    <h3>ご連絡させていただきます。</h3>
+
+                    <div class="text-danger">
+                        <h4>こちらから</h4>
+                        <h4>ご連絡させていただきます。</h4>
+                    </div>
                     <br>
                     <br>
 
@@ -23,8 +27,15 @@
                             <label for="tel">電話番号</label>
                             <input type="text" class="form-control" id="tel" name="tel" placeholder="00011112222">
                         </div>
-                        <button type="submit" class="btn btn-info">送信する</button>
+
+                        <br>
+
+                        <button type="submit" class="btn btn-info btn-lg">送信する</button>
                     </form>
+
+                    <br>
+
+                    <a href="{{ route('login') }}" class="btn btn-dark btn-lg">戻る</a>
 
                 </div>
             </div>

@@ -7,10 +7,12 @@
                 <div class="col-md-6">
                     <div class="text-center">
 
-                        <!-- フラッシュメッセージ -->
-                        @if (session('flash_message'))
-                            <div class="flash_message text-danger">
-                                <h3>{{ session('flash_message') }}</h3>
+                        {{-- フラッシュメッセージ --}}
+                        @if (session('message_1'))
+                            <div class="flash_message">
+                                <h3 class="text-center text-danger">{{ session('message_1') }}</h3>
+                                <h3 class="text-center text-danger">{{ session('message_2') }}</h3>
+                                <br>
                             </div>
                         @endif
 

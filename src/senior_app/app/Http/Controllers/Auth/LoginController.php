@@ -66,7 +66,7 @@ class LoginController extends Controller
         $message = <<<EOF
         【パスワードをお忘れのお客様】
         仮のパスワードを発行し、
-        お客様へご連絡お願い申し上げます。
+        お客様へご連絡をお願い申し上げます。
         お名前：{$name}
         電話番号：{$tel}
         EOF;
@@ -99,6 +99,10 @@ class LoginController extends Controller
         $result = curl_exec($ch);
 
         // フラッシュメッセージ
-        return redirect('/login')->with('flash_message', 'ご連絡させていただきます。');
+        // return redirect('/login')->with('flash_message', 'ご連絡をお待ちください。');
+        return redirect('/login')->with([
+            'message_1' => '送信しました。',
+            'message_2' => 'ご連絡をお待ちください。'
+        ]);
     }
 }
