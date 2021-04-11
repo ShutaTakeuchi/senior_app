@@ -7,6 +7,8 @@
 
         <h2>お客様情報の確認</h2>
         <br>
+        <h4 class="text-danger">送信後、こちらからご連絡させていただきます。</h4>
+        <br>
         <div class="text-body">
         <h3>{{ $user['name'] }}</h3>
         <h3>{{ $user['address'] }}</h3>
