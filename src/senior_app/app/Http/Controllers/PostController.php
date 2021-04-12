@@ -15,7 +15,7 @@ class PostController extends Controller
         $post->save();
 
         return redirect('/')->with([
-            'message_1' => '共有しました。',
+            'message_1' => 'あなたの「今」を共有しました。',
             'message_2' => '引き続きお楽しみください。'
         ]);
     }
