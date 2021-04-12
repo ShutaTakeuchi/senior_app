@@ -110,10 +110,14 @@
                     <br>
 
                     <div class="col-md-12">
-                        <a href="{{ route('welcome.index') }}" class="btn btn-danger">
+                        <a href="{{ route('welcome.index') }}" class="btn btn-danger btn-lg">
                             {{ __('使い方が分からない') }}
                         </a>
                     </div>
+
+                    <br>
+
+                    <a href="{{ route('login') }}" class="btn btn-info">ログインへ戻る</a>
 
                 </div>
             </div>
