@@ -21,10 +21,26 @@
                         @csrf
                         <div class="form-group">
                             <label for="name">お名前</label>
+
+                            {{-- エラーメッセージ --}}
+                            <div class="text-danger">
+                                @error('name')
+                                    {{ $message }}
+                                @enderror
+                            </div>
+
                             <input type="text" class="form-control" id="name" name="name" placeholder="別府太郎">
                         </div>
                         <div class="form-group">
-                            <label for="tel">電話番号</label>
+                            <label for="tel">電話番号(ハイフン無し)</label>
+
+                            {{-- エラーメッセージ --}}
+                            <div class="text-danger">
+                                @error('tel')
+                                    {{ $message }}
+                                @enderror
+                            </div>
+
                             <input type="text" class="form-control" id="tel" name="tel" placeholder="00011112222">
                         </div>
 

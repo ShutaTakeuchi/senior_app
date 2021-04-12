@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use App\Http\Requests\ForgetPasswordRequest;
+
 
 class LoginController extends Controller
 {
@@ -51,7 +53,7 @@ class LoginController extends Controller
     /**
      * パスワードを忘れた時の入力完了の処理
      */
-    public function forget_comp(Request $request)
+    public function forget_comp(ForgetPasswordRequest $request)
     {
         // line apiの処理
         $channelToken = 'm3PQGwcOS0ahPTO1YQtgarFT9b9RzAStkA5DLQqDlPYUs2BdBQSvOBV5pDzBLEqvn8lFuIsY3vmad7y7NQHOqJ86TOWsnM72X/Ba77OIVCV4oP14Dg+T/bYfibPuKjcUStCbJp9VZFeylmWPyPaPSAdB04t89/1O/w1cDnyilFU=';
