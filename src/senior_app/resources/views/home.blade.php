@@ -3,7 +3,7 @@
 
 @section('content')
 <header class="masthead bg-primary text-white text-center" style="margin-top: -160px; height: 100%;">
-    <div class="container align-items-center flex-column">
+    <div class="container">
 
         {{-- フラッシュメッセージ --}}
         @if (session('message_1'))
