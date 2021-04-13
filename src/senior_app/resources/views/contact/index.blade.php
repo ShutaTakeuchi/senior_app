@@ -2,18 +2,26 @@
 @extends('layouts.app')
 
 @section('content')
-<header class="masthead bg-primary text-white text-center" style="margin-top: -120px; height: 800px;">
+<header class="masthead bg-primary text-white text-center" style="padding-top: 50px; height: 100%;">
     <div class="container d-flex align-items-center flex-column">
-        <h2>連絡の一覧</h2>
+        <h2>各種連絡</h2>
+        <br>
+        <h5 class="text-body">送信後、営業所からご連絡致します。</h5>
+        <br>
+        <a href="{{ route('contact.conf.taxi') }}" class="btn btn-info btn-lg btn-block py-4">タクシーをつかいたい</a>
+        <br>
+        <a href="{{ route('contact.show.order') }}" class="btn btn-info btn-lg btn-block py-4">商品をキャンセルしたい</a>
+        <br>
+        <a href="{{ route('contact.other') }}" class="btn btn-info btn-lg btn-block py-4">その他連絡</a>
+        <br>
+        <a href="{{ route('contact.emergency') }}" class="btn btn-danger btn-lg btn-block py-4">緊急・救急</a>
+
         <br>
         <br>
-        <a href="{{ route('contact.conf.taxi') }}" class="btn btn-info btn-lg btn-block">タクシーをつかいたい</a>
-        <br>
-        <a href="{{ route('contact.show.order') }}" class="btn btn-info btn-lg btn-block">商品をキャンセルしたい</a>
-        <br>
-        <a href="{{ route('contact.other') }}" class="btn btn-info btn-lg btn-block">その他連絡</a>
-        <br>
-        <a href="{{ route('contact.emergency') }}" class="btn btn-danger btn-lg btn-block">緊急・救急</a>
+
+        <h5>そのままお電話を希望される方は、</h5>
+        <h5>以下の番号におかけください。</h5>
+        <h4 class="text-body">TEL 000-1111-2222</h4>
 
         <br>
 

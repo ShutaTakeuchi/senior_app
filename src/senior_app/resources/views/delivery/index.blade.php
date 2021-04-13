@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <header class="bg-primary text-white text-center" style="padding-top: 60px; height: 800px;">
+    <header class="bg-primary text-white text-center" style="padding-top: 50px; height: 100%; min-height: 550px;">
         <div class="container d-flex align-items-center flex-column">
 
             <div>

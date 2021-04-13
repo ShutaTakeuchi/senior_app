@@ -100,17 +100,31 @@ class ContactController extends Controller
             'Authorization: Bearer ' . $channelToken,
             'Content-Type: application/json; charset=utf-8',
         ];
-
+    
         $user_name = Auth::user()['name'];
         $user_tel = Auth::user()['tel'];
         $user_address = Auth::user()['address'];
-        $message = <<<EOF
+
+        if($request->input('place') === '1'){
+            $message = <<<EOF
         【タクシー予約】
         タクシーの手配をお願い致します。
+        お迎え先：自宅
         お名前：{$user_name} 様　
         住所：{$user_address}
         電話番号：{$user_tel}
         EOF;
+
+        }else{
+            $message = <<<EOF
+            【タクシー予約】
+            タクシーの手配をお願い致します。
+            お迎え先：他（確認してください）
+            お名前：{$user_name} 様　
+            住所：{$user_address}
+            電話番号：{$user_tel}
+            EOF;
+        }
 
         // POSTデータを設定してJSONにエンコード
         $post = [
