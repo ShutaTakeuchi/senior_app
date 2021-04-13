@@ -18,7 +18,16 @@
             <form action="{{ route('contact.other') }}" method="post">
                 @csrf
                 <div class="form-group">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" cols="50" name="content" placeholder="当サービスの使い方がわからない　〜について困っている　など"></textarea>
+
+                    {{-- エラーメッセージ --}}
+                    <div class="text-danger">
+                        @error('content')
+                            {{ $message }}
+                        @enderror
+                    </div>
+
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" cols="50" name="content"
+                        placeholder="当サービスの使い方がわからない　〜について困っている　など"></textarea>
                 </div>
                 <button type="submit" class="btn btn-info btn-lg">送信する</button>
             </form>

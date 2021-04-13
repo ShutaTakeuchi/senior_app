@@ -21,16 +21,40 @@
                 @csrf
                 <div class="form-group">
                     <label for="name">お名前</label>
+
+                    {{-- 未入力エラー --}}
+                    <div class="text-danger">
+                        @error('name')
+                            {{ $message }}
+                        @enderror
+                    </div>
+
                     <input type="text" class="form-control" id="name" value="{{ $user['name'] }}" name="name">
                 </div>
 
                 <div class="form-group">
                     <label for="email">メールアドレス</label>
+
+                    {{-- 未入力エラー --}}
+                    <div class="text-danger">
+                        @error('email')
+                            {{ $message }}
+                        @enderror
+                    </div>
+                    
                     <input type="email" class="form-control" id="email" value="{{ $user['email'] }}" name="email">
                 </div>
 
                 <div class="form-group">
                     <label for="address">住所</label>
+
+                    {{-- 未入力エラー --}}
+                    <div class="text-danger">
+                        @error('address')
+                            {{ $message }}
+                        @enderror
+                    </div>
+
                     <input type="text" class="form-control" id="address" value="{{ $user['address'] }}" name="address">
                 </div>
 

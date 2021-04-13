@@ -7,6 +7,7 @@ use Auth;
 use App\User;
 use App\Post;
 use App\Taxi;
+use App\Http\Requests\OtherContactRequest;
 
 class ContactController extends Controller
 {
@@ -300,7 +301,7 @@ class ContactController extends Controller
     /**
      * その他のお問い合わせ
      */
-    public function other_contact(Request $request)
+    public function other_contact(OtherContactRequest $request)
     {
         $channelToken = 'm3PQGwcOS0ahPTO1YQtgarFT9b9RzAStkA5DLQqDlPYUs2BdBQSvOBV5pDzBLEqvn8lFuIsY3vmad7y7NQHOqJ86TOWsnM72X/Ba77OIVCV4oP14Dg+T/bYfibPuKjcUStCbJp9VZFeylmWPyPaPSAdB04t89/1O/w1cDnyilFU=';
         $headers = [

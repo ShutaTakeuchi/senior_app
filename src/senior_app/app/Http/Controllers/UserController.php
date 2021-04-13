@@ -8,6 +8,7 @@ use App\User;
 use App\Delivery;
 use App\Item;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\EditUserRequest;
 
 class UserController extends Controller
 {
@@ -40,7 +41,7 @@ class UserController extends Controller
     /**
      * 編集完了処理
      */
-    public function update(Request $request)
+    public function update(EditUserRequest $request)
     {
         User::where('id', $request->input('id'))
           ->update([
