@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
-<header class="masthead bg-primary text-white text-center" style="margin-top: -160px; height: 100%;">
+<header class="bg-primary text-white text-center" style="padding-top: 30px; height: 100%;">
     <div class="container">
 
         {{-- フラッシュメッセージ --}}

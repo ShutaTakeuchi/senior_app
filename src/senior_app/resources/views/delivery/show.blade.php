@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container py-4">
     <div class="row justify-content-center">
 
         <div class="col-md-8">
@@ -16,28 +16,23 @@
                 @foreach ($results['rest'] as $result)
                     <div class="card" style="">
                         <div class="card-body" style="background-color: #dddddd">
-                            <img class="card-img-top" src="{{ $result['image_url']['shop_image1'] }}">
-                            <br>
-                            <br>
+                            <h2 class="card-title text-center"><a href="{{ $result['url'] }}" class="text-dark" style="text-decoration: none;">{{ $result['name'] }}</a></h2>
+                            <img class="card-img-top rounded mx-auto d-block" src="{{ $result['image_url']['shop_image1'] }}" style="width: auto; height:auto;">
                             <br>
                             {{-- 店名 --}}
                             <div class="text-center">
-                                <h1 class="card-title"><a href="{{ $result['url'] }}" class="text-dark" style="text-decoration: none;">{{ $result['name'] }}</a></h1>
+                                
                                 {{-- 詳細 --}}
-                                <br>
                                 <h6 class="card-text">{{ $result['pr']['pr_short'] }}</h6>
                                 {{-- 住所 --}}
                                 {{-- <p class="card-text">{{ $result['address'] }}</p> --}}
                                 {{-- 営業時間 --}}
                                 <br>
-                                <br>
-                                <h5>営業時間</h5><h4 class="card-text text-danger">{{ $result['opentime'] }}</h4>
+                                <h6>営業時間</h6><h5 class="card-text text-danger">{{ $result['opentime'] }}</h5>
                                 {{-- 休日 --}}
-                                <br>
-                                <h5>休日</h5><h4 class="card-text text-danger">{{ $result['holiday'] }}</h4>
+                                <h6>休日</h6><h5 class="card-text text-danger">{{ $result['holiday'] }}</h5>
                                 {{-- 電話番号 --}}
-                                <br>
-                                <h5>電話番号</h5><h4 class="card-text text-danger">{{ $result['tel'] }}</h4>
+                                <h6>電話番号</h6><h5 class="card-text text-danger">{{ $result['tel'] }}</h5>
                                 <br>
                                 {{-- 注文ボタン --}}
                                 <form action="{{ route('delivery.conf') }}" method="get">

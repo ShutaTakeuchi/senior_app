@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container py-4">
     <div class="row justify-content-center">
 
         <div class="col-md-8">
@@ -18,13 +18,14 @@
                         {{-- <img class="card-img-top" src="{{ $result['Item']['mediumImageUrls'][0]['imageUrl'] }}"> --}}
                         {{-- <div class="card-body"> --}}
                         <div class="card-body" style="background-color: #dddddd">
-                            <img class="card-img-top rounded" src="{{ $result['Item']['mediumImageUrls'][0]['imageUrl'] }}">
+                            {{-- 商品名 --}}
+                            <h4 class="card-title text-center"><a href="{{ $result['Item']['itemUrl'] }}" class="text-dark" style="text-decoration: none;">{{ $result['Item']['itemName'] }}</a></h4>
+                            <img class="card-img-top rounded mx-auto d-block" style="width: 50%; height: auto;" src="{{ $result['Item']['mediumImageUrls'][0]['imageUrl'] }}">
+
                             <br>
-                            <br>
-                            <br>
+
                             <div class="text-center">
-                                {{-- 商品名 --}}
-                                <h3 class="card-title"><a href="{{ $result['Item']['itemUrl'] }}" class="text-dark" style="text-decoration: none;">{{ $result['Item']['itemName'] }}</a></h3>
+                                <h6 class="card-text">{{ $result['Item']['catchcopy'] }}</h6>
                                 {{-- 金額 --}}
                                 <br>
                                 <h2 class="card-text text-danger">¥{{ $result['Item']['itemPrice'] }}</h2>
