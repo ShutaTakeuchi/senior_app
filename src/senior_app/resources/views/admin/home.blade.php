@@ -5,6 +5,7 @@
     <div class="container">
 
         <div class="row justify-content-center">
+
             {{-- フラッシュメッセージ --}}
             @if (session('flash_message'))
                 <div class="row">

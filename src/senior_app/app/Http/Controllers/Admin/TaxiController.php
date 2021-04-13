@@ -45,7 +45,7 @@ class TaxiController extends Controller
     }
 
     /**
-     * 担当者選択後の処理
+     * 担当者決定の処理
      */
     public function store_staff(Request $request)
     {
@@ -54,5 +54,26 @@ class TaxiController extends Controller
             ->update(['admin_id' => $request->input('id')]);
 
         return redirect('/admin/taxi/index')->with('flash_message', '変更しました');
+    }
+
+    /**
+     * 削除確認
+     */
+    public function conf_delete(Request $request)
+    {
+        $taxi = Taxi::find($request->input('id'));
+        $data = [
+            'taxi' => $taxi
+        ];
+        return view('admin.taxi.conf_delete', $data);
+    }
+
+    /**
+     * 削除処理
+     */
+    public function delete(Request $request)
+    {
+        Taxi::find($request->input('id'))->delete();
+        return redirect('/admin/taxi/index')->with('flash_message', '削除しました');
     }
 }

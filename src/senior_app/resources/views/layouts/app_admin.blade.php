@@ -59,7 +59,7 @@
                         @else
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('admin.search.delivery') }}">ごはん</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('admin.search.item') }}">おかいもの</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('admin.search.item') }}">タクシー</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('admin.taxi.index') }}">タクシー</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('admin.person.show') }}">お客様情報</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('admin.staff.index') }}">スタッフ</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('ログアウト') }}</a></li>
@@ -73,15 +73,16 @@
         </nav>
 
         {{-- 内容 --}}
-        <div class="py-4">
-            <header class="masthead bg-white text-body text-center" style="margin-top: -160px; height: 100%; min-height:750px;">
+        <div>
+            <header class="masthead bg-white text-body text-center" style="padding-top: 30px; height: 100%; min-height:550px;">
                 <div class="container d-flex align-items-center flex-column">
                     @yield('content')
                 </div>
             </header>
         </div>
         
-        <div>
+        {{-- footer --}}
+        {{-- <div>
             <div class="copyright py-4 text-center text-white" style="margin-top: -25px;">
                 <div class="container"><small>Copyright © Your Website 2020</small></div>
             </div>
@@ -89,7 +90,7 @@
             <div class="scroll-to-top d-lg-none position-fixed">
                 <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a>
             </div>
-        </div>
+        </div> --}}
     </div>
             <!-- Bootstrap core JS-->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

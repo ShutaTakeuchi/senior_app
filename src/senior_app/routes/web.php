@@ -161,6 +161,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::get('taxi/staff', 'Admin\TaxiController@insert_staff')->name('admin.taxi.select.staff');
     // 担当者保存
     Route::post('taxi/staff', 'Admin\TaxiController@store_staff')->name('admin.taxi.store.staff');
+    // 削除確認
+    Route::get('taxi/delete', 'Admin\TaxiController@conf_delete')->name('admin.taxi.delete.conf');
+    // 削除確認
+    Route::post('taxi/delete', 'Admin\TaxiController@delete')->name('admin.taxi.delete');
 
 
     // person

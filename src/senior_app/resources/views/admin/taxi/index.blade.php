@@ -9,6 +9,7 @@
             <h2>{{ session('flash_message') }}</h2>
         </div>
     @endif
+    
     <h2>タクシー</h2>
 
 
@@ -62,7 +63,7 @@
                     </td>
                     <td>
                         {{-- キャンセル --}}
-                        <form action="" method="get">
+                        <form action="{{ route('admin.taxi.delete.conf') }}" method="get">
                             <input type="hidden" name="id" value="{{ $taxi->id }}">
                             <input type="submit" class="btn btn-body btn-sm" value="削除">
                         </form>
