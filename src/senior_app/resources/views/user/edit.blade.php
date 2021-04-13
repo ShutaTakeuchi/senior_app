@@ -2,9 +2,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <header class="masthead bg-primary text-white text-center" style="margin-top: -25px; height: 100%;">
+    <header class="masthead bg-primary text-white text-center" style="padding-top: 30px; height: 100%;">
         <div class="container d-flex align-items-center flex-column">
-            <h2>お客様情報編集</h2>
+            <h2>お客様情報変更</h2>
             <br>
             <h5 class="text-danger">電話番号は変更できません</h5>
 

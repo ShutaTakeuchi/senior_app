@@ -60,8 +60,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/contact/comp/cancel', 'ContactController@comp_cancel')->name('contact.comp.cancel');
     // 予約完了
     Route::post('/contact/comp/taxi', 'ContactController@comp_taxi')->name('contact.comp.taxi');
+    // その他連絡内容入力フォーム
+    Route::get('/contact/other', 'ContactController@other_contact_form')->name('contact.other.form');
     // その他連絡
-    Route::get('/contact/other', 'ContactController@other_contact')->name('contact.other');
+    Route::post('/contact/other', 'ContactController@other_contact')->name('contact.other');
     // // 個人情報変更申請完了
     // Route::get('/contact/conf/edit', 'ContactController@conf_edit_user_info')->name('contact.conf.edit');
     // // 個人情報変更申請完了

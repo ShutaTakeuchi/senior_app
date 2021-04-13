@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <header class="masthead bg-primary text-white text-center" style="margin-top: -25px; height: 800px;">
+    <header class="masthead bg-primary text-white text-center" style="padding-top: 30px; height: 100%;">
         <div class="container d-flex align-items-center flex-column">
 
             <!-- フラッシュメッセージ -->
@@ -13,7 +13,7 @@
                 <br>
             @endif
 
-            <h2>個人情報</h2>
+            <h2>お客様情報</h2>
             <br>
 
             <table class="table table-bordered">

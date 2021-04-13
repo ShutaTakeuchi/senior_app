@@ -2,21 +2,35 @@
 @extends('layouts.app')
 
 @section('content')
-    <header class="masthead bg-primary text-white text-center" style="margin-top: -120px; height: 100%;">
+    <header class="masthead bg-primary text-white text-center" style="padding-top: 30px; height: 100%;">
         <div class="container d-flex align-items-center flex-column">
-            <h1 class="page-section-heading text-center text-uppercase text-white">注文中の商品</h1>
+            <h2 class="page-section-heading text-center text-uppercase text-white">キャンセル申請</h2>
             <br>
-            <h1 class="page-section-heading text-center text-uppercase text-danger">キャンセルしたい商品や店舗名を選択してください。</h1>
+
+            <div class="text-danger">
+                <h5>商品の注文状況や</h5>
+                <h5>配達状況によって</h5>
+                <h5>キャンセルできない場合があります。</h5>
+            </div>
+
+            <br>
+
+            <div class="text-body">
+                <h6>キャンセルしたい商品を</h6>
+                <h6>お選びください。</h6>
+            </div>
+
             <br>
             <br>
             <div class="row">
 
                 {{-- ごはん --}}
                 <div class="col-md-6">
-                    <h3 class=" text-center text-uppercase text-dark">ごはん</h3>
+                    <h3 class="text-center text-uppercase text-dark">ごはん</h3>
 
-                    <table class="table table-borderless">
+                    <table class="table table-bordered">
                         <tbody>
+
                             @foreach ($deliveries as $delivery)
                                 <tr>
                                     <td class="text-white"><img
@@ -34,7 +48,7 @@
                 <div class="col-md-6">
                     <h3 class="text-center text-uppercase text-dark">おかいもの</h3>
 
-                    <table class="table table-borderless">
+                    <table class="table table-bordered">
                         <tbody>
                             @foreach ($items as $item)
                                 <tr>
@@ -52,7 +66,7 @@
 
             <br>
 
-            <a href="{{ route('home') }}" class="btn btn-dark btn-lg">戻る</a>
+            <a href="{{ route('contact.index') }}" class="btn btn-dark btn-lg">戻る</a>
         </div>
         </div>
     </header>

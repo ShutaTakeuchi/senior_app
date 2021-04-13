@@ -31,11 +31,13 @@ class ContactController extends Controller
 
         $user_name = Auth::user()['name'];
         $user_tel = Auth::user()['tel'];
+        $user_address = Auth::user()['address'];
         $message = <<<EOF
         【緊急連絡】
         至急、電話をおかけください。
         お名前：{$user_name} 様　
         電話番号：{$user_tel}
+        住所：{$user_address}
         EOF;
 
         // POSTデータを設定してJSONにエンコード
@@ -281,14 +283,24 @@ class ContactController extends Controller
 
         return redirect('/')->with([
             'message_1' => 'キャンセルを申請しました。',
-            'message_2' => 'ご連絡をおまちください。。'
+            'message_2' => 'ご連絡をおまちください。'
         ]);
     }
 
     /**
+     * その他お問い合わせの入力フォーム（未入力でも可）
+     */
+    public function other_contact_form()
+    {
+        return view('contact.other_contact');
+    }
+
+
+
+    /**
      * その他のお問い合わせ
      */
-    public function other_contact()
+    public function other_contact(Request $request)
     {
         $channelToken = 'm3PQGwcOS0ahPTO1YQtgarFT9b9RzAStkA5DLQqDlPYUs2BdBQSvOBV5pDzBLEqvn8lFuIsY3vmad7y7NQHOqJ86TOWsnM72X/Ba77OIVCV4oP14Dg+T/bYfibPuKjcUStCbJp9VZFeylmWPyPaPSAdB04t89/1O/w1cDnyilFU=';
         $headers = [
@@ -299,11 +311,18 @@ class ContactController extends Controller
         $user_name = Auth::user()['name'];
         $user_tel = Auth::user()['tel'];
 
+        if($request->input('content') === null){
+            $content = '入力無し';
+        }else{
+            $content = $request->input('content');
+        }
+
         $message = <<<EOF
         【その他お問い合わせ】
         お客様へご連絡をお願いします。
         お名前：{$user_name} 様
         電話番号：{$user_tel}
+        お問い合わせ内容：{$content}
         EOF;
 
         // POSTデータを設定してJSONにエンコード

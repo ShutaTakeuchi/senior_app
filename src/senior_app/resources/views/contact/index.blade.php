@@ -12,7 +12,7 @@
         <br>
         <a href="{{ route('contact.show.order') }}" class="btn btn-info btn-lg btn-block py-4">商品をキャンセルしたい</a>
         <br>
-        <a href="{{ route('contact.other') }}" class="btn btn-info btn-lg btn-block py-4">その他連絡</a>
+        <a href="{{ route('contact.other.form') }}" class="btn btn-info btn-lg btn-block py-4">その他連絡</a>
         <br>
         <a href="{{ route('contact.emergency') }}" class="btn btn-danger btn-lg btn-block py-4">緊急・救急</a>
 
