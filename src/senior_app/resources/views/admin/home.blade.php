@@ -20,7 +20,7 @@
         <div class="row justify-content-center">
 
             {{-- ごはん --}}
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="card text-center">
                     <div class="card-header">
                         ごはん
@@ -54,7 +54,7 @@
             </div>
 
             {{-- おかいもの --}}
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="card text-center">
                     <div class="card-header">
                         おかいもの
@@ -103,13 +103,8 @@
                 </div>
             </div>
 
-        </div>
-
-        <br>
-
-        <div class="row justify-content-center">
             {{-- タクシー --}}
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="card text-center">
                     <div class="card-header">
                         タクシー
@@ -149,6 +144,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 @endsection
