@@ -28,6 +28,7 @@
     <table class="table table-bordered">
         <thead>
             <tr>
+                <th scope="col">注文時間</th>
                 <th scope="col">お名前</th>
                 <th scope="col">住所</th>
                 <th scope="col">電話番号</th>
@@ -40,9 +41,10 @@
         <tbody>
             @foreach ($items as $item)
                 <tr>
+                    <td nowrap>{{ $item->created_at }}</td>
                     <td nowrap>{{ $item->user->name }}</th>
-                    <td>{{ $item->user->address }}</td>
-                    <td>{{ $item->user->tel }}</td>
+                    <td nowrap>{{ $item->user->address }}</td>
+                    <td nowrap>{{ $item->user->tel }}</td>
                     <td>{{ $item->item_name }}</td>
                     <td>
                         {{-- 担当者 --}}

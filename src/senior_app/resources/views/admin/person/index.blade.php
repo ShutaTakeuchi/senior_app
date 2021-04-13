@@ -5,7 +5,8 @@
     <h2>お客様情報一覧</h2>
     <br>
 
-    <h5>電話番号で検索する</h5>
+    <h6 class="text-muted">電話番号（ハイフン無し）で検索</h6>
+
     <!-- フラッシュメッセージ -->
     @if (session('flash_message'))
         <div class="flash_message text-danger">
@@ -15,9 +16,9 @@
 
     <form action="{{ route('admin.person.search') }}" method="post">
         @csrf
-        <div class="form-group">
-            <input type="test" name="tel" class="form-control" placeholder="00011112222" value="{{ old('tel') }}">
-            <button type="submit" class="btn btn-warning" style="margin-top: 7px;">検索</button>
+        <div class="form-group" style="display:inline-flex">
+            <input type="test" name="tel" class="form-control" value="{{ old('tel') }}" placeholder="00011112222">
+            <button type="submit" class="btn btn-dark">検索</button>
         </div>
         
     </form>
@@ -37,10 +38,10 @@
             </thead>
             <tbody>
                 <tr class="text-danger">
-                    <th scope=>{{ $user['name'] }}</th>
-                    <td>{{ $user['email'] }}</td>
-                    <td>{{ $user['address'] }}</td>
-                    <td>{{ $user['tel'] }}</td>
+                    <td nowrap>{{ $user['name'] }}</td>
+                    <td nowrap>{{ $user['email'] }}</td>
+                    <td nowrap>{{ $user['address'] }}</td>
+                    <td nowrap>{{ $user['tel'] }}</td>
                     <td>
                         <form action="{{ route('admin.person.edit') }}" method="post">
                             @csrf
@@ -66,10 +67,10 @@
             <tbody>
                 @foreach ($users as $user)
                     <tr>
-                        <th scope=>{{ $user['name'] }}</th>
-                        <td>{{ $user['email'] }}</td>
-                        <td>{{ $user['address'] }}</td>
-                        <td>{{ $user['tel'] }}</td>
+                        <td nowrap>{{ $user['name'] }}</td>
+                        <td nowrap>{{ $user['email'] }}</td>
+                        <td nowrap>{{ $user['address'] }}</td>
+                        <td nowrap>{{ $user['tel'] }}</td>
                         <td>
                             <form action="{{ route('admin.person.edit') }}" method="post">
                                 @csrf

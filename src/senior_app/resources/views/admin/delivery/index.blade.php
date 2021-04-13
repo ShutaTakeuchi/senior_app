@@ -28,6 +28,7 @@
     <table class="table table-bordered table-wrap">
         <thead>
             <tr>
+                <th scope="col">注文時間</th>
                 <th scope="col">お名前</th>
                 <th scope="col">住所</th>
                 <th scope="col">電話番号</th>
@@ -40,9 +41,10 @@
         <tbody>
             @foreach ($deliveries as $delivery)
                 <tr>
+                    <td nowrap>{{ $delivery->created_at }}</td>
                     <td nowrap>{{ $delivery->user->name }}</th>
-                    <td>{{ $delivery->user->address }}</td>
-                    <td>{{ $delivery->user->tel }}</td>
+                    <td nowrap>{{ $delivery->user->address }}</td>
+                    <td nowrap>{{ $delivery->user->tel }}</td>
                     <td>{{ $delivery->shop_name }}</td>
                     <td>
                         @if ($delivery->admin_id === null)
