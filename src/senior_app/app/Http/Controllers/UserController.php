@@ -91,6 +91,7 @@ class UserController extends Controller
         User::find(Auth::id())->delete();
         Delivery::where('user_id', Auth::id())->delete();
         Item::where('user_id', Auth::id())->delete();
+        Taxi::where('user_id', Auth::id())->delete();
         
         return redirect('/login')->with([
             'message_1' => '是非またのご利用を',

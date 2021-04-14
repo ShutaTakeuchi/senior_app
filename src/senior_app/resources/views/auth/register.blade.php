@@ -113,7 +113,8 @@
 
                                     <div class="col-md-6">
                                         <input id="password-confirm" type="password" class="form-control"
-                                            name="password_confirmation" required autocomplete="new-password" placeholder="もう一度入力してください。">
+                                            name="password_confirmation" required autocomplete="new-password"
+                                            placeholder="もう一度入力してください。">
                                     </div>
                                 </div>
 

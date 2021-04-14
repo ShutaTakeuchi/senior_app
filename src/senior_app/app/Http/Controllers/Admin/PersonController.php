@@ -99,6 +99,7 @@ class PersonController extends Controller
         User::find($request->input('id'))->delete();
         Delivery::where('user_id', Auth::id())->delete();
         Item::where('user_id', Auth::id())->delete();
+        Taxi::where('user_id', Auth::id())->delete();
         
         return redirect('admin/home')->with('flash_message', 'アカウントを削除しました。');        
     }
