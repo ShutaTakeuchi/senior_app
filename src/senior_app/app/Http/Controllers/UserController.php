@@ -7,6 +7,7 @@ use Auth;
 use App\User;
 use App\Delivery;
 use App\Item;
+use App\Taxi;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\EditUserRequest;
 use App\Http\Requests\ResetPasswordRequest;

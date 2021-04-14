@@ -9,6 +9,7 @@ use Auth;
 use App\User;
 use App\Delivery;
 use App\Item;
+use App\Taxi;
 use Illuminate\Foundation\Console\Presets\React;
 
 class PersonController extends Controller
