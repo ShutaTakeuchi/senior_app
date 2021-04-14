@@ -7,8 +7,7 @@
 
     <h6 class="text-muted mt-3">電話番号（ハイフン無し）で検索</h6>
 
-    <form action="{{ route('admin.person.search') }}" method="post">
-        @csrf
+    <form action="{{ route('admin.person.search') }}" method="get">
         <div class="form-group" style="display:inline-flex">
             <input type="test" name="tel" class="form-control" value="{{ old('tel') }}" placeholder="00011112222">
             <button type="submit" class="btn btn-dark">検索</button>
@@ -42,8 +41,7 @@
                     <td nowrap>{{ $user['address'] }}</td>
                     <td nowrap>{{ $user['tel'] }}</td>
                     <td>
-                        <form action="{{ route('admin.person.edit') }}" method="post">
-                            @csrf
+                        <form action="{{ route('admin.person.edit') }}" method="get">
                             <input type="hidden" name="id" value="{{ $user['id'] }}">
                             <input type="submit" class="btn btn-info" value="編集">
                         </form>
@@ -70,8 +68,7 @@
                         <td nowrap>{{ $user['address'] }}</td>
                         <td nowrap>{{ $user['tel'] }}</td>
                         <td>
-                            <form action="{{ route('admin.person.edit') }}" method="post">
-                                @csrf
+                            <form action="{{ route('admin.person.edit') }}" method="get">
                                 <input type="hidden" name="id" value="{{ $user['id'] }}">
                                 <input type="submit" class="btn btn-info" value="編集">
                             </form>
@@ -81,5 +78,4 @@
             </tbody>
         </table>
     @endif
-
 @endsection

@@ -30,15 +30,13 @@
 
     <div class="row">
         <div class="col-md-6">
-            <form action="{{ route('admin.person.password_edit') }}" method="post" class="mt-4">
-                @csrf
+            <form action="{{ route('admin.person.password_edit') }}" method="get" class="mt-4">
                 <input type="hidden" name="id" value="{{ $user['id'] }}">
                 <button type="submit" class="btn btn-warning">パスワードを変更する</button>
             </form>
         </div>
         <div class="col-md-6">
-            <form action="{{ route('admin.person.conf_del') }}" method="post" class="mt-4">
-                @csrf
+            <form action="{{ route('admin.person.conf_del') }}" method="get" class="mt-4">
                 <input type="hidden" name="id" value="{{ $user['id'] }}">
                 <button type="submit" class="btn btn-danger">アカウントを削除する</button>
             </form>

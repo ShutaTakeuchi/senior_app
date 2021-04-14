@@ -11,6 +11,7 @@ use App\Delivery;
 use App\Item;
 use App\Taxi;
 use Illuminate\Foundation\Console\Presets\React;
+use App\Http\Requests\TemporaryResetPasswordRequest;
 
 class PersonController extends Controller
 {
@@ -25,7 +26,7 @@ class PersonController extends Controller
         if ($me->id !== 1){
             return redirect('admin/home');
         }
-        
+    
         $users = User::all();
         $data = [
             'users' => $users
@@ -106,7 +107,7 @@ class PersonController extends Controller
 
         $user->delete();
         
-        return redirect('admin/home')->with('flash_message', 'アカウントを削除しました。');        
+        return redirect('admin/person/index')->with('flash_message', 'アカウントを削除しました。');        
     }
 
     /**
@@ -125,13 +126,13 @@ class PersonController extends Controller
     /**
      * お客様のパスワードの変更完了処理
      */
-    public function password_update(Request $request)
+    public function password_update(TemporaryResetPasswordRequest $request)
     {
         User::where('id', $request->input('id'))
           ->update([
             'password' => bcrypt($request->input('password'))
           ]);
 
-        return redirect('admin/home')->with('flash_message', '変更しました');
+        return redirect('admin/person/index')->with('flash_message', '変更しました');
     }
 }

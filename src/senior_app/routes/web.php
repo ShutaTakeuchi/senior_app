@@ -171,17 +171,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     // お客様一覧
     Route::get('person/index', 'Admin\PersonController@show_people')->name('admin.person.show');
     // お客様検索結果
-    Route::post('person/search', 'Admin\PersonController@get_person')->name('admin.person.search');
+    Route::get('person/search', 'Admin\PersonController@get_person')->name('admin.person.search');
     // お客様情報を変更フォーム（パスワード以外）
-    Route::post('person/edit', 'Admin\PersonController@edit')->name('admin.person.edit');
+    Route::get('person/edit', 'Admin\PersonController@edit')->name('admin.person.edit');
     // 変更完了処理（パスワード以外）
     Route::post('person/update', 'Admin\PersonController@update')->name('admin.person.update');
     // お客様情報を変更フォーム（パスワード）
-    Route::post('person/password/edit', 'Admin\PersonController@password_edit')->name('admin.person.password_edit');
+    Route::get('person/password/edit', 'Admin\PersonController@password_edit')->name('admin.person.password_edit');
     // 変更完了処理（パスワード）
     Route::post('person/password/update', 'Admin\PersonController@password_update')->name('admin.person.password_update');
     // アカウント削除の確認画面
-    Route::post('person/delete/conf', 'Admin\PersonController@conf_delete')->name('admin.person.conf_del');
+    Route::get('person/delete/conf', 'Admin\PersonController@conf_delete')->name('admin.person.conf_del');
     // アカウント削除完了
     Route::post('person/delete/comp', 'Admin\PersonController@delete')->name('admin.person.delete');
 

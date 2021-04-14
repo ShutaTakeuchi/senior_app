@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ResetPasswordRequest extends FormRequest
+class TemporaryResetPasswordRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class ResetPasswordRequest extends FormRequest
     public function rules()
     {
         return [
-            'password' => 'required|min:8'
+            'password' => 'required'
         ];
     }
 
@@ -32,7 +32,6 @@ class ResetPasswordRequest extends FormRequest
     {
         return [
             'password.required' => '必ず入力してください。',
-            'password.min' => '８文字以上で入力してください。'
         ];
     }
 }
