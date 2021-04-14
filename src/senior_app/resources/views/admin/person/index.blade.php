@@ -2,17 +2,10 @@
 @extends('layouts.app_admin')
 
 @section('content')
+
     <h2>お客様情報一覧</h2>
-    <br>
 
-    <h6 class="text-muted">電話番号（ハイフン無し）で検索</h6>
-
-    <!-- フラッシュメッセージ -->
-    @if (session('flash_message'))
-        <div class="flash_message text-danger">
-            <strong>{{ session('flash_message') }}</strong>
-        </div>
-    @endif
+    <h6 class="text-muted mt-3">電話番号（ハイフン無し）で検索</h6>
 
     <form action="{{ route('admin.person.search') }}" method="post">
         @csrf
@@ -20,10 +13,16 @@
             <input type="test" name="tel" class="form-control" value="{{ old('tel') }}" placeholder="00011112222">
             <button type="submit" class="btn btn-dark">検索</button>
         </div>
-        
+
     </form>
 
-    <br>
+    <!-- フラッシュメッセージ -->
+    @if (session('flash_message'))
+        <div class="flash_message text-danger">
+            <h5>{{ session('flash_message') }}</h5>
+        </div>
+    @endif
+
 
     @if (isset($user))
         <table class="table table-bordered">
@@ -52,7 +51,6 @@
                 </tr>
             </tbody>
         </table>
-
     @else
         <table class="table table-bordered">
             <thead>
@@ -83,4 +81,5 @@
             </tbody>
         </table>
     @endif
+
 @endsection

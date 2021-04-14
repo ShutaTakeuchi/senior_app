@@ -43,7 +43,7 @@ class PersonController extends Controller
 
         // フラッシュメッセージ
         if ($user === null){
-            return redirect('/admin/person/index')->with('flash_message', 'ユーザー情報がありません。');
+            return redirect('/admin/person/index')->with('flash_message', 'ユーザー情報がありません');
         }
 
         $data = [
@@ -77,7 +77,7 @@ class PersonController extends Controller
               'address' => $request->input('address'),
           ]);
 
-        return redirect('admin/home')->with('flash_message', '変更しました');
+        return redirect('admin/person/index')->with('flash_message', 'お客様情報を変更しました');
     }
 
     /**
