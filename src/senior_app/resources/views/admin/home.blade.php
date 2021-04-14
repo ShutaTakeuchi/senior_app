@@ -5,12 +5,11 @@
     <div class="container">
 
         <div class="row justify-content-center">
-
             {{-- フラッシュメッセージ --}}
             @if (session('flash_message'))
                 <div class="row">
                     <div class="flash_message">
-                        <h2 class="text-danger">{{ session('flash_message') }}</h2>
+                        <h5 class="text-danger">{{ session('flash_message') }}</h5>
                     </div>
                     <br>
                 </div>
@@ -27,7 +26,6 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">状況</h5>
-                        {{-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> --}}
                         <table class="table table-bordered">
                             <tr>
                                 <th>注文依頼</th>

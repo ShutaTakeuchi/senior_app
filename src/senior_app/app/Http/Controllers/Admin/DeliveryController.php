@@ -43,13 +43,16 @@ class DeliveryController extends Controller
         return view('admin.delivery.insert_staff', $data);
     }
 
+    /**
+     * 担当確定処理
+     */
     public function store_staff(Request $request)
     {
 
         Delivery::where('id', $request->input('shop_id'))
             ->update(['admin_id' => $request->input('id')]);
 
-        return redirect('/admin/delivery/search')->with('flash_message', '変更しました');
+        return redirect('/admin/delivery/search')->with('flash_message', '担当者を変更しました');
     }
 
     /**
