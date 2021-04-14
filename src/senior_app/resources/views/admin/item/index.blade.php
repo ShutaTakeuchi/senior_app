@@ -6,7 +6,7 @@
     <!-- フラッシュメッセージ -->
     @if (session('flash_message'))
         <div class="flash_message text-danger">
-            <h2>{{ session('flash_message') }}</h2>
+            <h5>{{ session('flash_message') }}</h5>
         </div>
     @endif
 
@@ -71,7 +71,7 @@
                             <input type="hidden" name="id" value="{{ $item->id }}">
                             @if ($item->status === '入荷済み')
                                 <input type="hidden" name="status" value="入荷済み">
-                                <input type="submit" class="btn btn-info btn-sm" value="入荷済み">
+                                <button type="submit" class="btn btn-info btn-sm" disabled>入荷済み</button>
                             @elseif ($item->status === '注文済み')
                                 <input type="hidden" name="status" value="注文済み">
                                 <input type="submit" class="btn btn-warning btn-sm" value="注文済み">
@@ -79,7 +79,7 @@
                                 <input type="hidden" name="status" value="注文依頼">
                                 <input type="submit" class="btn btn-danger btn-sm" value="注文依頼">
                             @elseif ($item->status === '配達中')
-                                <button disabled class="btn btn-info btn-sm">配達中</button>
+                                <button disabled class="btn btn-success btn-sm">配達中</button>
                             @endif
                         </form>
                     </td>

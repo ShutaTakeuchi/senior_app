@@ -2,27 +2,43 @@
 @extends('layouts.app_admin')
 
 @section('content')
-    <h2 class="text-danger">本当に削除してもいいですか？</h2>
+    <h2 class="mb-4">削除確認画面</h2>
 
-    <br>
-    <h5>商品名：{{ $item->item_name }}</h5>
-    <br>
-    <h5>お名前：{{ $item->user->name }}</h5>
-    <br>
-    <h5>住所：{{ $item->user->address }}</h5>
-    <br>
-    <h5>電話番号：{{ $item->user->tel }}</h5>
+    <h4 class="text-danger mb-4">本当に削除してもよろしいですか？</h4>
 
-    <br>
+    <table class="table table-bordered mb-4">
+        <tbody>
+            <tr>
+                <td>注文時間</td>
+                <th>{{ $item->created_at }}</th>
+            </tr>
+            <tr>
+                <td>商品名</td>
+                <th>{{ $item->item_name }}</th>
+            </tr>
+            <tr>
+                <td>お名前</td>
+                <th>{{ $item->user->name }}</th>
+            </tr>
+            <tr>
+                <td>住所</td>
+                <th>{{ $item->user->address }}</th>
+            </tr>
+            <tr>
+                <td>電話番号</td>
+                <th>{{ $item->user->tel }}</th>
+            </tr>
+        </tbody>
+    </table>
 
     <form action="{{ route('admin.comp.delete.item') }}" method="post">
         @csrf
         <input type="hidden" name="id" value="{{ $item->id }}">
         <input type="submit" class="btn btn-info" value="削除する">
     </form>
-    
+
     <br>
 
-    <a href="{{ route('admin.search.item') }}">戻る</a>
+    <a href="{{ route('admin.search.item') }}" class="btn btn-dark">戻る</a>
 
 @endsection
