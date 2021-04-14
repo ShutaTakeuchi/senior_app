@@ -9,6 +9,7 @@ use App\Delivery;
 use App\Item;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\EditUserRequest;
+use App\Http\Requests\ResetPasswordRequest;
 
 class UserController extends Controller
 {
@@ -50,7 +51,7 @@ class UserController extends Controller
               'address' => $request->input('address'),
           ]);
 
-        return redirect('/user/index')->with('flash_message', '変更しました');
+        return redirect('/user/index')->with('flash_message', '情報を変更致しました');
     }
 
     /**
@@ -64,7 +65,7 @@ class UserController extends Controller
     /**
      * パスワード変更処理
      */
-    public function reset_password(Request $request)
+    public function reset_password(ResetPasswordRequest $request)
     {
         User::where('id', Auth::id())
           ->update([
@@ -91,6 +92,9 @@ class UserController extends Controller
         Delivery::where('user_id', Auth::id())->delete();
         Item::where('user_id', Auth::id())->delete();
         
-        return redirect('/login')->with('flash_message', 'また是非ご利用くださいませ。');
+        return redirect('/login')->with([
+            'message_1' => '是非またのご利用を',
+            'message_2' => '心よりお待ちしております。'
+        ]);
     }
 }

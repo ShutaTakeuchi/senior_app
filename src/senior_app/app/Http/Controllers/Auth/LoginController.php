@@ -103,7 +103,7 @@ class LoginController extends Controller
         // フラッシュメッセージ
         // return redirect('/login')->with('flash_message', 'ご連絡をお待ちください。');
         return redirect('/login')->with([
-            'message_1' => '送信しました。',
+            'message_1' => '送信致しました。',
             'message_2' => 'ご連絡をお待ちください。'
         ]);
     }

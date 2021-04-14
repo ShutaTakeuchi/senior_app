@@ -124,7 +124,8 @@ class WelcomeController extends Controller
 
         // フラッシュメッセージ
         return redirect('/login')->with([
-            'flash_message' => 'ありがとうございます。ご連絡をおまちください。',
+            'message_1' => 'ありがとうございます。',
+            'message_2' => 'ご連絡をお待ちください。'
         ]);
 
     }

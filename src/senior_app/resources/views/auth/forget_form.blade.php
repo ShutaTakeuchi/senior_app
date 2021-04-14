@@ -2,20 +2,27 @@
 @extends('layouts.app')
 
 @section('content')
-    <header class="masthead bg-primary text-white text-center" style="margin-top: -120px; height: 1200px;">
+    <header class="masthead bg-primary text-white text-center" style="padding-top: 30px; height: 100%;">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <h2>お客様の情報を</h2>
-                    <h2>入力してください。</h2>
-                    <br>
+                    
+                    <h2>パスワード変更手続き</h2>
 
-                    <div class="text-danger">
-                        <h4>こちらから</h4>
-                        <h4>ご連絡させていただきます。</h4>
+                    <div class="text-danger mt-5">
+                        <h5>パスワードお忘れの場合、</h5>
+                        <h5>再度、パスワードを設定</h5>
+                        <h5>し直す必要がございます。</h5>
                     </div>
-                    <br>
-                    <br>
+
+                    <div class="text-body mt-4">
+                        <h5>送信後、こちらから</h5>
+                        <h5>ご連絡させて頂きます。</h5>
+                    </div>
+
+                    <div class="text-body mt-5">
+                        <h6>以下の入力フォームにご記入ください。</h6>
+                    </div>
 
                     <form action="{{ route('login.forget.comp') }}" method="post">
                         @csrf
@@ -44,14 +51,10 @@
                             <input type="text" class="form-control" id="tel" name="tel" placeholder="00011112222">
                         </div>
 
-                        <br>
-
                         <button type="submit" class="btn btn-info btn-lg">送信する</button>
                     </form>
 
-                    <br>
-
-                    <a href="{{ route('login') }}" class="btn btn-dark btn-lg">戻る</a>
+                    <a href="{{ route('login') }}" class="btn btn-dark btn-lg mt-4">戻る</a>
 
                 </div>
             </div>

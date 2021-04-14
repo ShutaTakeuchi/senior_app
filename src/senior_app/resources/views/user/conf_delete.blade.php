@@ -2,24 +2,24 @@
 @extends('layouts.app')
 
 @section('content')
-    <header class="masthead bg-primary text-white text-center" style="margin-top: -50px; height: 900px;">
+    <header class="masthead bg-primary text-white text-center" style="padding-top: 30px; height: 100%; min-height: 520px;">
         <div class="container d-flex align-items-center flex-column">
 
-            <h2>お客様のアカウント削除の確認画面</h2>
-            <br>
-            <br>
-            <h3 class="text-danger">本当にアカウントを削除しますか？</h3>
-            <br>
-            <br>
+            <h2>アカウント削除の確認</h2>
 
-            <form action="{{ route('user.delete') }}" method="get">
-                <button type="submit" class="btn btn-danger">削除します</button>
+            <div class="text-body mt-4">
+                <h6>削除後、再び当サービスの利用を</h6>
+                <h6>ご希望の場合は、再度アカウントを作成</h6>
+                <h6>する必要があります。</h6>
+            </div>
+
+            <h4 class="text-danger mt-4">アカウントを削除しますか？</h4>
+
+            <form action="{{ route('user.delete') }}" method="get" class="mt-4">
+                <button type="submit" class="btn btn-danger btn-lg">削除します</button>
             </form>
 
-            <br>
-
-            <a href="{{ route('user.index') }}" class="btn btn-dark">戻る</a>
-
+            <a href="{{ route('user.index') }}" class="btn btn-dark btn-lg mt-4">戻る</a>
 
         </div>
     </header>
