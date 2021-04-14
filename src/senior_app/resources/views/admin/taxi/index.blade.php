@@ -16,7 +16,7 @@
     <table class="table table-bordered table-wrap">
         <thead>
             <tr>
-                <th scope="col">時間</th>
+                <th scope="col">予約時間</th>
                 <th scope="col">お名前</th>
                 <th scope="col">住所</th>
                 <th scope="col">電話番号</th>
