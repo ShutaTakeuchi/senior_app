@@ -77,5 +77,11 @@
                 @endforeach
             </tbody>
         </table>
+
+        {{-- 注文がない時 --}}
+        @if (count($users) < 1)
+            <h4 class="text-danger mt-5">現在、ご登録されているお客様は存在しません</h4>
+        @endif
+
     @endif
 @endsection

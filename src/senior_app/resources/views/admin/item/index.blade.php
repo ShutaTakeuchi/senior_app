@@ -94,4 +94,10 @@
             @endforeach
         </tbody>
     </table>
+
+    {{-- 注文がない時 --}}
+    @if (count($items) < 1)
+        <h4 class="text-danger mt-5">現在、ご注文はありません</h4>
+    @endif
+
 @endsection
