@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Post;
+use App\Taxi;
 use Auth;
 
 class HomeController extends Controller
@@ -30,6 +31,7 @@ class HomeController extends Controller
         // $weather_info = $this->get_weather();
         $delivery_info = $this->show_reserve_delivery();
         $item_info = $this->show_reserve_item();
+        $taxi_status = ($this->get_taxi_status());
         // 投稿データ
         $posts = $this->get_all_post();
         $param = [
@@ -37,6 +39,7 @@ class HomeController extends Controller
             'deliveries' => $delivery_info,
             'items' => $item_info,
             'posts' => $posts,
+            'taxi_status' => $taxi_status
         ];
         return view('home', $param);
     }
@@ -66,5 +69,14 @@ class HomeController extends Controller
     {
         $posts = Post::orderBy('id', 'DESC')->take(6)->get();
         return $posts;
+    }
+
+    /**
+     * タクシーのstatusを取得
+     */
+    public function get_taxi_status()
+    {
+        $taxi = Taxi::where('user_id', Auth::user()['id'])->where('status', 'お迎え中')->get();
+        return $taxi;
     }
 }
