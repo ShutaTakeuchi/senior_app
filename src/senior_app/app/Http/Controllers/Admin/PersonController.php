@@ -12,6 +12,7 @@ use App\Item;
 use App\Taxi;
 use Illuminate\Foundation\Console\Presets\React;
 use App\Http\Requests\TemporaryResetPasswordRequest;
+use App\Http\Requests\EditUserRequest;
 
 class PersonController extends Controller
 {
@@ -69,7 +70,7 @@ class PersonController extends Controller
     /**
      * 変更完了(パスワード以外)
      */
-    public function update(Request $request)
+    public function update(EditUserRequest $request)
     {
         User::where('id', $request->input('id'))
           ->update([
