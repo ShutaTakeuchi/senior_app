@@ -4,7 +4,7 @@
 @section('title', 'お客様情報入力 / HOME-GOOD')
 
 @section('content')
-    <header class="masthead bg-primary text-white text-center" style="margin-top: -120px; height: 1200px;">
+    <header class="masthead bg-primary text-white text-center" style="padding-top: 30px; height: 100%;">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
@@ -34,18 +34,42 @@
 
                     <br>
 
-                    <form action="{{ route('welcome.form.conf') }}" method="post">
+                    <form action="{{ route('welcome.form.comp') }}" method="post" class="mx-auto" style="width: 27rem;">
                         @csrf
                         <div class="form-group">
                             <label for="name">お名前</label>
+
+                            {{-- 未入力エラー --}}
+                            <div class="text-danger">
+                                @error('name')
+                                    {{ $message }}
+                                @enderror
+                            </div>
+
                             <input type="text" class="form-control" id="name" name="name" placeholder="別府太郎">
                         </div>
                         <div class="form-group">
                             <label for="address">住所</label>
+
+                            {{-- 未入力エラー --}}
+                            <div class="text-danger">
+                                @error('address')
+                                    {{ $message }}
+                                @enderror
+                            </div>
+
                             <input type="text" class="form-control" id="address" name="address" placeholder="別府市◯◯">
                         </div>
                         <div class="form-group">
                             <label for="tel">電話番号(ハイフン無し)</label>
+
+                            {{-- 未入力エラー --}}
+                            <div class="text-danger">
+                                @error('tel')
+                                    {{ $message }}
+                                @enderror
+                            </div>
+
                             <input type="text" class="form-control" id="tel" name="tel" placeholder="00011112222">
                         </div>
 

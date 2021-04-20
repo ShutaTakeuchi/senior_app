@@ -4,7 +4,7 @@
 @section('title', 'お客様情報の確認 / HOME-GOOD')
 
 @section('content')
-<header class="masthead bg-primary text-white text-center" style="margin-top: -120px; height: 800px;">
+<header class="masthead bg-primary text-white text-center" style="padding-top: 30px; height: 100%;">
     <div class="container d-flex align-items-center flex-column">
 
         <h2>お客様情報の確認</h2>

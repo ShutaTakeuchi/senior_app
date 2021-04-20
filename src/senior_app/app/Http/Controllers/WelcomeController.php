@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\WelcomeRequest;
 
 class WelcomeController extends Controller
 {
@@ -44,7 +45,7 @@ class WelcomeController extends Controller
     /**
      * 入力完了処理画面
      */
-    public function comp(Request $request)
+    public function comp(WelcomeRequest $request)
     {
         // google spread sheets api
         $credentials_path = storage_path('app/json/credentials.json');

@@ -4,13 +4,13 @@
 @section('title', '営業所の住所 / HOME-GOOD')
 
 @section('content')
-    <header class="masthead bg-primary text-white text-center" style="margin-top: -120px; height: 800px;">
+    <header class="masthead bg-primary text-white text-center" style="padding-top: 30px; height: 100%;">
         <div class="container d-flex align-items-center flex-column">
             <h2>営業所で会員登録</h2>
 
             <br>
 
-            <div class="text-body card w-75">
+            <div class="text-body card" style="width: 27rem;">
                 <div class="card-body">
                     <h4 class="card-text">〒000-0000</h4>
                     <br>
