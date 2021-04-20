@@ -49,7 +49,7 @@ class AdminController extends Controller
         $admin->password = Hash::make($request->input('password'));
         $admin->save();
 
-        return redirect('admin/staff/index')->with('flash_message', '登録が完了しました。よろしくお願いします！');
+        return redirect('admin/staff/index')->with('flash_message', '登録が完了しました。よろしくお願い致します！');
     }
 
     /**
@@ -71,6 +71,6 @@ class AdminController extends Controller
     public function comp_delete(Request $request)
     {
         Admin::find($request->input('id'))->delete();
-        return redirect('admin/staff/index')->with('flash_message', '削除しました。');
+        return redirect('admin/staff/index')->with('flash_message', '削除しました');
     }
 }

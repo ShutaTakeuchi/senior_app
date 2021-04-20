@@ -19,12 +19,12 @@
         <div class="row justify-content-center">
 
             {{-- ごはん --}}
-            <div class="col-md-4">
+            <div class="col-md-4 mb-3">
                 <div class="card text-center">
                     <div class="card-header">
                         ごはん
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" style="height: 294px">
                         <h5 class="card-title">状況</h5>
                         <table class="table table-bordered">
                             <tr>
@@ -52,7 +52,7 @@
             </div>
 
             {{-- おかいもの --}}
-            <div class="col-md-4">
+            <div class="col-md-4 mb-3">
                 <div class="card text-center">
                     <div class="card-header">
                         おかいもの
@@ -102,12 +102,12 @@
             </div>
 
             {{-- タクシー --}}
-            <div class="col-md-4">
+            <div class="col-md-4 mb-3">
                 <div class="card text-center">
                     <div class="card-header">
                         タクシー
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" style="height: 294px">
                         <h5 class="card-title">状況</h5>
                         {{-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> --}}
                         <table class="table table-bordered">

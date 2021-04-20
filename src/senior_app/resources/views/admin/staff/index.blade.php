@@ -6,14 +6,14 @@
     <!-- フラッシュメッセージ -->
     @if (session('flash_message'))
         <div class="flash_message text-danger">
-            <h4>{{ session('flash_message') }}</h4>
+            <h5>{{ session('flash_message') }}</h5>
         </div>
         <br>
     @endif
 
     <h2>スタッフ情報</h2>
 
-    <a href="{{ route('admin.staff.create') }}" class="btn btn-primary btn-lg mt-4" style="width: 25rem;">スタッフ登録</a>
+    <a href="{{ route('admin.staff.create') }}" class="btn btn-primary btn-lg mt-4 mb-3" style="width: 25rem;">スタッフ登録</a>
 
     <table class="table table-bordered mt-4">
         <thead>
