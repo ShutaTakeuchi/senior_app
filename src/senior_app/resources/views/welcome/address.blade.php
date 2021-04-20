@@ -10,7 +10,7 @@
 
             <br>
 
-            <div class="text-body card" style="width: 27rem;">
+            <div class="text-body card">
                 <div class="card-body">
                     <h4 class="card-text">〒000-0000</h4>
                     <br>
@@ -23,15 +23,13 @@
             <br>
 
             <div class="text-body">
-                <h5>こちらの営業所内の</h5>
-                <h5>登録カウンターへお越しくださいませ。</h5>
+                <h5>こちらの営業所内の登録カウンターへ<br>お越しくださいませ。</h5>
             </div>
 
             <br>
 
             <div class="text-danger">
-                <h5>お越しの際は、</h5>
-                <h5>お持ちのスマートフォンをご持参ください。</h5>
+                <h5>お越しの際は、<br>お持ちのスマートフォンを<br class="br-sp">ご持参ください。</h5>
             </div>
 
             <br>

@@ -177,7 +177,7 @@ class ContactController extends Controller
         $taxi->save();
 
         return redirect('/')->with([
-            'message_1' => 'ありがとうございます。',
+            'message_1' => '予約致しました。',
             'message_2' => '連絡をお待ちください。'
         ]);
     }

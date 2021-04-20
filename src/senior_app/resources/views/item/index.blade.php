@@ -22,7 +22,7 @@
 <header class="masthead bg-primary text-white text-center" style="padding-top: 50px; height: 100%; min-height: 550px;">
   <div class="container d-flex align-items-center flex-column">
     <h2>いらっしゃいませ。</h2>
-    <h2>日用品をさがしてみましょう。</h2>
+    <h2>おかいものを<br>お楽しみください。</h2>
     <form action="{{ url('/item/show') }}" method="GET">
       {{-- @csrf --}}
         <div class="form-group">

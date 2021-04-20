@@ -13,15 +13,13 @@
                     <br>
 
                     <div class="text-body">
-                        <h5>お客様のご自宅に訪問し、</h5>
-                        <h5>ご一緒に登録をさせていただきます。</h5>
+                        <h5>お客様のご自宅に訪問し、<br>ご一緒に登録をさせていただきます。</h5>
                     </div>
 
                     <br>
 
                     <div class="text-danger">
-                        <h5>後ほど、お電話をかけさせていたき、</h5>
-                        <h5>ご希望の日時をお聞き致します。</h5>
+                        <h5>後ほどお電話をさせていたき、<br>ご希望の日時をお聞き致します。</h5>
                     </div>
 
                     <br>
@@ -34,7 +32,7 @@
 
                     <br>
 
-                    <form action="{{ route('welcome.form.comp') }}" method="post" class="mx-auto" style="width: 27rem;">
+                    <form action="{{ route('welcome.form.comp') }}" method="post" class="mx-auto" style="width: 100%;">
                         @csrf
                         <div class="form-group">
                             <label for="name">お名前</label>

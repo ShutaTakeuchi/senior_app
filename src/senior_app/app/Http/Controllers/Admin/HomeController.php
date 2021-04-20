@@ -29,6 +29,12 @@ class HomeController extends Controller
      */
     public function index()
     {   
+        // 管理者以外をブロック
+        $me = Auth::user();
+        if ($me->id !== 1) {
+            return redirect('admin/task/index');
+        }
+
         // 各データステータスの件数
         $data = [
             // delivery

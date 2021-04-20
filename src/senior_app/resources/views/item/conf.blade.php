@@ -25,7 +25,7 @@
             <br>
             <br>
 
-            <div class="card text-center" style="width: 27rem;">
+            <div class="card text-center" style="width: 100%;">
                 <div class="card-body text-body">
                     <h4 class="card-title">{{ $item_name }}</h4>
                     <h3 class="card-text text-danger">¥{{ $item_price }}</h3>
@@ -43,7 +43,7 @@
                 <input class="btn btn-info btn-lg btn-block" type="submit" value="はい、購入します">
             </form>
             <br>
-            <a href="{{ route('item.index') }}" type="submit" class="btn btn-dark btn-lg">いいえ、戻ります</a>
+            <a href="{{ route('item.index') }}" class="btn btn-dark btn-lg">いいえ、戻ります</a>
 
         </div>
     </header>

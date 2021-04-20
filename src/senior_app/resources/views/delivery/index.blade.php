@@ -9,7 +9,7 @@
 
             <div>
                 <h2>いらっしゃいませ。</h2>
-                <h2>ごはんをさがしてみましょう。</h2>
+                <h2>ごはんを<br>さがしてみましょう。</h2>
             </div>
 
             <form action="{{ url('/delivery/result') }}" method="GET">

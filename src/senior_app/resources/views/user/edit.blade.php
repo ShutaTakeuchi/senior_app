@@ -19,7 +19,7 @@
             <br>
             <br>
 
-            <form action="{{ route('user.update') }}" method="post" style="width: 25rem;">
+            <form action="{{ route('user.update') }}" method="post" style="width: 100%;">
                 @csrf
                 <div class="form-group">
                     <label for="name">お名前</label>

@@ -88,14 +88,14 @@
                     <h3 style="margin-bottom: 60px;">{{ Auth::user()->name }}さん</h3>
 
                     <h2>あなたの「今」を</h2>
-                    <h2 style="margin-bottom: 40px;">共有しましょう。</h2>
+                    <h2 style="margin-bottom: 30px;">共有しましょう。</h2>
 
                     {{-- エラーメッセージ --}}
                     @error('content')
                         <h6 class="text-danger">{{ $message }}</h6>
                     @enderror
 
-                    <form action="{{ route('post') }}" method="POST" class="mb-4">
+                    <form action="{{ route('post') }}" method="POST" class="mb-5">
                         @csrf
                         <div class="form-group">
                             <input type="text" class="form-control" name='content' placeholder="掃除をしました。">

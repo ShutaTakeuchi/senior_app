@@ -197,6 +197,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::post('staff/delete/comp', 'Admin\AdminController@comp_delete')->name('admin.delete.comp');
 
     // task
+    // トップ画面
+    Route::get('task/index', 'Admin\TaskController@index')->name('admin.task.index');
     // delivery
     Route::get('task/delivery', 'Admin\TaskController@delivery_show')->name('admin.task.delivery.show');
     // item

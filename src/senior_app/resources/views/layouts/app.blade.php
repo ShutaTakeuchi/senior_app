@@ -5,6 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -100,7 +101,7 @@
 
         <div>
             <div class="copyright py-4 text-center text-white" style="margin-top: -25px;">
-                <div class="container"><small>Copyright © 2021 HOME-GOOD Inc. All Rights Reserved.</small></div>
+                <div class="container"><small>© 2021 HOME-GOOD Inc. All Rights Reserved.</small></div>
             </div>
             <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
             <div class="scroll-to-top d-lg-none position-fixed">

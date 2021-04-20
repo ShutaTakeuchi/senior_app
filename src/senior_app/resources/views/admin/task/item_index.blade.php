@@ -10,7 +10,14 @@
         </div>
     @endif
 
-    <h2>おかいもの一覧</h2>
+    <h2>おかいもの</h2>
+
+    {{-- 業務がない場合 --}}
+    @if (count($items) < 1)
+        <div class="text-center text-danger mt-4">
+            <h5>現在、配達業務はありません</h5>
+        </div>
+    @endif
 
     @foreach ($items as $item)
     @if ($item->status === '入荷済み' || $item->status === '配達中')

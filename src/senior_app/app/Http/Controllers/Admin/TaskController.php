@@ -13,6 +13,14 @@ use App\Taxi;
 class TaskController extends Controller
 {
     /**
+     * 業務スタッフトップページ
+     */
+    public function index()
+    {
+        return view('admin.task.index');
+    }
+
+    /**
      * delivery担当の業務を表示
      */
     public function delivery_show()
@@ -33,11 +41,11 @@ class TaskController extends Controller
         if ($request->input('category') === 'delivery') {
             Delivery::where('id', $request->input('id'))
                 ->update(['status' => '配達中']);
-            return redirect('/admin/task/delivery')->with('flash_message', '変更しました。');
+            return redirect('/admin/task/delivery')->with('flash_message', '変更しました');
         } else {
             Item::where('id', $request->input('id'))
                 ->update(['status' => '配達中']);
-            return redirect('/admin/task/item')->with('flash_message', '変更しました。');
+            return redirect('/admin/task/item')->with('flash_message', '変更しました');
         }
     }
 
@@ -151,7 +159,7 @@ class TaskController extends Controller
             $item->delete();
         }
 
-        return redirect('admin/home')->with('flash_message', 'お疲れ様でした！');
+        return redirect('admin/task/index')->with('flash_message', 'お疲れ様でした！');
     }
 
     /**
@@ -175,7 +183,7 @@ class TaskController extends Controller
     {
         Taxi::where('id', $request->input('id'))
             ->update(['status' => 'お迎え中']);
-        return redirect('/admin/task/taxi')->with('flash_message', '変更しました。');
+        return redirect('/admin/task/taxi')->with('flash_message', '変更しました');
     }
 
     /**
@@ -185,7 +193,7 @@ class TaskController extends Controller
     {
         Taxi::where('id', $request->input('id'))
             ->update(['status' => '送迎中']);
-        return redirect('/admin/task/taxi')->with('flash_message', '変更しました。');
+        return redirect('/admin/task/taxi')->with('flash_message', '変更しました');
     }
 
     /**
@@ -235,7 +243,7 @@ class TaskController extends Controller
         // 削除処理
         $taxi->delete();
 
-        return redirect('admin/home')->with('flash_message', 'お疲れ様でした！');
+        return redirect('admin/task/index')->with('flash_message', 'お疲れ様でした！');
 
     }
 }

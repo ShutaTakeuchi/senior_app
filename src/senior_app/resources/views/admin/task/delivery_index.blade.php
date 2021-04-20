@@ -10,7 +10,14 @@
         </div>
     @endif
 
-    <h2>ごはん一覧</h2>
+    <h2>ごはん</h2>
+
+    {{-- 業務がない場合 --}}
+    @if (count($deliveries) < 1)
+        <div class="text-center text-danger mt-4">
+            <h5>現在、配達業務はありません</h5>
+        </div>
+    @endif
 
     @foreach ($deliveries as $delivery)
         <table class="table table-bordered">

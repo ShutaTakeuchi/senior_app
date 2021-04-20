@@ -3,18 +3,17 @@
 
 @section('content')
     <h2>業務終了確認</h2>
-    <h3 class="text-danger">業務が完了しましたか？</h3>
-    <br>
+    <h3 class="text-danger mt-3 mb-4">業務が完了しましたか？</h3>
 
     {{-- delivery --}}
     @if ($category === 'delivery')
-        <h4>{{ $delivery->shop_name }}</h4>
+        <h5>{{ $delivery->shop_name }}</h5>
         <br>
-        <h4>お名前：{{ $delivery->user->name }}</h4>
+        <h5>お名前：{{ $delivery->user->name }}</h5>
         <br>
-        <h4>住所：{{ $delivery->user->address }}</h4>
+        <h5>住所：{{ $delivery->user->address }}</h5>
         <br>
-        <h4>電話番号：{{ $delivery->user->tel }}</h4>
+        <h5>電話番号：{{ $delivery->user->tel }}</h5>
         <br>
 
         <form action="{{ route('admin.task.comp.finish') }}" method="post">

@@ -3,7 +3,7 @@
 @section('title', 'ログイン / HOME-GOOD')
 
 @section('content')
-    <header class="masthead bg-primary text-white text-center" style="margin-top: -120px; height: 1100px;">
+    <header class="masthead bg-primary text-white text-center" style="margin-top: -120px; height: 100%;">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6">
@@ -25,6 +25,7 @@
                         <br>
                         <h1>あなたのご自宅に</h1>
                         <h1>さらなる希望を。</h1>
+                        <a href="/admin" class="text-body">管理</a>
                         <br>
                         <br>
                     </div>

@@ -6,7 +6,7 @@
 @section('content')
     <header class="masthead bg-primary text-white text-center" style="padding-top: 30px; height: 100%;">
         <div class="container d-flex align-items-center flex-column">
-            <h2>会員登録サポートサービス</h2>
+            <h2>会員登録サポート</h2>
 
             <div class="row text-danger mt-4">
                 <div class="col-md-6 mb-2">
