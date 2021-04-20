@@ -4,27 +4,21 @@
 @section('title', '注文キャンセルのれんらく / HOME-GOOD')
 
 @section('content')
-    <header class="masthead bg-primary text-white text-center" style="padding-top: 30px; height: 100%;">
+    <header class="masthead bg-primary text-white text-center" style="padding-top: 30px; height: 100%; min-height: 520px;">
         <div class="container d-flex align-items-center flex-column">
             <h2 class="page-section-heading text-center text-uppercase text-white">キャンセル申請</h2>
-            <br>
 
-            <div class="text-danger">
-                <h5>商品の注文状況や</h5>
-                <h5>配達状況によって</h5>
+            <div class="text-danger mt-4">
+                <h5>商品の注文状況や配達状況によって</h5>
                 <h5>キャンセルできない場合があります。</h5>
             </div>
 
-            <br>
-
-            <div class="text-body">
-                <h6>キャンセルしたい商品を</h6>
-                <h6>お選びください。</h6>
+            <div class="text-body mt-4">
+                <h5>キャンセルしたい商品をお選びください</h5>
             </div>
 
-            <br>
-            <br>
-            <div class="row">
+
+            <div class="row mt-5" style="width: 100%;">
 
                 {{-- ごはん --}}
                 <div class="col-md-6">
@@ -42,6 +36,15 @@
                                                 class="text-white">{{ $delivery['shop_name'] }}</a></strong></td>
                                 </tr>
                             @endforeach
+
+                            {{-- 注文中が0の場合 --}}
+                            @if (count($deliveries) < 1)
+                                <div class="text-center text-danger my-4">
+                                    <h5>注文中の商品は</h5>
+                                    <h5>ありません</h5>
+                                </div>
+                            @endif
+
                         </tbody>
                     </table>
                 </div>
@@ -61,14 +64,21 @@
                                                 class="text-white">{{ $item['item_name'] }}</a></strong></td>
                                 </tr>
                             @endforeach
+
+                            {{-- 注文中が0の場合 --}}
+                            @if (count($items) < 1)
+                                <div class="text-center text-danger my-4">
+                                    <h5>注文中の商品は</h5>
+                                    <h5>ありません</h5>
+                                </div>
+                            @endif
+
                         </tbody>
                     </table>
                 </div>
             </div>
 
-            <br>
-
-            <a href="{{ route('contact.index') }}" class="btn btn-dark btn-lg">戻る</a>
+            <a href="{{ route('contact.index') }}" class="btn btn-dark btn-lg" style="margin-top: 60px;">戻る</a>
         </div>
         </div>
     </header>

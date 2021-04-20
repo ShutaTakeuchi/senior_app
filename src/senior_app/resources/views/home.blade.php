@@ -68,46 +68,48 @@
 
             {{-- フラッシュメッセージ --}}
             @if (session('message_1'))
-                <div class="flash_message">
+                <div class="flash_message mb-4">
                     <h5 class="text-center text-danger">{{ session('message_1') }}</h5>
                     <h5 class="text-center text-danger">{{ session('message_2') }}</h5>
-                    <br>
                 </div>
             @endif
             <div class="row">
 
                 {{-- 左 --}}
                 <div class="col-md-6">
+
                     @if (date('H') < 10)
                         <h3>おはようございます</h3>
                     @elseif (date('H') < 18) <h3>こんにちは</h3>
                         @elseif (date('H') < 24) <h3>こんばんは</h3>
                             @elseif (date('H'))
                     @endif
-                    <h3>{{ Auth::user()->name }}さん</h3>
-                    <br>
-                    <br>
+
+                    <h3 style="margin-bottom: 60px;">{{ Auth::user()->name }}さん</h3>
 
                     <h2>あなたの「今」を</h2>
-                    <h2>共有しましょう。</h2>
-                    <br>
+                    <h2 style="margin-bottom: 40px;">共有しましょう。</h2>
+
+                    {{-- エラーメッセージ --}}
                     @error('content')
                         <h6 class="text-danger">{{ $message }}</h6>
                     @enderror
-                    <form action="{{ route('post') }}" method="POST">
+
+                    <form action="{{ route('post') }}" method="POST" class="mb-4">
                         @csrf
                         <div class="form-group">
                             <input type="text" class="form-control" name='content' placeholder="掃除をしました。">
                         </div>
                         <button type="submit" class="btn btn-info btn-lg btn-block">共有する</button>
                     </form>
-                    <br>
+
                 </div>
 
                 {{-- 右 --}}
                 <div class="col-md-6">
 
                     <h2>みなさまの「今」</h2>
+
                     <table class="table table-borderless">
                         <tbody>
                             @foreach ($posts as $post)
@@ -219,8 +221,7 @@
     <section class="page-section bg-primary text-white mb-0" id="about">
         {{-- ごはん --}}
         <div class="container">
-            <h1 class="page-section-heading text-center text-uppercase text-white">注文中</h1>
-            <br>
+            <h1 class="page-section-heading text-center text-uppercase text-white mb-5" style="margin-top: -60px;">注文中</h1>
             <div class="row">
                 <div class="col-md-6">
                     <h3 class=" text-center text-uppercase text-dark">ごはん</h3>
