@@ -4,36 +4,56 @@
 @section('content')
     <h2>スタッフ新規登録</h2>
 
-    <br>
-
-    <form action="{{ route('admin.staff.store') }}" method="post">
+    <form action="{{ route('admin.staff.store') }}" method="post" class="mt-4" style="width: 18rem;">
         @csrf
 
         <div class="form-group">
             <label for="name">名前</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="アドミン太郎">
-        </div>
 
-        <br>
+            {{-- バリデーション --}}
+            @error('name')
+                <div class="text-danger">
+                    {{ $message }}
+                </div>
+            @enderror
+
+            <input type="text" class="form-control" id="name" name="name" placeholder="アドミン太郎" value="{{ old('name') }}">
+        </div>
 
         <div class="form-group">
             <label for="email">メールアドレス</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="admin@admin.com">
-        </div>
 
-        <br>
+            {{-- バリデーション --}}
+            @error('email')
+                <div class="text-danger">
+                    {{ $message }}
+                </div>
+            @enderror
+
+            <input type="email" class="form-control" id="email" name="email" placeholder="admin@admin.com" value="{{ old('email') }}">
+        </div>
 
         <div class="form-group">
             <label for="password">パスワード</label>
+
+            {{-- バリデーション --}}
+            @error('password')
+                <div class="text-danger">
+                    {{ $message }}
+                </div>
+            @enderror
+
             <input type="password" class="form-control" name="password" id="password">
         </div>
 
-        <br>
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <a href="{{ route('admin.staff.index') }}" class="btn btn-dark">戻る</a>
+            </div>
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-primary">登録</button>
+            </div>
+        </div>
 
-        <button type="submit" class="btn btn-primary">登録する</button>
     </form>
-
-    <br>
-    <a href="{{ route('admin.staff.index') }}" class="btn btn-dark">戻る</a>
-
 @endsection

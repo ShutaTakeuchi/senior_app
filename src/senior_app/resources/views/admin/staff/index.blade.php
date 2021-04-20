@@ -13,12 +13,9 @@
 
     <h2>スタッフ情報</h2>
 
-    <br>
-    <a href="{{ route('admin.staff.create') }}" class="btn btn-primary btn-lg">スタッフ登録</a>
-    <br>
+    <a href="{{ route('admin.staff.create') }}" class="btn btn-primary btn-lg mt-4" style="width: 25rem;">スタッフ登録</a>
 
-
-    <table class="table table-bordered">
+    <table class="table table-bordered mt-4">
         <thead>
             <tr>
                 <th scope="col">社員番号</th>
