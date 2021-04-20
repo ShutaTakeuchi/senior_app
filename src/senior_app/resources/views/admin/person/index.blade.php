@@ -24,6 +24,7 @@
 
 
     @if (isset($user))
+        <a href="{{ route('admin.person.show') }}" class="btn btn-primary mb-3" style="width: 16rem; margin-top: -10px;">一覧に戻る</a>
         <table class="table table-bordered">
             <thead>
                 <tr>

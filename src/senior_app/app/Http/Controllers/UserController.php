@@ -52,7 +52,7 @@ class UserController extends Controller
               'address' => $request->input('address'),
           ]);
 
-        return redirect('/user/index')->with('flash_message', '情報を変更致しました');
+        return redirect('/user/index')->with('flash_message', '情報を変更しました');
     }
 
     /**

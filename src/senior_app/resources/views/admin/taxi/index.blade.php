@@ -9,7 +9,7 @@
             <h2>{{ session('flash_message') }}</h2>
         </div>
     @endif
-    
+
     <h2>タクシー</h2>
 
 
@@ -33,7 +33,7 @@
                     <td>{{ $taxi->user->address }}</td>
                     <td>{{ $taxi->user->tel }}</td>
                     <td>
-                    {{-- in charge --}}
+                        {{-- in charge --}}
                         @if ($taxi->admin_id === null)
                             <form action="{{ route('admin.taxi.select.staff') }}" method="get">
                                 <input type="hidden" name="taxi_id" value="{{ $taxi->id }}">
@@ -72,4 +72,10 @@
             @endforeach
         </tbody>
     </table>
+
+    {{-- 注文がない時 --}}
+    @if (count($taxis) < 1)
+        <h4 class="text-danger mt-5">現在、予約はありません</h4>
+    @endif
+
 @endsection

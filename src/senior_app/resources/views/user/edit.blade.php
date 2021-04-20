@@ -11,13 +11,13 @@
             <br>
 
             <form action="{{ route('user.password.reset_form') }}" method="get">
-                <button type="submit" class="btn btn-warning">パスワードの変更はこちらへ</button>
+                <button type="submit" class="btn btn-warning btn-lg">パスワードの変更はこちらへ</button>
             </form>
 
             <br>
             <br>
 
-            <form action="{{ route('user.update') }}" method="post">
+            <form action="{{ route('user.update') }}" method="post" style="width: 25rem;">
                 @csrf
                 <div class="form-group">
                     <label for="name">お名前</label>
@@ -62,17 +62,17 @@
 
                 <input type="hidden" name="id" value="{{ $user['id'] }}">
 
-                <button type="submit" class="btn btn-info">変更する</button>
+                <button type="submit" class="btn btn-info btn-lg">変更する</button>
             </form>
 
             <br>
 
-            <a href="{{ route('user.index') }}" class="btn btn-dark">戻る</a>
+            <a href="{{ route('user.index') }}" class="btn btn-dark btn-lg">戻る</a>
 
             <br>
 
             <form action="{{ route('user.delete.conf') }}" method="get">
-                <button type="submit" class="btn btn-danger">退会したい方はこちらへ</button>
+                <button type="submit" class="btn btn-danger btn-lg">退会したい方はこちらへ</button>
             </form>
 
 
