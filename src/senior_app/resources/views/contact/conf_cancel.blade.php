@@ -1,6 +1,8 @@
 {{-- キャンセル確認 --}}
 @extends('layouts.app')
 
+@section('title', 'キャンセルの確認 / HOME-GOOD')
+
 @section('content')
 <header class="masthead bg-primary text-white text-center" style="padding-top: 30px; height: 100%;">
     <div class="container d-flex align-items-center flex-column">

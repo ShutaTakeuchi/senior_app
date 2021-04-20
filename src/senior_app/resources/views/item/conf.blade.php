@@ -1,6 +1,8 @@
 {{-- 通販購入確認ページ --}}
 @extends('layouts.app')
 
+@section('title', 'おかいものの注文確認 / HOME-GOOD')
+
 @section('content')
     {{-- <div class="container">
     <div class="row justify-content-center">

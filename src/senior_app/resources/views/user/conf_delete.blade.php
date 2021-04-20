@@ -1,6 +1,8 @@
 {{-- admin アカウント削除確認画面 --}}
 @extends('layouts.app')
 
+@section('title', 'アカウント削除の確認 / HOME-GOOD')
+
 @section('content')
     <header class="masthead bg-primary text-white text-center" style="padding-top: 30px; height: 100%; min-height: 520px;">
         <div class="container d-flex align-items-center flex-column">

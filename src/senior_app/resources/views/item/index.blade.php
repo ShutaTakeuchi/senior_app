@@ -1,6 +1,8 @@
 {{-- 日用品検索フォーム --}}
 @extends('layouts.app')
 
+@section('title', 'おかいもの / HOME-GOOD')
+
 @section('content')
 {{-- <div class="container">
     <div class="row justify-content-center">

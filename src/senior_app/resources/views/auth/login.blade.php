@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'ログイン / HOME-GOOD')
+
 @section('content')
     <header class="masthead bg-primary text-white text-center" style="margin-top: -120px; height: 1100px;">
         <div class="container">

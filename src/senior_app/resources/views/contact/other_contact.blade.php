@@ -1,6 +1,8 @@
 {{-- その他連絡内容フォーム --}}
 @extends('layouts.app')
 
+@section('title', 'その他のれんらく / HOME-GOOD')
+
 @section('content')
     <header class="masthead bg-primary text-white text-center" style="padding-top: 30px; height: 100%;">
         <div class="container d-flex align-items-center flex-column">

@@ -1,6 +1,8 @@
 {{-- トップページ --}}
 @extends('layouts.app')
 
+@section('title', 'ホーム / HOME-GOOD')
+
 @section('content')
 <header class="bg-primary text-white text-center" style="padding-top: 30px; height: 100%;">
     <div class="container">

@@ -8,7 +8,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
+    <title>@yield('title')</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
@@ -78,7 +79,7 @@
         
         <div>
             <div class="copyright py-4 text-center text-white" style="margin-top: -25px;">
-                <div class="container"><small>Copyright © Your Website 2020</small></div>
+                <div class="container"><small>Copyright © 2021 HOME-GOOD Inc. All Rights Reserved.</small></div>
             </div>
             <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
             <div class="scroll-to-top d-lg-none position-fixed">

@@ -1,6 +1,8 @@
 {{-- 訪問型会員登録のフォーム --}}
 @extends('layouts.app')
 
+@section('title', 'お客様情報入力 / HOME-GOOD')
+
 @section('content')
     <header class="masthead bg-primary text-white text-center" style="margin-top: -120px; height: 1200px;">
         <div class="container">

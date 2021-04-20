@@ -1,6 +1,8 @@
 {{-- 個人情報変更申請の確認 --}}
 @extends('layouts.app')
 
+@section('title', '個人情報変更の連絡 / HOME-GOOD')
+
 @section('content')
 <header class="masthead bg-primary text-white text-center" style="margin-top: -120px; height: 800px;">
     <div class="container d-flex align-items-center flex-column">

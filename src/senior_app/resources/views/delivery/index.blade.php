@@ -1,6 +1,8 @@
 {{-- 配食検索フォーム --}}
 @extends('layouts.app')
 
+@section('title', 'ごはん / HOME-GOOD')
+
 @section('content')
     <header class="bg-primary text-white text-center" style="padding-top: 50px; height: 100%; min-height: 550px;">
         <div class="container d-flex align-items-center flex-column">

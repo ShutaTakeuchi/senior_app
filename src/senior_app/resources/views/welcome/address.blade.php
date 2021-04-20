@@ -1,6 +1,8 @@
 {{-- 営業所の住所 --}}
 @extends('layouts.app')
 
+@section('title', '営業所の住所 / HOME-GOOD')
+
 @section('content')
     <header class="masthead bg-primary text-white text-center" style="margin-top: -120px; height: 800px;">
         <div class="container d-flex align-items-center flex-column">

@@ -1,6 +1,8 @@
 {{-- 訪問型フォームの確認 --}}
 @extends('layouts.app')
 
+@section('title', 'お客様情報の確認 / HOME-GOOD')
+
 @section('content')
 <header class="masthead bg-primary text-white text-center" style="margin-top: -120px; height: 800px;">
     <div class="container d-flex align-items-center flex-column">

@@ -1,6 +1,8 @@
 {{-- 検索結果 --}}
 @extends('layouts.app')
 
+@section('title', 'おかいものの検索結果 / HOME-GOOD')
+
 @section('content')
 <div class="container py-4">
     <div class="row justify-content-center">

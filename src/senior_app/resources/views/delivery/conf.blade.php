@@ -1,6 +1,8 @@
 {{-- 配食宅配購入確認ページ --}}
 @extends('layouts.app')
 
+@section('title', 'ごはんの注文確認 / HOME-GOOD')
+
 @section('content')
     <header class="masthead bg-primary text-white text-center " style="padding-top: 30px; min-height: 600px; height:100%;">
         <div class="container d-flex align-items-center flex-column">

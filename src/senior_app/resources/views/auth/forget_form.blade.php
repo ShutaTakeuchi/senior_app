@@ -1,6 +1,8 @@
 {{-- 訪問型会員登録のフォーム --}}
 @extends('layouts.app')
 
+@section('title', 'パスワード変更手続き / HOME-GOOD')
+
 @section('content')
     <header class="masthead bg-primary text-white text-center" style="padding-top: 30px; height: 100%;">
         <div class="container">
