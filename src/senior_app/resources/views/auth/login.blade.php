@@ -25,7 +25,6 @@
                         <br>
                         <h1>あなたのご自宅に</h1>
                         <h1>さらなる希望を。</h1>
-                        <a href="/admin" class="text-body">管理</a>
                         <br>
                         <br>
                     </div>

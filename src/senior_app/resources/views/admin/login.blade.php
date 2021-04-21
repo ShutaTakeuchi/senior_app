@@ -3,7 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8 mt-5">
+        <div class="col-md-8">
+            <h5 class="mb-5 text-danger">こちらは管理者ページでございます<br>一般のお客様は右上のメニューバーから<br>ログインまたは新規登録へお進みください</h5>
+
             <div class="card">
                 <div class="card-header">管理者・スタッフ</div>
 
@@ -39,7 +41,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <div class="col-md-6 offset-md-4 mx-auto">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -49,7 +51,7 @@
                                     </label>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4 mx-auto">

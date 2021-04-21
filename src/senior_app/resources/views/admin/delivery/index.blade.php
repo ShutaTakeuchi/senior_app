@@ -7,7 +7,7 @@
     <div>
         @if (session('flash_message'))
             <div class="flash_message text-danger">
-                <h5>{{ session('flash_message') }}</h5>
+                <h5 class="mb-4">{{ session('flash_message') }}</h5>
             </div>
         @endif
     </div>
@@ -57,9 +57,9 @@
                     </td>
                     <td>
                         @if ($delivery->status === '注文依頼')
-                            <button class="btn btn-danger btn-sm">{{ $delivery->status }}</button>
+                            <button class="btn btn-danger btn-sm" disabled>{{ $delivery->status }}</button>
                         @elseif ($delivery->status === '配達中')
-                            <button class="btn btn-info btn-sm">{{ $delivery->status }}</button>
+                            <button class="btn btn-info btn-sm" disabled>{{ $delivery->status }}</button>
                         @endif
                     </td>
                     <td>

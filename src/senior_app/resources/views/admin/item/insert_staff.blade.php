@@ -2,7 +2,7 @@
 @extends('layouts.app_admin')
 
 @section('content')
-    <h2>担当者を入力してください。</h2>
+    <h2 class="mb-5">担当者を選択してください。</h2>
     <br>
 
     <form action="{{ route('admin.store_staff.item') }}" method="post">
@@ -20,11 +20,14 @@
         </div>
         <br>
         <input type="hidden" name="item_id" value="{{ $item_id }}">
-        <button type="submit" class="btn btn-info">決定</button>
+
+        <button type="submit" class="btn btn-info mb-3">確定</button>
+        <br>
+        <a href="{{ route('admin.home') }}" class="btn btn-dark">戻る</a>
+
     </form>
 
-    <br>
-    <br>
-    <a href="{{ route('admin.home') }}" class="btn btn-dark">戻る</a>
+
+
 
 @endsection

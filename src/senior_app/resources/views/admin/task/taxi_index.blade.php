@@ -5,8 +5,8 @@
 
     <!-- フラッシュメッセージ -->
     @if (session('flash_message'))
-        <div class="flash_message text-danger">
-            <h2>{{ session('flash_message') }}</h2>
+        <div class="flash_message text-danger mb-3">
+            <h4>{{ session('flash_message') }}</h4>
         </div>
     @endif
 
@@ -44,7 +44,7 @@
                     <td>
                         <form action="{{ route('admin.taxk.taxi.go_to_customer') }}" method="get">
                             <input type="hidden" name="id" value="{{ $taxi->id }}">
-                            <input type="submit" class="btn btn-warning btn-sm" value="お迎え中">
+                            <input type="submit" class="btn btn-danger btn-sm" value="お迎え中">
                         </form>
                     </td>
                 </tr>
@@ -54,7 +54,7 @@
                     <td>
                         <form action="{{ route('admin.taxk.taxi.go_to_destination') }}" method="get">
                             <input type="hidden" name="id" value="{{ $taxi->id }}">
-                            <input type="submit" class="btn btn-info btn-sm" value="送迎中">
+                            <input type="submit" class="btn btn-warning btn-sm" value="送迎中">
                         </form>
                     </td>
                 </tr>

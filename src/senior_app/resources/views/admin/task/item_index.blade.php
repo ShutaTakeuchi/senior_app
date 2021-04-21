@@ -5,8 +5,8 @@
 
     <!-- フラッシュメッセージ -->
     @if (session('flash_message'))
-        <div class="flash_message text-danger">
-            {{ session('flash_message') }}
+        <div class="flash_message text-danger mb-4">
+            <h4>{{ session('flash_message') }}</h4>
         </div>
     @endif
 
@@ -46,7 +46,7 @@
                     <form action="{{ route('admin.task.delivery.bought') }}" method="get">
                         <input type="hidden" name="id" value="{{ $item->id }}">
                         <input type="hidden" name="category" value="item">
-                        <input type="submit" class="btn btn-info btn-sm" value="配達中">
+                        <input type="submit" class="btn btn-warning btn-sm" value="配達中">
                     </form>
                 </td>
             </tr>

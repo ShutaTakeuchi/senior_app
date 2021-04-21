@@ -5,8 +5,8 @@
 
     <!-- フラッシュメッセージ -->
     @if (session('flash_message'))
-        <div class="flash_message text-danger">
-            <h2>{{ session('flash_message') }}</h2>
+        <div class="flash_message text-danger mb-4">
+            <h4>{{ session('flash_message') }}</h4>
         </div>
     @endif
 

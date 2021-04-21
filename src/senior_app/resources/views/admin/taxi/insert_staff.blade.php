@@ -2,8 +2,7 @@
 @extends('layouts.app_admin')
 
 @section('content')
-    <h2>担当者を入力してください。</h2>
-    <br>
+    <h2 class="mb-5">担当者を選択してください</h2>
 
     <form action="{{ route('admin.taxi.store.staff') }}" method="post">
         @csrf
@@ -20,11 +19,9 @@
         </div>
         <br>
         <input type="hidden" name="taxi_id" value="{{ $taxi_id }}">
-        <button type="submit" class="btn btn-info">決定</button>
+        <button type="submit" class="btn btn-info mb-3">決定</button>
+        <br>
+        <a href="{{ route('admin.taxi.index') }}" class="btn btn-dark">戻る</a>
     </form>
-    
-    <br>
-    <br>
-    <a href="{{ route('admin.taxi.index') }}" class="btn btn-dark">戻る</a>
 
 @endsection

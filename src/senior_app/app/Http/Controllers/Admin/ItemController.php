@@ -47,7 +47,7 @@ class ItemController extends Controller
         Item::where('id', $request->input('item_id'))
             ->update(['admin_id' => $request->input('id')]);
 
-        return redirect('/admin/item/search')->with('flash_message', '変更しました');
+        return redirect('/admin/item/search')->with('flash_message', '担当者を変更しました');
     }
 
     /**

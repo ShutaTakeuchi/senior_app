@@ -2,10 +2,10 @@
 @extends('layouts.app_admin')
 
 @section('content')
-    <h2>担当者を入力してください。</h2>
-    <br>
+    <h2 class="mb-5">担当者を選択してください</h2>
+    
 
-    <form action="{{ route('admin.store_staff.delivery') }}" method="post">
+    <form action="{{ route('admin.store_staff.delivery') }}" method="post" style="width: 15rem;">
         @csrf
         <div class="form-group">
             <select name="id" class="form-control form-control-lg">
@@ -20,11 +20,10 @@
         </div>
         <br>
         <input type="hidden" name="shop_id" value="{{ $shop_id }}">
-        <button type="submit" class="btn btn-info">決定</button>
+
+        <button type="submit" class="btn btn-info mb-3">確定</button>
+        <br>
+        <a href="{{ route('admin.search.delivery') }}" class="btn btn-dark">戻る</a>
     </form>
-    
-    <br>
-    <br>
-    <a href="{{ route('admin.search.delivery') }}" class="btn btn-dark">戻る</a>
 
 @endsection

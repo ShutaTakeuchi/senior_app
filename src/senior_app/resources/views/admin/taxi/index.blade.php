@@ -54,11 +54,11 @@
                     {{-- status --}}
                     <td>
                         @if ($taxi->status === '配車依頼')
-                            <button class="btn btn-danger btn-sm">{{ $taxi->status }}</button>
+                            <button class="btn btn-danger btn-sm" disabled>{{ $taxi->status }}</button>
                         @elseif ($taxi->status === 'お迎え中')
-                            <button class="btn btn-info btn-sm">{{ $taxi->status }}</button>
+                            <button class="btn btn-primary btn-sm" disabled>{{ $taxi->status }}</button>
                         @elseif ($taxi->status === '送迎中')
-                            <button class="btn btn-info btn-sm">{{ $taxi->status }}</button>
+                            <button class="btn btn-info btn-sm" disabled>{{ $taxi->status }}</button>
                         @endif
                     </td>
                     <td>
