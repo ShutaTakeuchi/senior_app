@@ -30,7 +30,7 @@ class TaskController extends Controller
             'deliveries' => $deliveries
         ];
 
-        return view('Admin.task.delivery_index', $data);
+        return view('admin.task.delivery_index', $data);
     }
 
     /**
@@ -59,7 +59,7 @@ class TaskController extends Controller
             'items' => $items
         ];
 
-        return view('Admin.task.item_index', $data);
+        return view('admin.task.item_index', $data);
     }
 
     /**
@@ -173,7 +173,7 @@ class TaskController extends Controller
             'taxis' => $taxi
         ];
 
-        return view('Admin.task.taxi_index', $data);
+        return view('admin.task.taxi_index', $data);
     }
 
     /**

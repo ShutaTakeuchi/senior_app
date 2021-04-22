@@ -31,7 +31,7 @@
 
 admin認証
 php artisan tinker
-App\Admin::create(['name' => 'admin', 'email' => 'admin@admin.com', 'password' => bcrypt('hornetarasi')]);
+App\Admin::create(['name' => 'admin', 'email' => 'admin@admin.com', 'password' => bcrypt('password123')]);
 
 admin画面
     ＊ごはん：注文中の商品の一覧
