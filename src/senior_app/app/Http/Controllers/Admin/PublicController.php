@@ -52,7 +52,8 @@ class PublicController extends Controller
     */
     public function google_sheets_api($order, $category)
     {
-        $credentials_path = storage_path('app/json/credentials.json');
+        // $credentials_path = storage_path('app/json/credentials.json');
+        $credentials_path = storage_path('credentials.json');
         $client = new \Google_Client();
         $client->setScopes([\Google_Service_Sheets::SPREADSHEETS]);
         $client->setAuthConfig($credentials_path);
