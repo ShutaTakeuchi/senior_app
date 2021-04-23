@@ -20,6 +20,7 @@
     <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
     <script src="{{ asset('js/scripts.js') }}" defer></script>
 
+    {{-- icon --}}
     <link rel="icon" type="image/png" href="{{ asset('images/icon/home_primary.png') }}">
 
     <!-- Fonts -->
@@ -35,6 +36,14 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/album.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/styles2.css') }}">
+
+    <style>
+        @media screen and (min-width: 768px) {
+            .br-sp {
+                display: none;
+            }
+        }
+    </style>
 
 </head>
 

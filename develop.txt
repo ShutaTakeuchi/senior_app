@@ -1,59 +1,57 @@
-すること
-    ＊taskのトップ画面にフラッシュメッセージが表示されるかどうかを確認する delivery item taxi
-    ＊ホーム画面の注文中画面に注文がなければないことを表示させる
-    ＊配達中の商品には一番上のホーム画面にそれを表示させる
+# laravel_with_docker
+dockerを使用したLaravelの開発環境　apache + php + mysql + phpmyadmin
 
-ファイル
-    ＊home/ ログイン後のトップページ
-    ＊/ ログイン前のページ
-    ＊
+使用する際の注意点
+＊000-default.confにて、
+DocumentRoot /var/www/html/Laravelの名前/public
+<Directory /var/www/html/Laravelの名前/public>
+の箇所で、「Laravelの名前」をlaravelをインストールする際の名前に変更しておくこと。
 
-機能
-    ＊配食サービス（作成中）
-        ＊検索結果の404エラーを回避済み
-    ＊天気予報を表示
-    ＊営業所がお客様の血圧などを確認することができる（家族にLINEメッセージが送られる。）
-    ＊タクシー予約
-    ＊市内利用お客様での間のコミュニケーションサービス（ツイッターのようなもの）
-    ＊家族間でのコミュニケーションサービス
+＊docker-compose.ymlにて、
+MYSQL_DATABASE: データベース名
+の箇所で、「データベース名」を任意のデータベース名にすること。（今後、mysqlのデータベース名になります）
 
-各ページの表示内容
-    ログイン前
-    ログイン後
-        トップページ
-            ＊別府市の天気予報
-            ＊少しのニュース
-            ＊配食サービスボタン
-            ＊
+*laravelインストールの際
+コンテナを立ち上げたら、
+docker exec -it laravel_app bash
+でコンテナに入り、
+/var/www/htmlがカレントディレクトリなことを確認したら、
+composer create-project "laravel/laravel=~5.0" --prefer-dist laravelapp(任意の名前）
+でlaravelをインストールをする。
+laravelは５系を使用すること。
+また、000-default.confで決めたディレクトリ名と任意の名前を同じにすること。
 
-日用品と配色のデリバリーサービス
-購入した商品をレビューして、投稿することができる。→他のユーザーとおすすめしあえる→コニュニケーション
+＊laravelの設定
+　＊.envの編集
+  DB_CONNECTION=mysql
+  DB_HOST=laravel_db　#docker-composeのmysqlのコンテナ名を指定
+  DB_PORT=3306
+  DB_DATABASE=laraveldb　#docker-compose.ymlのmysqlで指定したデータベース名
+  DB_USERNAME=dbuser　#docker-composeのmysql.ymlで指定したユーザ名名
+  DB_PASSWORD=dbpass　#docker-composeのmysql.ymlで指定したパスワード名
+  
+  ＊storageとbootstrap/cacheの権限を変更する。
+  コンテナ内のlaravelのプロジェクト内に入ったら、
+  chmod -R 777 storage
+  chmod -R 777 bootstrap/cache
+  をコマンド入力する。
+  
+  ＊AppServiceProvider.phpの編集（文字コードエラーを防ぐ）
+  src/laravelapp/app/Providers/AppServiceProvider.phpを開いて、
+  use Illuminate\Support\Facades\Schema;　の追加と、
+  public function boot()
+    {
+        //
+        Schema::defaultStringLength(191);
+    } 
+  この関数に一行追加する。
+  
+  ＊config/app.phpの編集
+  'timezone' => 'Asia/Tokyo',
+  'locale' => 'ja',
+  に変更する。
 
-admin認証
-php artisan tinker
-App\Admin::create(['name' => 'admin', 'email' => 'admin@admin.com', 'password' => bcrypt('password123')]);
-
-admin画面
-    ＊ごはん：注文中の商品の一覧
-    ＊おかいもの：注文中の商品の一覧
-    
-＊フラッシュメッセージ
-
-{{-- フラッシュメッセージ --}}
-        @if (session('message_1'))
-            <div class="flash_message">
-                <h3 class="text-center text-danger">{{ session('message_1') }}</h3>
-                <h3 class="text-center text-danger">{{ session('message_2') }}</h3>
-                <br>
-            </div>
-        @endif
-
-
-return redirect('/')->with([
-            'message_1' => '送信しました。',
-            'message_2' => 'ご連絡をお待ちください。'
-        ]);
-
-*フォントサイズの統一
-    ＊題名はh2
-    ＊そのほかは、h4.h5あたりで統一
+  ＊Authの日本語化
+  php -r "copy('https://readouble.com/laravel/5.8/ja/install-ja-lang-files.php', 'install-ja-lang.php');"
+  php -f install-ja-lang.php
+  php -r "unlink('install-ja-lang.php');"
